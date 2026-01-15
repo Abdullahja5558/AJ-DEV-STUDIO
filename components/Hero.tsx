@@ -88,7 +88,7 @@ export const Hero = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-white/40 max-w-120 font-light leading-relaxed"
           >
-            Senior Full-stack Engineer dedicated to the craft of
+            Senior Frontend Engineer dedicated to the craft of
             <span className="text-white"> high-performance</span> interfaces and
             scalable systems.
           </motion.p>
