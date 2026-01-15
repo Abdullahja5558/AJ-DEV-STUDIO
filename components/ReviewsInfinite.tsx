@@ -18,7 +18,7 @@ const REVIEWS = [
 const ReviewCard = React.memo(({ review, opacity = 1 }: { review: typeof REVIEWS[0], opacity?: number }) => (
   <motion.div 
     whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.03)", borderColor: "rgba(6, 182, 212, 0.3)" }}
-    className="w-full p-6 mb-4 rounded-[1.5rem] bg-white/[0.01] backdrop-blur-md border border-white/[0.04] flex flex-col justify-between transition-all duration-500 group relative transform-gpu"
+    className="w-full p-6 mb-4 rounded-3xl bg-white/1 backdrop-blur-md border border-white/4 flex flex-col justify-between transition-all duration-500 group relative transform-gpu"
     style={{ opacity, backfaceVisibility: "hidden" }}
   >
     <div className="relative z-10">
@@ -32,8 +32,8 @@ const ReviewCard = React.memo(({ review, opacity = 1 }: { review: typeof REVIEWS
       </p>
     </div>
     
-    <div className="relative z-10 flex items-center gap-3 mt-6 pt-4 border-t border-white/[0.03]">
-      <div className="h-[1px] w-4 bg-cyan-500/30" />
+    <div className="relative z-10 flex items-center gap-3 mt-6 pt-4 border-t border-white/3">
+      <div className="h-px w-4 bg-cyan-500/30" />
       <div>
         <h4 className="text-[9px] uppercase tracking-[0.3em] text-white font-black group-hover:text-cyan-400 transition-colors">
           {review.name}
@@ -97,7 +97,7 @@ export const ReviewsSection = () => {
                 viewport={{ once: false }}
                 className="flex items-center gap-4 mb-4"
               >
-                <div className="h-[1px] w-12 bg-cyan-500" />
+                <div className="h-px w-12 bg-cyan-500" />
                 <span className="text-[10px] tracking-[1em] text-cyan-500 font-bold uppercase">REVIEWS</span>
               </motion.div>
               <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
@@ -105,7 +105,7 @@ export const ReviewsSection = () => {
               </h2>
             </div>
             <div className="hidden md:block pb-2 opacity-20">
-              <span className="text-[9px] tracking-[0.5em] uppercase text-white font-bold tracking-widest">System Authenticated</span>
+              <span className="text-[9px] tracking-[0.5em] uppercase text-white font-bold">System Authenticated</span>
             </div>
           </div>
         </div>
@@ -113,11 +113,11 @@ export const ReviewsSection = () => {
         {/* Grid Container */}
         <div className="relative flex-1 mt-20 md:mt-32 mb-8 px-4 md:px-24 overflow-hidden isolation-auto">
           
-          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
+          <div className="absolute inset-x-0 top-0 h-20 bg-linear-to-b from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
           
-          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
-          <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
+          <div className="absolute inset-y-0 left-0 w-12 bg-linear-to-r from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
+          <div className="absolute inset-y-0 right-0 w-12 bg-linear-to-l from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 h-full gap-4 max-w-7xl mx-auto">
             {/* Column 1 */}

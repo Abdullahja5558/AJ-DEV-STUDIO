@@ -58,7 +58,7 @@ export const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] flex justify-center pt-1 pointer-events-none">
+    <header className="fixed top-0 left-0 w-full z-100 flex justify-center pt-1 pointer-events-none">
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -67,7 +67,7 @@ export const Navbar = () => {
           "pointer-events-auto relative flex items-center justify-between px-8 md:px-10 rounded-full transition-all duration-700 ease-in-out",
           "border border-white/8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]",
           "bg-black/15 backdrop-blur-2xl",
-          isScrolled ? "w-[92%] md:w-[790px] py-1" : "w-full md:w-[940px] py-3"
+          isScrolled ? "w-[92%] md:w-197.5 py-1" : "w-full md:w-235 py-3"
         )}
       >
         {/* Optical Glass Reflection */}
@@ -77,7 +77,7 @@ export const Navbar = () => {
         <div className="absolute inset-0 rounded-full opacity-[0.04] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] hidden md:block" />
 
         {/* Brand: AJ */}
-        <Link href="/" className="relative z-[110] group flex items-center gap-2">
+        <Link href="/" className="relative z-110 group flex items-center gap-2">
           <div className="text-2xl font-bold tracking-[0.15em] text-white transition-all duration-500 group-hover:tracking-[0.25em]">
             AJ
           </div>
@@ -125,7 +125,7 @@ export const Navbar = () => {
         {/* --- MOBILE TOGGLE --- */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-[110] flex flex-col gap-1.5 p-2 active:scale-90 transition-transform"
+          className="md:hidden relative z-110 flex flex-col gap-1.5 p-2 active:scale-90 transition-transform"
         >
           <motion.div animate={isOpen ? { rotate: 45, y: 7.5 } : { rotate: 0, y: 0 }} className="w-6 h-[1.5px] bg-white" />
           <motion.div animate={isOpen ? { opacity: 0 } : { opacity: 1 }} className="w-4 h-[1.5px] bg-white/70 self-end" />
@@ -140,7 +140,7 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-0 h-screen w-screen bg-[#030014] z-[100] flex flex-col justify-center px-12 md:hidden pointer-events-auto touch-none"
+              className="fixed inset-0 h-screen w-screen bg-[#030014] z-100 flex flex-col justify-center px-12 md:hidden pointer-events-auto touch-none"
             >
               <div className="absolute top-0 right-0 w-75 h-75 bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
               

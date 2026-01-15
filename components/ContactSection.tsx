@@ -31,7 +31,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="relative h-[750px] w-full bg-[#040014] flex flex-col overflow-hidden pt-12 pb-20" id="contact">
+    <section className="relative h-187.5 w-full bg-[#040014] flex flex-col overflow-hidden pt-12 pb-20" id="contact">
       
       {/* SECTION WRAPPER: Handles overall entrance/exit logic */}
       <motion.div
@@ -136,7 +136,7 @@ export const ContactSection = () => {
                           type={QUESTIONS[step].id === "email" ? "email" : "text"}
                           placeholder={QUESTIONS[step].placeholder}
                           value={formData[QUESTIONS[step].id as keyof typeof formData]}
-                          className="w-full bg-transparent border-none text-center text-3xl md:text-5xl text-white font-light placeholder:text-white/[0.02] focus:ring-0 outline-none uppercase tracking-widest"
+                          className="w-full bg-transparent border-none text-center text-3xl md:text-5xl text-white font-light placeholder:text-white/2 focus:ring-0 outline-none uppercase tracking-widest"
                           onChange={(e) => setFormData({ ...formData, [QUESTIONS[step].id]: e.target.value })}
                         />
                       </div>
@@ -158,7 +158,7 @@ export const ContactSection = () => {
                 <motion.div 
                   initial={{ height: 0 }} 
                   animate={{ height: 100 }} 
-                  className="w-px bg-gradient-to-b from-cyan-500 to-transparent mb-10"
+                  className="w-px bg-linear-to-b from-cyan-500 to-transparent mb-10"
                 />
                 <h2 className="text-3xl md:text-5xl font-light text-white tracking-[0.5em] uppercase">
                   Acknowledged
@@ -175,7 +175,7 @@ export const ContactSection = () => {
       {/* BACKGROUND ATMOSPHERE */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-cyan-500/[0.02] to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-cyan-500/2 to-transparent" />
       </div>
     </section>
   );
