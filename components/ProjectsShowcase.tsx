@@ -1,57 +1,95 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ReactLenis } from 'lenis/react';
 
 const PROJECTS = [
-  { id: "1", title: "Aura Intelligence", tagline: "Next-gen AI interface for distributed workflows.", tech: ["Next.js", "TypeScript", "Tailwind"], image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" },
-  { id: "2", title: "Quantum Ledger", tagline: "High-frequency blockchain analytics engine.", tech: ["Node.js", "PostgreSQL", "Prisma"], image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop" },
-  { id: "3", title: "Nexus OS", tagline: "Collaborative spatial operating system.", tech: ["React", "Framer", "Three.js"], image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2670&auto=format&fit=crop" },
-  { id: "4", title: "Elysium Drive", tagline: "Autonomous vehicle monitoring dashboard.", tech: ["Python", "WebSockets", "D3.js"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop" },
-  { id: "5", title: "Titan Commerce", tagline: "Ultra-fast headless e-commerce solution.", tech: ["Shopify", "Remix", "GraphQL"], image: "https://images.unsplash.com/photo-1551288049-bbbda5366392?q=80&w=2670&auto=format&fit=crop" },
+  { 
+    id: "01", 
+    title: "Bugatti Clone", 
+    tagline: "High-performance digital engineering meeting luxury aesthetics.", 
+    tech: ["Next.js", "Three.js", "Tailwind"], 
+    // New dark, high-end Bugatti image (Optimized for Dark UI)
+    image: "bugati.jpg",
+    link: "https://bugatti-clone-seven.vercel.app/"
+  },
+  { 
+    id: "02", 
+    title: "Bucceo Diving", 
+    tagline: "Deep sea exploration and professional diving services interface.", 
+    tech: ["React", "Framer Motion", "GSAP"], 
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop",
+    link: "https://bucceo-diving.vercel.app/"
+  },
+  { 
+    id: "03", 
+    title: "Forever Place", 
+    tagline: "Modern real estate platform for discovering timeless homes.", 
+    tech: ["TypeScript", "Node.js", "Prisma"], 
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop",
+    link: "https://forever-place.vercel.app/"
+  },
+  { 
+    id: "04", 
+    title: "Premium Portfolio", 
+    tagline: "A masterclass in minimalist UI and smooth digital storytelling.", 
+    tech: ["React", "Interactions", "UI/UX"], 
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2572&auto=format&fit=crop",
+    link: "https://brittanychiang.com/"
+  }
 ];
 
 const ProjectFrame = React.memo(({ project }: { project: typeof PROJECTS[0] }) => {
   return (
     <div className="relative shrink-0 w-screen md:w-[85vw] h-[55vh] md:h-[60vh] flex items-center justify-center px-4 md:px-12 transform-gpu">
+      {/* Background ID Number */}
       <span 
-        className="absolute -top-10 -left-12 text-[18rem] font-black text-white/2 select-none z-0 pointer-events-none will-change-transform" 
-        style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+        className="absolute -top-10 -left-12 text-[18rem] font-black text-white/3 select-none z-0 pointer-events-none" 
+        style={{ transform: 'translateZ(0)' }}
       >
         {project.id}
       </span>
 
-      <motion.div 
-        className="group relative w-full h-full rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/5 bg-[#050505] shadow-[0_50px_100px_-30px_rgba(0,0,0,1)] transform-gpu"
+      <motion.a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative w-full h-full rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/10 bg-[#050505] shadow-2xl transform-gpu block cursor-pointer"
         style={{ isolation: 'isolate' }}
       >
+        {/* Image Container */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <motion.img
             src={project.image}
             alt={project.title}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 will-change-transform"
+            className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-[1.2s] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105 will-change-transform"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
         </div>
 
+        {/* Content */}
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-14 z-10 pointer-events-none">
           <h3 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase leading-[0.8] mb-4">
             {project.title}
           </h3>
-          <p className="text-white/40 text-sm md:text-xl font-light italic max-w-lg mb-6 leading-tight">
+          <p className="text-white/50 text-sm md:text-xl font-light italic max-w-lg mb-6 leading-tight">
             {project.tagline}
           </p>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((t, i) => (
-              <span key={i} className="px-5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-[9px] uppercase tracking-[0.2em] text-cyan-400/70 font-bold">
+              <span key={i} className="px-5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-[9px] uppercase tracking-[0.2em] text-cyan-400 font-bold">
                 {t}
               </span>
             ))}
           </div>
         </div>
-      </motion.div>
+        
+        <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+           <span className="text-white/40 text-[10px] tracking-[0.4em] uppercase font-bold">Launch Site ↗</span>
+        </div>
+      </motion.a>
     </div>
   );
 });
@@ -66,80 +104,82 @@ export const ProjectsShowcase = () => {
     offset: ["start start", "end end"],
   });
 
+  // Performance: using useMemo for calculations if needed, though here useTransform is already optimized
   const xTranslate = useTransform(
     scrollYProgress,
     [0, 0.1, 0.9, 1], 
-    ["0%", "0%", "-325%", "-325%"]
+    ["0%", "0%", "-250%", "-250%"]
   );
   
   const x = useSpring(xTranslate, { 
-    stiffness: 20, 
-    damping: 22, 
-    mass: 0.6,
+    stiffness: 15, // Slightly smoother
+    damping: 20, 
+    mass: 0.5,
     restDelta: 0.001 
   });
 
   return (
     <ReactLenis root options={{ 
-      lerp: 0.05, 
-      duration: 1.5,
+      lerp: 0.07, 
+      duration: 1.2,
       smoothWheel: true,
-      wheelMultiplier: 1.1,
-      touchMultiplier: 1.8,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
       infinite: false
     }}>
       <section 
         id="projects" 
         ref={targetRef} 
-        className="relative h-[1000vh] bg-[#030011] py-40" 
-        style={{ contentVisibility: 'auto', contain: 'layout' }}
+        className="relative h-[800vh] bg-[#020108] py-40" 
+        style={{ contentVisibility: 'auto' }}
       >
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
           
-          {/* ANIMATION WRAPPER: Handles entrance/exit of the entire section */}
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.95 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.1 }} // Re-animates every time
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
             className="flex flex-col h-full justify-center"
           >
+            {/* Header Section */}
             <div className="w-full px-6 md:px-24 mb-20 z-20 pointer-events-none">
               <div className="max-w-7xl mx-auto">
                 <motion.div 
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ delay: 0.2 }}
                   className="flex items-center gap-6 mb-6"
                 >
-                  <div className="h-px w-16 bg-cyan-500" />
+                  <div className="h-px w-16 bg-cyan-500/50" />
                   <span className="text-[10px] tracking-[0.8em] text-cyan-500 font-bold uppercase">PRIVATE GALLERY</span>
                 </motion.div>
 
                 <div className="relative">
                   <h2 className="text-6xl md:text-[90px] font-black tracking-[-0.08em] text-white leading-[0.75] relative z-10">
-                    Selected <br /> <span className="text-white/10 italic">PROJECTS</span>
+                    Selected <br /> <span className="text-white/10 italic font-light">PROJECTS</span>
                   </h2>
                 </div>
               </div>
             </div>
 
+            {/* Horizontal Scroll Content */}
             <motion.div
               style={{ x }}
-              className="flex items-center pl-[5vw] md:pl-[10vw] will-change-transform transform-gpu"
+              className="flex items-center pl-[5vw] md:pl-[10vw] will-change-transform"
             >
               {PROJECTS.map((project) => (
                 <ProjectFrame key={project.id} project={project} />
               ))}
+              {/* Spacer for ending scroll */}
               <div className="shrink-0 w-[60vw] h-px" />
             </motion.div>
           </motion.div>
         </div>
 
+        {/* Global Effects */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cyan-950/4 blur-[200px] rounded-full transform-gpu" />
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cyan-900/10 blur-[180px] rounded-full" />
         </div>
       </section>
     </ReactLenis>

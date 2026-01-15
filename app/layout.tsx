@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AJ - Frontend Developer",
    icons: {
-    icon: "/favicongit.png",
+    icon: "/favicon.png",
   },
   description: "AJ - Crafting immersive web experiences with cutting-edge frontend development. Explore my portfolio showcasing innovative designs and seamless user interactions.",
 };
