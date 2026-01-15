@@ -43,3 +43,12 @@ body {
   /* Mix blend mode exclusion creates a reactive color effect */
   mix-blend-mode: exclusion;
 }
+
+/* globals.css */
+:root {
+  --bg-dark: #030014;
+}
+
+body {
+  background-color: var(--bg-dark);
+}

@@ -15,7 +15,6 @@ const REVIEWS = [
   { name: "Kevin Park", role: "Senior Architect", text: "Performance optimization saved us massive infra costs.", stars: 5 },
 ];
 
-// Memoized Card to prevent unnecessary re-renders during animation
 const ReviewCard = React.memo(({ review, opacity = 1 }: { review: typeof REVIEWS[0], opacity?: number }) => (
   <motion.div 
     whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.03)", borderColor: "rgba(6, 182, 212, 0.3)" }}
@@ -50,7 +49,6 @@ const ReviewCard = React.memo(({ review, opacity = 1 }: { review: typeof REVIEWS
 ReviewCard.displayName = "ReviewCard";
 
 const Column = ({ reviews, speed, reverse = false, opacity = 1 }: { reviews: typeof REVIEWS, speed: number, reverse?: boolean, opacity?: number }) => {
-  // Memoizing the doubled list to save memory allocations on every frame
   const doubledReviews = useMemo(() => [...reviews, ...reviews], [reviews]);
 
   return (
@@ -72,12 +70,12 @@ const Column = ({ reviews, speed, reverse = false, opacity = 1 }: { reviews: typ
 export const ReviewsSection = () => {
   return (
     <section 
-      className="relative h-[130vh] w-full bg-[#030014] overflow-hidden flex flex-col pt-32 pb-32 py-34 " 
+      className="relative h-[130vh] w-full bg-[#030014] overflow-hidden flex flex-col pt-32 pb-32" 
       id="reviews"
       style={{ contentVisibility: 'auto' }}
     >
       
-      {/* Header (Fixed Height) */}
+      {/* Header */}
       <div className="w-full px-6 md:px-24 pt-12 md:pt-16 shrink-0 z-30 pointer-events-none">
         <div className="max-w-7xl mx-auto flex items-end justify-between">
           <div>
@@ -100,10 +98,9 @@ export const ReviewsSection = () => {
         </div>
       </div>
 
-      {/* Grid Container */}
-      <div className="relative flex-1 mt-8 mb-8 px-4 md:px-24 overflow-hidden isolation-auto">
+      {/* Grid Container - Added mt-20 md:mt-32 for extra space below heading */}
+      <div className="relative flex-1 mt-20 md:mt-32 mb-8 px-4 md:px-24 overflow-hidden isolation-auto">
         
-        {/* Hardware-Accelerated Edge Masks */}
         <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
         
@@ -128,7 +125,6 @@ export const ReviewsSection = () => {
         </div>
       </div>
 
-      {/* Grain Overlay - Optimized via opacity and blend mode */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
       
     </section>
