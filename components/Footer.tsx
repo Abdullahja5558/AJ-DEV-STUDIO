@@ -3,10 +3,11 @@ import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 
 const NAV_LINKS = [
-  { name: "Github", slug: "gh", color: "#06b6d4" },
-  { name: "LinkedIn", slug: "li", color: "#0891b2" },
-  { name: "Instagram", slug: "ig", color: "#0e7490" },
-  { name: "Mail", slug: "em", color: "#155e75" },
+  { name: "Github", slug: "gh", color: "#06b6d4", href: "https://github.com/Abdullahja5558" },
+ 
+  { name: "WhatsApp", slug: "wa", color: "#25D366", href: "https://wa.me/923346932540?text=Hello%20AJ,%20I'd%20like%20to%20discuss%20a%20project." },
+  { name: "Instagram", slug: "ig", color: "#0e7490", href: "https://www.instagram.com/mian.abdullah.9/" },
+  { name: "Mail", slug: "em", color: "#155e75", href: "mailto:abdullahjaved5558@gmail.com" },
 ];
 
 export const PremiumFooter = () => {
@@ -21,7 +22,7 @@ export const PremiumFooter = () => {
       id="footer"
       style={{ contentVisibility: 'auto' }}
     >
-      {/* 1. CLEAN BACKGROUND WITH SUBTLE GLOW - Optimized Layer */}
+      {/* 1. CLEAN BACKGROUND WITH SUBTLE GLOW */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-cyan-500/3 rounded-full blur-[120px] transform-gpu" 
@@ -53,7 +54,6 @@ export const PremiumFooter = () => {
       <div className="relative z-10 flex-1 flex items-center justify-center my-12 transform-gpu">
         <div className="relative w-full max-w-5xl h-75 flex items-center justify-center">
           
-          {/* Floating Glass Frame - Isolation added for blur performance */}
           <motion.div 
             className="absolute inset-0 rounded-[2.5rem] border border-white/3 bg-white/1 backdrop-blur-2xl flex items-center justify-center overflow-hidden transform-gpu"
             initial={{ opacity: 0 }}
@@ -61,12 +61,13 @@ export const PremiumFooter = () => {
             transition={{ duration: 1 }}
             style={{ isolation: 'isolate' }}
           >
-            {/* Minimal Interaction Nodes */}
-            <div className="relative w-full h-full flex items-center justify-around px-12">
+            <div className="relative w-full h-full flex items-center justify-around px-12 flex-wrap gap-8 md:gap-0">
               {NAV_LINKS.map((link) => (
                 <motion.a
                   key={link.slug}
-                  href="#"
+                  href={link.href}
+                  target={link.slug === "wa" || link.slug === "gh" ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
                   onMouseEnter={() => setHoveredNode(link.slug)}
                   onMouseLeave={() => setHoveredNode(null)}
                   whileHover={{ y: -8 }}
@@ -80,10 +81,9 @@ export const PremiumFooter = () => {
                         boxShadow: hoveredNode === link.slug ? `0 0 50px ${link.color}` : "0 0 15px rgba(255,255,255,0.05)",
                         backgroundColor: hoveredNode === link.slug ? link.color : "rgba(255,255,255,0.1)"
                       }}
-                      className="w-5 h-5 rounded-full transition-all duration-500 will-change-[box-shadow,background-color]" 
+                      className="w-5 h-5 rounded-full transition-all duration-500" 
                     />
                     
-                    {/* Ring animation moved to GPU */}
                     <motion.div 
                       animate={{ scale: hoveredNode === link.slug ? [1, 1.4, 1] : 1 }}
                       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -105,7 +105,6 @@ export const PremiumFooter = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-12">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-12">
           
-          {/* Tagline */}
           <div className="flex flex-col items-center md:items-start gap-4">
              <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-medium">
                 Let’s build the future together.
@@ -113,7 +112,6 @@ export const PremiumFooter = () => {
              <div className="h-px w-40 bg-linear-to-r from-cyan-500/50 to-transparent" />
           </div>
 
-          {/* Metadata */}
           <div className="flex flex-col items-center md:items-end gap-6 text-center md:text-right">
             <div className="flex gap-16">
               <div className="space-y-1">
@@ -132,7 +130,6 @@ export const PremiumFooter = () => {
         </div>
       </div>
 
-      {/* Noise Texture - Optimized with will-change: none to save GPU memory */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50" />
     </footer>
   );
