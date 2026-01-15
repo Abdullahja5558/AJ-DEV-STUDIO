@@ -91,7 +91,7 @@ export const ProjectsShowcase = () => {
       <section 
         id="projects" 
         ref={targetRef} 
-        className="relative h-[1000vh] bg-[#030014] py-40" 
+        className="relative h-[1000vh] bg-[#030011] py-40" 
         style={{ contentVisibility: 'auto', contain: 'layout' }}
       >
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">

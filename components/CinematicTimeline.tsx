@@ -1,12 +1,12 @@
 "use client";
-import React, { useRef, useMemo } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform, MotionValue } from "framer-motion";
 import { ReactLenis } from 'lenis/react';
 
 // --- Experiences Data ---
 const EXPERIENCES = [
   {
-    title: "Senior Full-stack Engineer",
+    title: "Senior Frontend Engineer",
     company: "Global Tech Solutions",
     period: "2024 — PRESENT",
     description: "Architecting high-performance distributed systems and leading the migration to Next.js 15 for enterprise-scale applications.",
@@ -18,7 +18,7 @@ const EXPERIENCES = [
     description: "Crafting immersive 3D web experiences using Three.js and Framer Motion, focusing on ultra-low latency interactions.",
   },
   {
-    title: "Software Developer",
+    title: "React Developer",
     company: "NextGen Systems",
     period: "2020 — 2022",
     description: "Developed scalable microservices and implemented complex state-management patterns in large-scale React ecosystems.",
@@ -36,7 +36,6 @@ const ExperienceCard = React.memo(({ exp, index, scrollProgress }: CardProps) =>
   const startTrigger = index * step;
   const endTrigger = (index + 1) * step;
 
-  // Pre-calculating ranges for buttery smooth GPU transitions
   const opacity = useTransform(scrollProgress, [startTrigger, startTrigger + 0.1, endTrigger - 0.05, endTrigger], [0, 1, 1, 0]);
   const scale = useTransform(scrollProgress, [startTrigger, startTrigger + 0.1], [0.92, 1]);
   const xTranslate = useTransform(scrollProgress, [startTrigger, startTrigger + 0.1], [index % 2 === 0 ? -40 : 40, 0]);
@@ -86,7 +85,6 @@ export const ExperienceTimeline = () => {
     offset: ["start center", "end center"],
   });
 
-  // Balanced stiffness and damping for that "liquid" feel
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 70,
     damping: 30,
@@ -96,76 +94,74 @@ export const ExperienceTimeline = () => {
   const beamCursorPos = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <ReactLenis 
-      root 
-      options={{ 
-        lerp: 0.08, // Slightly slower lerp for high-end smoothness
-        duration: 1.2, 
-        smoothWheel: true,
-        wheelMultiplier: 1.1,
-        touchMultiplier: 1.5 
-      }}
-    >
+    <ReactLenis root options={{ lerp: 0.08, duration: 1.2 }}>
       <section 
         id="experience"
         ref={containerRef} 
-        style={{ contentVisibility: 'auto' } as React.CSSProperties}
-        className="relative min-h-[320vh] bg-[#030014] py-40 px-6 md:px-12 overflow-hidden select-none"
+        className="relative min-h-[350vh] bg-[#030014] py-40 px-6 md:px-12 overflow-hidden select-none"
       >
-        <div className="max-w-7xl mx-auto mb-60 relative z-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="h-0.5 w-16 bg-cyan-500" />
-            <span className="text-[11px] uppercase tracking-[0.7em] font-black text-cyan-500">
-                THE JOURNEY
-            </span>
-          </motion.div>
-
-          <div className="relative">
-            <motion.h2 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-7xl md:text-[120px] font-black leading-[0.8] tracking-[-0.06em] text-white relative z-10"
+        {/* Entrance & Exit Animation Wrapper */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.05 }} // Triggers when 5% of section is visible
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <div className="max-w-7xl mx-auto mb-60 relative z-20">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              className="flex items-center gap-4 mb-8"
             >
-              Engineering <br />
-              <span className="text-white/10 hover:text-white/20 transition-colors duration-1000">Mastery.</span>
-            </motion.h2>
-          </div>
-        </div>
+              <div className="h-0.5 w-16 bg-cyan-500" />
+              <span className="text-[11px] uppercase tracking-[0.7em] font-black text-cyan-500">
+                  THE JOURNEY
+              </span>
+            </motion.div>
 
-        <div className="max-w-7xl mx-auto relative">
-          {/* Vertical Beam */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white/5 hidden md:block">
-            <motion.div 
-              style={{ scaleY: smoothProgress, originY: 0 }}
-              className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-cyan-400 via-blue-600 to-transparent shadow-[0_0_25px_rgba(34,211,238,0.3)] will-change-transform"
-            />
-            <motion.div 
-              style={{ top: beamCursorPos }}
-              className="absolute left-1/2 -translate-x-1/2 w-px h-20 bg-linear-to-b from-white to-transparent blur-[1px] rounded-full will-change-transform"
-            />
+            <div className="relative">
+              <motion.h2 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="text-7xl md:text-[120px] font-black leading-[0.8] tracking-[-0.06em] text-white relative z-10"
+              >
+                Engineering <br />
+                <span className="text-white/10 hover:text-white/20 transition-colors duration-1000">Mastery.</span>
+              </motion.h2>
+            </div>
           </div>
 
-          <div className="relative z-10">
-            {EXPERIENCES.map((exp, i) => (
-              <ExperienceCard key={i} exp={exp} index={i} scrollProgress={smoothProgress} />
-            ))}
+          <div className="max-w-7xl mx-auto relative">
+            {/* Vertical Beam */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white/5 hidden md:block">
+              <motion.div 
+                style={{ scaleY: smoothProgress, originY: 0 }}
+                className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-cyan-400 via-blue-600 to-transparent shadow-[0_0_25px_rgba(34,211,238,0.3)] will-change-transform"
+              />
+              <motion.div 
+                style={{ top: beamCursorPos }}
+                className="absolute left-1/2 -translate-x-1/2 w-px h-20 bg-linear-to-b from-white to-transparent blur-[1px] rounded-full will-change-transform"
+              />
+            </div>
+
+            <div className="relative z-10">
+              {EXPERIENCES.map((exp, i) => (
+                <ExperienceCard key={i} exp={exp} index={i} scrollProgress={smoothProgress} />
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Ambient Layers */}
         <div className="absolute inset-0 pointer-events-none">
            <div className="absolute inset-0 opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
            <motion.div 
-              animate={{ opacity: [0.08, 0.12, 0.08] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/2 left-0 w-full h-150 bg-cyan-900/10 blur-[200px] rounded-full will-change-transform"
+             animate={{ opacity: [0.08, 0.12, 0.08] }}
+             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+             className="absolute top-1/2 left-0 w-full h-150 bg-cyan-900/10 blur-[200px] rounded-full will-change-transform"
            />
         </div>
       </section>

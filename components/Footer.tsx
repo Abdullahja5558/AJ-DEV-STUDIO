@@ -17,7 +17,7 @@ export const PremiumFooter = () => {
 
   return (
     <footer 
-      className="relative min-h-screen w-full bg-[#030014] overflow-hidden flex flex-col justify-between py-32 px-8 pb-12"
+      className="relative min-h-screen w-full bg-[#05001a] overflow-hidden flex flex-col justify-between py-32 px-8 pb-12"
       id="footer"
       style={{ contentVisibility: 'auto' }}
     >

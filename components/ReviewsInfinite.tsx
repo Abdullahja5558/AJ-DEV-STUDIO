@@ -75,55 +75,68 @@ export const ReviewsSection = () => {
       style={{ contentVisibility: 'auto' }}
     >
       
-      {/* Header */}
-      <div className="w-full px-6 md:px-24 pt-12 md:pt-16 shrink-0 z-30 pointer-events-none">
-        <div className="max-w-7xl mx-auto flex items-end justify-between">
-          <div>
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-4 mb-4"
-            >
-              <div className="h-[1px] w-12 bg-cyan-500" />
-              <span className="text-[10px] tracking-[1em] text-cyan-500 font-bold uppercase">REVIEWS</span>
-            </motion.div>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
-              Quiet <br /><span className="text-white/10 italic">Evidence.</span>
-            </h2>
-          </div>
-          <div className="hidden md:block pb-2 opacity-20">
-            <span className="text-[9px] tracking-[0.5em] uppercase text-white font-bold tracking-widest">System Authenticated</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Grid Container - Added mt-20 md:mt-32 for extra space below heading */}
-      <div className="relative flex-1 mt-20 md:mt-32 mb-8 px-4 md:px-24 overflow-hidden isolation-auto">
-        
-        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
-        
-        <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
-        <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 h-full gap-4 max-w-7xl mx-auto">
-          {/* Column 1 */}
-          <div className="hidden md:block h-full">
-            <Column reviews={REVIEWS.slice(0, 3)} speed={50} opacity={0.3} />
-          </div>
-
-          {/* Column 2 (Focus) */}
-          <div className="z-10 h-full">
-            <Column reviews={REVIEWS.slice(3, 6)} speed={40} reverse={true} />
-          </div>
-
-          {/* Column 3 */}
-          <div className="hidden md:block h-full">
-            <Column reviews={REVIEWS.slice(6, 9)} speed={60} opacity={0.3} />
+      {/* ANIMATION WRAPPER: 
+          initial: hidden state
+          whileInView: visible state
+          viewport { once: false }: triggers every time user enters/leaves
+      */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.15 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="flex flex-col h-full w-full"
+      >
+        {/* Header */}
+        <div className="w-full px-6 md:px-24 pt-12 md:pt-16 shrink-0 z-30 pointer-events-none">
+          <div className="max-w-7xl mx-auto flex items-end justify-between">
+            <div>
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                className="flex items-center gap-4 mb-4"
+              >
+                <div className="h-[1px] w-12 bg-cyan-500" />
+                <span className="text-[10px] tracking-[1em] text-cyan-500 font-bold uppercase">REVIEWS</span>
+              </motion.div>
+              <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
+                Quiet <br /><span className="text-white/10 italic">Evidence.</span>
+              </h2>
+            </div>
+            <div className="hidden md:block pb-2 opacity-20">
+              <span className="text-[9px] tracking-[0.5em] uppercase text-white font-bold tracking-widest">System Authenticated</span>
+            </div>
           </div>
         </div>
-      </div>
+
+        {/* Grid Container */}
+        <div className="relative flex-1 mt-20 md:mt-32 mb-8 px-4 md:px-24 overflow-hidden isolation-auto">
+          
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#030014] to-transparent z-20 pointer-events-none transform-gpu" />
+          
+          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
+          <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#030014] to-transparent z-20 pointer-events-none opacity-40 transform-gpu" />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 h-full gap-4 max-w-7xl mx-auto">
+            {/* Column 1 */}
+            <div className="hidden md:block h-full">
+              <Column reviews={REVIEWS.slice(0, 3)} speed={50} opacity={0.3} />
+            </div>
+
+            {/* Column 2 (Focus) */}
+            <div className="z-10 h-full">
+              <Column reviews={REVIEWS.slice(3, 6)} speed={40} reverse={true} />
+            </div>
+
+            {/* Column 3 */}
+            <div className="hidden md:block h-full">
+              <Column reviews={REVIEWS.slice(6, 9)} speed={60} opacity={0.3} />
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       <div className="absolute inset-0 z-0 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
       
