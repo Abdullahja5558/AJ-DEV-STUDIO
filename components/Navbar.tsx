@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useLenis } from "lenis/react"; 
 
 const navItems = [
-  { name: "About", href: "#about" },
+  { name: "About", href: "/about" },
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
