@@ -6,8 +6,8 @@ const NAV_LINKS = [
   { name: "Github", slug: "gh", color: "#06b6d4", href: "https://github.com/Abdullahja5558" },
  
   { name: "WhatsApp", slug: "wa", color: "#25D366", href: "https://wa.me/923346932540?text=Hello%20AJ,%20I'd%20like%20to%20discuss%20a%20project." },
-  { name: "Instagram", slug: "ig", color: "#0e7490", href: "https://www.instagram.com/mian.abdullah.9/" },
-  { name: "Mail", slug: "em", color: "#155e75", href: "mailto:abdullahjaved5558@gmail.com" },
+  { name: "Instagram", slug: "ig", color: "#c51dd1", href: "https://www.instagram.com/mian.abdullah.9/" },
+  { name: "Mail", slug: "em", color: "#fffcff", href: "mailto:abdullahjaved5558@gmail.com" },
 ];
 
 export const PremiumFooter = () => {

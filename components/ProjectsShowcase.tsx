@@ -5,7 +5,7 @@ import { ReactLenis } from 'lenis/react';
 
 const PROJECTS = [
   { 
-    id: "01", 
+    id: "1", 
     title: "Bugatti Clone", 
     tagline: "High-performance digital engineering meeting luxury aesthetics.", 
     tech: ["Next.js", "Three.js", "Tailwind"], 
@@ -14,7 +14,7 @@ const PROJECTS = [
     link: "https://bugatti-clone-seven.vercel.app/"
   },
   { 
-    id: "02", 
+    id: "2", 
     title: "Bucceo Diving", 
     tagline: "Deep sea exploration and professional diving services interface.", 
     tech: ["React", "Framer Motion", "GSAP"], 
@@ -22,7 +22,7 @@ const PROJECTS = [
     link: "https://bucceo-diving.vercel.app/"
   },
   { 
-    id: "03", 
+    id: "3", 
     title: "Forever Place", 
     tagline: "Modern real estate platform for discovering timeless homes.", 
     tech: ["TypeScript", "Node.js", "Prisma"], 
@@ -30,7 +30,7 @@ const PROJECTS = [
     link: "https://forever-place.vercel.app/"
   },
   { 
-    id: "04", 
+    id: "4", 
     title: "Premium Portfolio", 
     tagline: "A masterclass in minimalist UI and smooth digital storytelling.", 
     tech: ["React", "Interactions", "UI/UX"], 
@@ -130,7 +130,7 @@ export const ProjectsShowcase = () => {
       <section 
         id="projects" 
         ref={targetRef} 
-        className="relative h-[800vh] bg-[#020108] py-40" 
+        className="relative h-[800vh] bg-[#030014] py-40" 
         style={{ contentVisibility: 'auto' }}
       >
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
