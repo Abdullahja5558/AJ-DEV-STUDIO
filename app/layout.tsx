@@ -22,6 +22,8 @@ export const metadata: Metadata = {
   description: "AJ - Crafting immersive web experiences with cutting-edge frontend development. Explore my portfolio showcasing innovative designs and seamless user interactions.",
 };
 
+<meta name="google-site-verification" content="3G_g9TJY5PBgQrGx31hcPNA_V3tEOWNugGnAEGeOQPY" />
+
 export default function RootLayout({
   children,
 }: Readonly<{
