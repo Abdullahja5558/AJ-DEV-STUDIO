@@ -23,7 +23,7 @@ const PremiumAbout = () => {
               <ChevronLeft size={14} /> Back
             </span>
             <div className="absolute inset-0 z-10 pointer-events-none">
-              <div className="absolute top-[150%] left-1/2 -translate-x-1/2 w-[180%] aspect-square bg-white rounded-[40%] transition-all duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:top-[-50%] group-hover:rotate-[140deg]" />
+              <div className="absolute top-[150%] left-1/2 -translate-x-1/2 w-[180%] aspect-square bg-white rounded-[40%] transition-all duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:top-[-50%] group-hover:rotate-140" />
             </div>
           </button>
         </Link>
@@ -48,7 +48,7 @@ const PremiumAbout = () => {
             transition={{ duration: 1 }}
             className="lg:col-span-5 relative group hidden lg:flex justify-center"
           >
-            <div className="relative z-10 w-full max-w-[400px] aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl transition-all duration-700 group-hover:border-blue-500/30">
+            <div className="relative z-10 w-full max-w-100 aspect-4/5 rounded-[2.5rem] overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl transition-all duration-700 group-hover:border-blue-500/30">
               <Image 
                 src="/imageee.png.jpeg" 
                 alt="Abdullah Javed" 
@@ -56,9 +56,9 @@ const PremiumAbout = () => {
                 className="object-cover scale-105 group-hover:scale-100 transition-transform duration-[1.5s]"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#030014] via-transparent to-transparent opacity-60" />
             </div>
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-[2.5rem] blur-xl opacity-50" />
+            <div className="absolute -inset-1 bg-linear-to-r from-blue-600/20 to-emerald-600/20 rounded-[2.5rem] blur-xl opacity-50" />
           </motion.div>
 
           {/* TEXT SIDE */}
@@ -74,7 +74,7 @@ const PremiumAbout = () => {
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85]">
                 Abdullah <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-emerald-400">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-blue-400 to-emerald-400">
                   Javed
                 </span>
               </h1>
@@ -93,8 +93,8 @@ const PremiumAbout = () => {
             {/* SPECS GRID */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl mx-auto lg:mx-0">
               {specs.map((item, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-md hover:border-blue-500/20 transition-colors duration-500">
-                  <div className="text-blue-400 flex-shrink-0">{item.icon}</div>
+                <div key={index} className="flex items-center gap-3 p-4 rounded-2xl bg-white/3 border border-white/5 backdrop-blur-md hover:border-blue-500/20 transition-colors duration-500">
+                  <div className="text-blue-400 shrink-0">{item.icon}</div>
                   <div className="text-left">
                     <p className="text-[8px] uppercase tracking-wider text-gray-500 font-bold">{item.label}</p>
                     <p className="text-[11px] font-medium text-gray-200">{item.detail}</p>
@@ -111,7 +111,7 @@ const PremiumAbout = () => {
                     Explore Projects <ArrowUpRight size={18} />
                   </span>
                   <div className="absolute inset-0 z-10 pointer-events-none">
-                    <div className="absolute top-[150%] left-1/2 -translate-x-1/2 w-[180%] aspect-square bg-blue-600 rounded-[42%] transition-all duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:top-[-50%] group-hover:rotate-[140deg]" />
+                    <div className="absolute top-[150%] left-1/2 -translate-x-1/2 w-[180%] aspect-square bg-blue-600 rounded-[42%] transition-all duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:top-[-50%] group-hover:rotate-140" />
                   </div>
                 </button>
               </Link>
