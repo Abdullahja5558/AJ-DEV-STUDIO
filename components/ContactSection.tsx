@@ -45,20 +45,24 @@ export const ContactSection = () => {
 
   const sendEmail = async (data: typeof formData) => {
     setIsSending(true);
+
+    // Ye params aapke screenshot ke {{variables}} se match karte hain
     const templateParams = {
-      from_name: data.name,
-      reply_to: data.email,
+      name: data.name,
+      email: data.email, // Client ka email
       message: data.message,
     };
 
     emailjs
       .send(
-        "service_v8kid69",
-        "template_4psl2m6",
+        "service_g7bny7o", // New Service ID
+        "template_z26wq5d", // New Template ID
         templateParams,
-        "ooavtmqpMYacsgYSg"
+        "-cPCd98Zumb6HWLnx"   // New Public Key
       )
-      .then(() => setIsFinished(true))
+      .then(() => {
+        setIsFinished(true);
+      })
       .catch((err) => {
         console.error("FAILED...", err);
       })
@@ -80,7 +84,7 @@ export const ContactSection = () => {
       className="relative h-screen min-h-[650px] w-full bg-[#040014] flex flex-col justify-center overflow-hidden selection:bg-cyan-500/30"
       id="contact"
     >
-      {/* Premium Background Elements */}
+      {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-cyan-500/5 blur-[120px] rounded-full" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] mix-blend-overlay" />
@@ -210,7 +214,6 @@ export const ContactSection = () => {
                         </div>
                       </div>
 
-                      {/* Premium Navigation Buttons */}
                       <div className="flex justify-center items-center gap-12 mt-8">
                         {step > 0 && (
                           <button
@@ -280,7 +283,6 @@ export const ContactSection = () => {
         </div>
       </motion.div>
 
-      {/* Modern UI Overlays */}
       <div className="absolute top-10 right-10 flex flex-col items-end gap-1 opacity-20 md:flex">
          <div className="text-[8px] text-white font-mono uppercase tracking-widest">System_Status: Online</div>
          <div className="text-[8px] text-white font-mono uppercase tracking-widest">Link: Secure_SSL</div>
