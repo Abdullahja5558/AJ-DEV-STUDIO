@@ -47,7 +47,7 @@ const UltraPremiumScroll = () => {
               <stop offset="50%" stopColor="#a855f7" /> 
               <stop offset="100%" stopColor="#e9d5ff" /> 
             </linearGradient>
-            {/* Glow Filter */}
+           
             <filter id="glow">
               <feGaussianBlur stdDeviation="2" result="coloredBlur" />
               <feMerge>
@@ -57,10 +57,9 @@ const UltraPremiumScroll = () => {
             </filter>
           </defs>
 
-          {/* Background Track */}
+          
           <circle cx="50" cy="50" r="44" stroke="rgba(255,255,255,0.03)" strokeWidth="4" fill="none" />
 
-          {/* Progress Path */}
           <motion.circle
             cx="50"
             cy="50"
@@ -74,7 +73,7 @@ const UltraPremiumScroll = () => {
           />
         </svg>
 
-        {/* Inner Counter */}
+      
         <div className="flex flex-col items-center justify-center z-10">
           <motion.span 
             className="text-[13px] font-black text-white font-mono tracking-tighter"
