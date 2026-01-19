@@ -16,7 +16,7 @@ const reviews = [
 ];
 
 const ReviewCard = ({ name, role, text, stars }: any) => (
-  <div className="py-8 px-6 mb-6 select-none group transition-all duration-500 hover:bg-white/[0.04] rounded-3xl border border-transparent hover:border-white/5 bg-white/[0.01]">
+  <div className="py-8 px-6 mb-6 select-none group transition-all duration-500 hover:bg-white/4 rounded-3xl border border-transparent hover:border-white/5 bg-white/1">
     <div className="flex gap-1 mb-4 opacity-40 group-hover:opacity-100 transition-opacity">
       {[...Array(stars)].map((_, i) => (
         <svg key={i} className="w-3.5 h-3.5 text-cyan-400 fill-current" viewBox="0 0 20 20">
@@ -28,7 +28,7 @@ const ReviewCard = ({ name, role, text, stars }: any) => (
       "{text}"
     </p>
     <div className="flex items-center gap-4">
-        <div className="h-[1px] w-8 bg-purple-500/50 group-hover:w-12 transition-all duration-500"></div>
+        <div className="h-px w-8 bg-purple-500/50 group-hover:w-12 transition-all duration-500"></div>
         <div>
           <h4 className="text-white font-bold text-sm tracking-wide">{name}</h4>
           <p className="text-cyan-400/80 text-[10px] font-bold uppercase tracking-[0.2em] mt-1">{role}</p>
@@ -46,12 +46,12 @@ const ReviewColumn = ({ items, reverse = false, speed = 40 }: { items: any[], re
         duration: speed, 
         repeat: Infinity, 
         ease: "linear",
-        // Force GPU acceleration
+        
         repeatType: "loop"
       }}
-      className="flex flex-col flex-1 min-w-[300px] lg:min-w-[350px]"
+      className="flex flex-col flex-1 min-w-75 lg:min-w-87.5"
     >
-      {/* Doubling items for seamless loop */}
+      
       {[...items, ...items].map((review, index) => (
         <ReviewCard key={index} {...review} />
       ))}
@@ -86,28 +86,27 @@ const ReviewSection = () => {
         </h2>
       </div>
 
-      <div className="max-w-7xl mx-auto h-[600px] md:h-[800px] relative">
-        {/* Top & Bottom Gradient Fades (The "Premium" Touch) */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#030616] to-transparent z-20 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030616] to-transparent z-20 pointer-events-none" />
+      <div className="max-w-7xl mx-auto h-150 md:h-200 relative">
+        
+        <div className="absolute top-0 left-0 right-0 h-32 bg-linear-to-b from-[#030616] to-transparent z-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#030616] to-transparent z-20 pointer-events-none" />
 
         <div className="flex gap-6 md:gap-12 h-full">
-          {/* Col 1 */}
+         
           <ReviewColumn items={reviews.slice(0, 3)} speed={35} />
           
-          {/* Col 2 */}
+         
           <div className="hidden md:flex flex-1">
             <ReviewColumn items={reviews.slice(3, 6)} reverse speed={45} />
           </div>
           
-          {/* Col 3 */}
+          
           <div className="hidden lg:flex flex-1">
             <ReviewColumn items={reviews.slice(6, 9)} speed={40} />
           </div>
         </div>
       </div>
 
-      {/* Background Glows */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-600/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
     </section>
