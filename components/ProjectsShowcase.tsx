@@ -2,6 +2,7 @@
 import React, { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ReactLenis } from 'lenis/react';
+import { title } from "process";
 
 const PROJECTS = [
   { 
@@ -9,7 +10,6 @@ const PROJECTS = [
     title: "Bugatti Clone", 
     tagline: "High-performance digital engineering meeting luxury aesthetics.", 
     tech: ["Next.js", "Three.js", "Tailwind"], 
-    // New dark, high-end Bugatti image (Optimized for Dark UI)
     image: "bugati.jpg",
     link: "https://bugatti-clone-seven.vercel.app/"
   },
@@ -36,15 +36,16 @@ const PROJECTS = [
     tech: ["React", "Interactions", "UI/UX"], 
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2572&auto=format&fit=crop",
     link: "https://brittanychiang.com/"
-  }
+  },
+  
 ];
 
 const ProjectFrame = React.memo(({ project }: { project: typeof PROJECTS[0] }) => {
   return (
     <div className="relative shrink-0 w-screen md:w-[85vw] h-[55vh] md:h-[60vh] flex items-center justify-center px-4 md:px-12 transform-gpu">
-      {/* Background ID Number */}
+      
       <span 
-        className="absolute -top-10 -left-12 text-[18rem] font-black text-white/3 select-none z-0 pointer-events-none" 
+        className="absolute -top-10 -left-15 text-[14rem] font-black text-white/3 select-none z-0 pointer-events-none" 
         style={{ transform: 'translateZ(0)' }}
       >
         {project.id}
@@ -57,7 +58,7 @@ const ProjectFrame = React.memo(({ project }: { project: typeof PROJECTS[0] }) =
         className="group relative w-full h-full rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/10 bg-[#030014] shadow-2xl transform-gpu block cursor-pointer"
         style={{ isolation: 'isolate' }}
       >
-        {/* Image Container */}
+       
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <motion.img
             src={project.image}
@@ -69,7 +70,7 @@ const ProjectFrame = React.memo(({ project }: { project: typeof PROJECTS[0] }) =
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
         </div>
 
-        {/* Content */}
+      
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-14 z-10 pointer-events-none">
           <h3 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase leading-[0.8] mb-4">
             {project.title}
@@ -104,7 +105,7 @@ export const ProjectsShowcase = () => {
     offset: ["start start", "end end"],
   });
 
-  // Performance: using useMemo for calculations if needed, though here useTransform is already optimized
+  
   const xTranslate = useTransform(
     scrollYProgress,
     [0, 0.1, 0.9, 1], 
@@ -112,7 +113,7 @@ export const ProjectsShowcase = () => {
   );
   
   const x = useSpring(xTranslate, { 
-    stiffness: 15, // Slightly smoother
+    stiffness: 15, 
     damping: 20, 
     mass: 0.5,
     restDelta: 0.001 
@@ -141,7 +142,7 @@ export const ProjectsShowcase = () => {
             transition={{ duration: 1 }}
             className="flex flex-col h-full justify-center"
           >
-            {/* Header Section */}
+            
             <div className="w-full px-6 md:px-24 mb-20 z-20 pointer-events-none">
               <div className="max-w-7xl mx-auto">
                 <motion.div 
@@ -162,7 +163,7 @@ export const ProjectsShowcase = () => {
               </div>
             </div>
 
-            {/* Horizontal Scroll Content */}
+           
             <motion.div
               style={{ x }}
               className="flex items-center pl-[5vw] md:pl-[10vw] will-change-transform"
@@ -171,7 +172,7 @@ export const ProjectsShowcase = () => {
                 <ProjectFrame key={project.id} project={project} />
               ))}
               {/* Spacer for ending scroll */}
-              <div className="shrink-0 w-[60vw] h-px" />
+              <div className="shrink-0 w-[80vw] h-px" />
             </motion.div>
           </motion.div>
         </div>

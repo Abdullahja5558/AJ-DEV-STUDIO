@@ -82,7 +82,8 @@ const ReviewSection = () => {
         </div>
         <h2 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter">
           Client <br />
-          <span className="text-white/10">Reviews.</span>
+          <span className="text-white/10">Feedback.</span>
+          
         </h2>
       </div>
 
