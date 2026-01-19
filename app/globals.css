@@ -1,3 +1,18 @@
+/* globals.css */
+
+/* Chrome, Safari, Edge aur Opera ke liye */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Firefox ke liye */
+html, body {
+  scrollbar-width: none !important;
+  /* IE aur purane Edge ke liye */
+  -ms-overflow-style: none !important;
+}
+
 @import "tailwindcss";
 
 :root {
@@ -52,3 +67,5 @@ body {
 body {
   background-color: var(--bg-dark);
 }
+
+/* globals.css */

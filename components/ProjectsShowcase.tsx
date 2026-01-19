@@ -54,7 +54,7 @@ const ProjectFrame = React.memo(({ project }: { project: typeof PROJECTS[0] }) =
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative w-full h-full rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/10 bg-[#050505] shadow-2xl transform-gpu block cursor-pointer"
+        className="group relative w-full h-full rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/10 bg-[#030014] shadow-2xl transform-gpu block cursor-pointer"
         style={{ isolation: 'isolate' }}
       >
         {/* Image Container */}
