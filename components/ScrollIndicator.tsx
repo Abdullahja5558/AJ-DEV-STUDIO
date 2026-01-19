@@ -6,7 +6,7 @@ const UltraPremiumScroll = () => {
   const [percent, setPercent] = useState(0);
   const { scrollYProgress } = useScroll();
 
-  // "Expensive" Motion: Thora weight feel karwane ke liye damping barhai hai
+  
   const scaleProgress = useSpring(scrollYProgress, {
     stiffness: 50,
     damping: 20,
@@ -18,7 +18,7 @@ const UltraPremiumScroll = () => {
     });
   }, [scrollYProgress]);
 
-  // Dynamic Background color change based on scroll
+  
   const orbGlow = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
@@ -27,23 +27,23 @@ const UltraPremiumScroll = () => {
 
   return (
     <div className="fixed bottom-10 right-10 z-100 flex items-center justify-center">
-      {/* Outer Rotating Border (Premium Detail) */}
+      
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
         className="absolute h-17.5 w-17.5 rounded-full border border-dashed border-purple-500/20"
       />
 
-      {/* Main Glass Orb */}
+    
       <motion.div 
         style={{ backgroundColor: orbGlow }}
         className="relative h-10 w-10 flex items-center justify-center rounded-full border border-white/10 backdrop-blur-2xl backdrop-saturate-150 shadow-[20px_20px_50px_rgba(0,0,0,0.5),inset_0_0_10px_rgba(255,255,255,0.05)]"
       >
-        {/* The Progress Ring */}
+      
         <svg className="absolute inset-0 h-full w-full -rotate-90 p-1" viewBox="0 0 100 100">
           <defs>
             <linearGradient id="purpleNeon" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b0764" /> {/* Darkest Purple */}
+              <stop offset="0%" stopColor="#3b0764" /> 
               <stop offset="50%" stopColor="#a855f7" /> {/* Bright Purple */}
               <stop offset="100%" stopColor="#e9d5ff" /> {/* Soft White-Purple */}
             </linearGradient>
