@@ -44,8 +44,8 @@ const UltraPremiumScroll = () => {
           <defs>
             <linearGradient id="purpleNeon" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#3b0764" /> 
-              <stop offset="50%" stopColor="#a855f7" /> {/* Bright Purple */}
-              <stop offset="100%" stopColor="#e9d5ff" /> {/* Soft White-Purple */}
+              <stop offset="50%" stopColor="#a855f7" /> 
+              <stop offset="100%" stopColor="#e9d5ff" /> 
             </linearGradient>
             {/* Glow Filter */}
             <filter id="glow">
