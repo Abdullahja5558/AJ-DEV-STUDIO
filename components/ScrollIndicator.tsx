@@ -26,12 +26,12 @@ const UltraPremiumScroll = () => {
   );
 
   return (
-    <div className="fixed bottom-10 right-10 z-[100] flex items-center justify-center">
+    <div className="fixed bottom-10 right-10 z-100 flex items-center justify-center">
       {/* Outer Rotating Border (Premium Detail) */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[70px] w-[70px] rounded-full border border-dashed border-purple-500/20"
+        className="absolute h-17.5 w-17.5 rounded-full border border-dashed border-purple-500/20"
       />
 
       {/* Main Glass Orb */}

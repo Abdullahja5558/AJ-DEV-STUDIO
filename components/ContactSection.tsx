@@ -6,19 +6,19 @@ import emailjs from "@emailjs/browser";
 const QUESTIONS = [
   {
     id: "name",
-    label: "01. IDENTITY",
+    label: "IDENTITY",
     placeholder: "NAME",
     sub: "AUTHENTICATE_USER",
   },
   {
     id: "email",
-    label: "02. ENDPOINT",
+    label: "ENDPOINT",
     placeholder: "EMAIL",
     sub: "ESTABLISH_LINK",
   },
   {
     id: "message",
-    label: "03. OBJECTIVE",
+    label: "OBJECTIVE",
     placeholder: "MESSAGE",
     sub: "DATA_TRANSFER",
   },
@@ -78,10 +78,9 @@ export const ContactSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="flex flex-col h-full w-full max-w-7xl mx-auto px-6 md:px-24 py-12"
+        className="flex flex-col h-full w-full max-w-7xl mx-auto px-6 md:px-10 py-12"
       >
-        {/* Header Section - Restored to Original Style */}
-        <div className="z-20 mb-8">
+         <div className="z-20 mb-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -97,14 +96,14 @@ export const ContactSection = () => {
             initial={{ opacity: 0, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 1 }}
-            className="text-6xl md:text-[90px] font-black tracking-[-0.08em] text-white leading-[0.8] uppercase"
+            className="text-6xl md:text-[80px] font-black tracking-[-0.08em] text-white leading-[0.8] uppercase"
           >
-            The Silent <br />{" "}
-            <span className="text-white/5 font-bold italic">Moment.</span>
+            Let's Work <br />{" "}
+            <span className="text-white/5 font-bold italic">TOGHTER</span>
           </motion.h2>
         </div>
 
-        {/* Interaction Area */}
+       
         <div className="flex-1 flex flex-col items-center justify-center relative z-10">
           <AnimatePresence mode="wait">
             {!isEngaged ? (
@@ -144,7 +143,7 @@ export const ContactSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="w-full max-w-3xl relative px-10"
               >
-                {/* Side Accents */}
+                
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 h-16 w-px bg-linear-to-b from-transparent via-cyan-500/40 to-transparent" />
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px bg-linear-to-b from-transparent via-cyan-500/40 to-transparent" />
 
@@ -234,7 +233,7 @@ export const ContactSection = () => {
         </div>
       </motion.div>
 
-      {/* Decorative Overlays */}
+    
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
         <div className="absolute top-0 left-0 w-full h-40 bg-linear-to-b from-cyan-500/10 to-transparent" />
