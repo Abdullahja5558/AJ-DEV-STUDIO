@@ -83,7 +83,7 @@ const UltraPremiumScroll = () => {
           <div className="h-[1.5px] w-3 bg-purple-500 rounded-full shadow-[0_0_5px_#a855f7]" />
         </div>
 
-        {/* Ambient Pulsing Light */}
+        
         <motion.div 
           animate={{ opacity: [0.1, 0.3, 0.1] }}
           transition={{ duration: 3, repeat: Infinity }}
