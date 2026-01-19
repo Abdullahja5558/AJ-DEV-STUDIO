@@ -81,7 +81,7 @@ export const ContactSection = () => {
 
   return (
     <section
-      className="relative h-screen min-h-[650px] w-full bg-[#040014] flex flex-col justify-center overflow-hidden selection:bg-cyan-500/30"
+      className="relative h-screen min-h-162.5 w-full bg-[#040014] flex flex-col justify-center overflow-hidden selection:bg-cyan-500/30"
       id="contact"
     >
       {/* Background Elements */}

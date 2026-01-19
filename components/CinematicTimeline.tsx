@@ -155,7 +155,7 @@ export const ExperienceTimeline = () => {
           </div>
         </motion.div>
 
-        {/* Ambient Layers */}
+        
         <div className="absolute inset-0 pointer-events-none">
            <div className="absolute inset-0 opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
            <motion.div 

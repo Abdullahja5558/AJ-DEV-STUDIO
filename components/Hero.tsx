@@ -70,7 +70,7 @@ export const Hero = () => {
           <motion.div variants={itemVariants} className="flex gap-6">
             {/* --- EXPERIENCE BUTTON (Liquid Fill) --- */}
             <button className="group relative px-10 py-5 bg-purple-600 rounded-full overflow-hidden transition-all duration-500 border  hover:text-black">
-              <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[1%] transition-transform duration-1200 ease-[cubic-bezier(0.19,1,0.22,1)] bg-white hover:text-black rounded-[40%] animate-none group-hover:animate-[spin_4s_linear_infinite]" />
+              <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[5%] transition-transform duration-1200 ease-[cubic-bezier(0.19,1,0.22,1)] bg-white hover:text-black rounded-[40%] animate-none group-hover:animate-[spin_4s_linear_infinite]" />
               <a
                 className="relative z-10 text-black font-bold text-xs group-hover:text-black uppercase tracking-widest  transition-colors duration-500 cursor-pointer"
                 href="#experience"
@@ -81,7 +81,7 @@ export const Hero = () => {
 
             {/* --- CONTACT BUTTON (Liquid Fill) --- */}
             <button className="group relative px-10 py-5 bg-transparent border  rounded-full overflow-hidden transition-all duration-500 ">
-              <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[10%] transition-transform duration-1200 ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] animate-none group-hover:animate-[spin_4s_linear_infinite]" />
+              <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[5n%] transition-transform duration-1200 ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] animate-none group-hover:animate-[spin_4s_linear_infinite]" />
               <a
                 className="relative z-10 text-white/60 font-bold text-xs uppercase tracking-widest group-hover:text-black transition-colors duration-500 cursor-pointer"
                 href="#contact"
