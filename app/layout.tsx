@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   description:
     "I'm AJ, a frontend developer specializing in modern, fast, and SEO-friendly websites using React, Next.js, HTML, CSS, JavaScript and other technologies. I specialize in building responsive, user-friendly websites that deliver seamless experiences to our usersAvailable for freelance and remote work.",
       keywords: [
+    "Website Developer",
     "Frontend Developer",
     "React Developer",
     "Next.js Developer",
@@ -45,9 +46,8 @@ export const metadata: Metadata = {
     "UX/UI Designer",
     "Graphic Designer",
     "Web Developer",
-    "Frontend Engineer",
-    "Frontend Developer",
     "Frontend Web Developer",
+    
   ],
    authors: [{ name: "Abdullah Javed" }],
   openGraph: {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "AJ Code",
     type: "website",
   },
-
+ 
 };
 
 export default function RootLayout({
