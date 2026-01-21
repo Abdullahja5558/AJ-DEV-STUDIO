@@ -84,8 +84,7 @@ export const ContactSection = () => {
       className="relative h-screen min-h-162.5 w-full bg-[#040014] flex flex-col justify-center overflow-hidden selection:bg-cyan-500/30"
       id="contact"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-cyan-500/5 blur-[120px] rounded-full" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] mix-blend-overlay" />
       </div>
