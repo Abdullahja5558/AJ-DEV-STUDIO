@@ -4,7 +4,7 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import LoaderWrapper from "@/components/LoaderWrapper";
 import ScrollIndicator from "@/components/ScrollIndicator";
-import SmoothScroll from "@/components/SmoothScroll"; // Naya component import kiya
+import SmoothScroll from "@/components/SmoothScroll"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
