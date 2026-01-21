@@ -66,17 +66,17 @@ const PremiumAbout = () => {
         </Link>
       </div>
 
-      {/* 2. AMBIENT GLOWS - Optimized with will-change for performance */}
+      
       <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden">
         <div className="absolute top-[-5%] left-[-5%] w-[40vw] h-[40vw] bg-blue-600/10 rounded-full blur-[100px] will-change-transform" />
         <div className="absolute bottom-[-5%] right-[-5%] w-[40vw] h-[40vw] bg-emerald-600/10 rounded-full blur-[100px] will-change-transform" />
       </div>
 
-      {/* 3. MAIN CONTENT CONTAINER */}
+      
       <div className="relative z-20 min-h-screen w-full flex items-center justify-center px-6 py-20 md:py-0 md:px-12">
         <div className="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* IMAGE SIDE */}
+         
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -96,7 +96,7 @@ const PremiumAbout = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-[2.5rem] blur-xl opacity-50" />
           </motion.div>
 
-          {/* TEXT SIDE */}
+         
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -124,7 +124,7 @@ const PremiumAbout = () => {
               </p>
             </div>
 
-            {/* SPECS GRID */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl mx-auto lg:mx-0">
               {specs.map((item, index) => (
                 <div key={index} className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-md hover:border-blue-500/40 transition-all duration-500 group">
@@ -137,7 +137,7 @@ const PremiumAbout = () => {
               ))}
             </div>
 
-            {/* ACTION BUTTONS */}
+           
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
               <Link href="/#projects">
                 <button className="liquid-btn group relative px-8 py-4 overflow-hidden rounded-3xl border border-blue-500/30 transition-all duration-700">
@@ -165,7 +165,7 @@ const PremiumAbout = () => {
         </div>
       </div>
 
-      {/* --- CERTIFICATES MODAL --- */}
+      
       <AnimatePresence>
         {showCerts && (
           <motion.div 
@@ -221,7 +221,7 @@ const PremiumAbout = () => {
         )}
       </AnimatePresence>
 
-      {/* --- IMAGE LIGHTBOX --- */}
+     
       <AnimatePresence>
         {selectedCert && (
           <motion.div 
