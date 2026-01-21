@@ -83,7 +83,7 @@ const PremiumAbout = () => {
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
             className="lg:col-span-5 relative group hidden lg:flex justify-center"
           >
-            <div className="relative z-10 w-full max-w-100 aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl transition-all duration-700 group-hover:border-blue-500/30">
+            <div className="relative z-10 w-full max-w-100 aspect-4/5 rounded-[2.5rem] overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl transition-all duration-700 group-hover:border-blue-500/30">
               <Image 
                 src="/imageee.png.jpeg" 
                 alt="Abdullah Javed" 
@@ -91,9 +91,9 @@ const PremiumAbout = () => {
                 className="object-cover scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-out"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#030014] via-transparent to-transparent opacity-60" />
             </div>
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-[2.5rem] blur-xl opacity-50" />
+            <div className="absolute -inset-1 bg-linear-to-r from-blue-600/20 to-emerald-600/20 rounded-[2.5rem] blur-xl opacity-50" />
           </motion.div>
 
          
@@ -109,7 +109,7 @@ const PremiumAbout = () => {
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] lg:leading-[0.85]">
                 Abdullah <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-emerald-400">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-blue-400 to-emerald-400">
                   Javed
                 </span>
               </h1>
@@ -172,7 +172,7 @@ const PremiumAbout = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-[#030014]/95 backdrop-blur-2xl"
+            className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-10 bg-[#030014]/95 backdrop-blur-2xl"
           >
             <div className="absolute inset-0" onClick={() => setShowCerts(false)} />
             
@@ -184,7 +184,7 @@ const PremiumAbout = () => {
             >
               <button 
                 onClick={() => setShowCerts(false)}
-                className="absolute top-6 right-6 z-[110] p-3 rounded-full bg-white/10 hover:bg-red-500/20 text-white transition-colors"
+                className="absolute top-6 right-6 z-110 p-3 rounded-full bg-white/10 hover:bg-red-500/20 text-white transition-colors"
               >
                 <X size={24} />
               </button>
@@ -208,7 +208,7 @@ const PremiumAbout = () => {
                       fill
                       className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
                       <p className="text-white font-bold tracking-widest uppercase text-xs transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                         {cert.title}
                       </p>
@@ -228,7 +228,7 @@ const PremiumAbout = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/98 backdrop-blur-3xl flex items-center justify-center p-4 md:p-20"
+            className="fixed inset-0 z-200 bg-black/98 backdrop-blur-3xl flex items-center justify-center p-4 md:p-20"
             onClick={() => setSelectedCert(null)}
           >
             <button className="absolute top-10 right-10 text-white/50 hover:text-white transition-all hover:rotate-90">
