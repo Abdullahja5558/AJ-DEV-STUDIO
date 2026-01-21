@@ -46,19 +46,19 @@ export const ContactSection = () => {
   const sendEmail = async (data: typeof formData) => {
     setIsSending(true);
 
-    // Ye params aapke screenshot ke {{variables}} se match karte hain
+  
     const templateParams = {
       name: data.name,
-      email: data.email, // Client ka email
+      email: data.email, 
       message: data.message,
     };
 
     emailjs
       .send(
-        "service_g7bny7o", // New Service ID
-        "template_z26wq5d", // New Template ID
+        "service_g7bny7o", 
+        "template_z26wq5d", 
         templateParams,
-        "-cPCd98Zumb6HWLnx"   // New Public Key
+        "-cPCd98Zumb6HWLnx"   
       )
       .then(() => {
         setIsFinished(true);
