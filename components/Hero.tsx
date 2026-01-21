@@ -57,7 +57,7 @@ export const Hero = () => {
           </span>
         </motion.div>
 
-        {/* Main Headline */}
+      
         <motion.h1
           variants={itemVariants}
           className="text-5xl md:text-8xl lg:text-[120px] font-bold leading-[0.95] tracking-tight text-white mb-10"
@@ -68,7 +68,7 @@ export const Hero = () => {
           </span>
         </motion.h1>
 
-        {/* Subtitle */}
+        
         <motion.p
           variants={itemVariants}
           className="text-lg md:text-xl text-white/40 max-w-2xl font-light leading-relaxed mb-14"
@@ -78,9 +78,9 @@ export const Hero = () => {
           and the craft of scalable systems.
         </motion.p>
 
-        {/* CTA Buttons */}
+       
         <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-6">
-          {/* Experience Button */}
+          
           <button className="group relative px-10 py-5 bg-purple-600 rounded-full overflow-hidden transition-all duration-500 border border-purple-400/30">
             <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] animate-none group-hover:animate-[spin_6s_linear_infinite]" />
             <a
@@ -91,7 +91,7 @@ export const Hero = () => {
             </a>
           </button>
 
-          {/* Contact Button */}
+        
           <button className="group relative px-10 py-5 bg-transparent border border-white/10 rounded-full overflow-hidden transition-all duration-500">
             <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] animate-none group-hover:animate-[spin_6s_linear_infinite]" />
             <a
@@ -104,7 +104,7 @@ export const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Decorative Scroll Indicator */}
+     
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         whileInView={{ height: "80px", opacity: 1 }}
