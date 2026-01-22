@@ -3,11 +3,11 @@ import React, { useEffect, useRef } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export const CustomCursor = () => {
-  // 1. Core values for position
+ 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // 2. Ultra-smooth spring physics (High stiffness, proper damping for "Luxury" weight)
+  
   const springConfig = { damping: 28, stiffness: 400, mass: 0.1 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(smoothX, springConfig); // Initial sync
@@ -60,15 +60,15 @@ export const CustomCursor = () => {
         translateY: "-50%",
         width: cursorSize,
         height: cursorSize,
-        backgroundColor: "rgba(30, 64, 175, 0.8)", // Luxury Dark Blue
+        backgroundColor: "rgba(30, 64, 175, 0.8)", 
         borderColor: "rgba(255, 255, 255, 0.1)",
         boxShadow: "0 0 20px rgba(29, 78, 216, 0.3)",
       }}
     >
-      {/* Precision Center Dot */}
+      
       <div className="w-1 h-1 bg-white/40 rounded-full" />
       
-      {/* Subtle Aura Ring */}
+      
       <motion.div 
         className="absolute -inset-2 border border-blue-500/10 rounded-full"
         animate={{ scale: [1, 1.1, 1] }}
