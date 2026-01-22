@@ -19,10 +19,10 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Initialize Lenis
+  
   const lenis = useLenis();
 
-  // PREMIUM TRAVEL SCROLL LOGIC
+  
   const handleScroll = (e: React.MouseEvent, href: string) => {
     if (href.startsWith("#")) {
       e.preventDefault();
@@ -32,8 +32,7 @@ export const Navbar = () => {
       if (targetElement && lenis) {
         lenis.scrollTo(targetElement, {
           offset: -20,
-          duration: 2.5, // Cinematic travel time
-          // Custom Luxury Easing (Slow start -> Glide -> Soft land)
+          duration: 2.5, 
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
           lock: true, 
         });
@@ -70,13 +69,13 @@ export const Navbar = () => {
           isScrolled ? "w-[92%] md:w-197.5 py-1" : "w-full md:w-235 py-3"
         )}
       >
-        {/* Optical Glass Reflection */}
+        
         <div className="absolute inset-0 rounded-full bg-linear-to-tr from-white/5 via-transparent to-white/2 pointer-events-none hidden md:block" />
         
-        {/* Realistic Grainy Texture */}
+       
         <div className="absolute inset-0 rounded-full opacity-[0.04] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] hidden md:block" />
 
-        {/* Brand: AJ */}
+        
         <Link href="/" className="relative z-110 group flex items-center gap-2">
           <div className="text-2xl font-bold tracking-[0.15em] text-white transition-all duration-500 group-hover:tracking-[0.25em]">
             AJ
@@ -84,7 +83,7 @@ export const Navbar = () => {
           <div className="h-1.5 w-1.5 rounded-full bg-purple-500 shadow-[0_0_15px_#a855f7] transition-all group-hover:bg-blue-400 group-hover:shadow-[#60a5fa]" />
         </Link>
 
-        {/* --- DESKTOP NAVIGATION --- */}
+        
         <div className="hidden md:flex items-center gap-3 relative z-10">
           {navItems.map((item, idx) => (
             <Link
@@ -112,7 +111,7 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* Premium CTA Button */}
+      
         <div className="hidden md:block relative z-10">
           <button 
             onClick={(e) => handleScroll(e, "#contact")}
@@ -122,7 +121,7 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* --- MOBILE TOGGLE --- */}
+        
         <button 
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden relative z-110 flex flex-col gap-1.5 p-2 active:scale-90 transition-transform"
@@ -132,7 +131,7 @@ export const Navbar = () => {
           <motion.div animate={isOpen ? { rotate: -45, y: -7.5 } : { rotate: 0, y: 0 }} className="w-6 h-[1.5px] bg-white" />
         </button>
 
-        {/* --- MOBILE OVERLAY MENU --- */}
+        
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -185,7 +184,7 @@ export const Navbar = () => {
         </AnimatePresence>
       </motion.nav>
       
-      {/* Dynamic Ambient Underglow */}
+     
       <div className={cn(
         "absolute transition-all duration-1000 -bottom-2.5 left-1/2 -translate-x-1/2 h-px bg-linear-to-r from-transparent via-purple-500/40 to-transparent blur-md hidden md:block",
         isScrolled ? "w-[20%]" : "w-[40%]"
