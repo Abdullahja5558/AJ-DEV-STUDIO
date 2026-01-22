@@ -22,7 +22,7 @@ export const PremiumFooter = () => {
       id="footer"
       style={{ contentVisibility: 'auto' }}
     >
-      {/* 1. CLEAN BACKGROUND WITH SUBTLE GLOW */}
+    
       <div className="absolute inset-0 pointer-events-none z-0">
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-cyan-500/3 rounded-full blur-[120px] transform-gpu" 
@@ -30,7 +30,7 @@ export const PremiumFooter = () => {
         />
       </div>
 
-      {/* 2. SIGNATURE ZONE - TOP */}
+      
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export const PremiumFooter = () => {
         </motion.div>
       </div>
 
-      {/* 3. INTERACTIVE GLASS ZONE - MIDDLE */}
+      
       <div className="relative z-10 flex-1 flex items-center justify-center my-12 transform-gpu">
         <div className="relative w-full max-w-5xl h-75 flex items-center justify-center">
           
@@ -75,7 +75,7 @@ export const PremiumFooter = () => {
                   className="group relative flex flex-col items-center gap-6 transform-gpu will-change-transform"
                 >
                   <div className="relative">
-                    {/* Glowing Core */}
+                   
                     <motion.div 
                       animate={{
                         boxShadow: hoveredNode === link.slug ? `0 0 50px ${link.color}` : "0 0 15px rgba(255,255,255,0.05)",
@@ -101,7 +101,7 @@ export const PremiumFooter = () => {
         </div>
       </div>
 
-      {/* 4. CONNECTION ZONE - BOTTOM */}
+     
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-12">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-12">
           
