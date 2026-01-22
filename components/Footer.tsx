@@ -7,13 +7,13 @@ const NAV_LINKS = [
  
   { name: "WhatsApp", slug: "wa", color: "#25D366", href: "https://wa.me/923346932540?text=Hello%20AJ,%20I'd%20like%20to%20discuss%20a%20project." },
   { name: "Instagram", slug: "ig", color: "#c51dd1", href: "https://www.instagram.com/mian.abdullah.9/" },
-  { name: "Mail", slug: "em", color: "#fffcff", href: "mailto:abdullahjaved5558@gmail.com" },
+  { name: "Mail", slug: "em", color: "#fffcff", href: "mailto:ajdeveloperr@gmail.com" },
 ];
 
 export const PremiumFooter = () => {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
-  // Memoize metadata to prevent re-renders of static text
+  
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
