@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform, MotionValue } from "framer-motion";
 import { ReactLenis } from 'lenis/react';
 
-// --- Experiences Data ---
+
 const EXPERIENCES = [
   {
     title: "Senior Frontend Engineer",
@@ -100,11 +100,11 @@ export const ExperienceTimeline = () => {
         ref={containerRef} 
         className="relative min-h-[350vh] bg-[#030014] py-40 px-6 md:px-12 overflow-hidden select-none"
       >
-        {/* Entrance & Exit Animation Wrapper */}
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.05 }} // Triggers when 5% of section is visible
+          viewport={{ once: false, amount: 0.05 }} 
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <div className="max-w-7xl mx-auto mb-60 relative z-20">
@@ -135,7 +135,7 @@ export const ExperienceTimeline = () => {
           </div>
 
           <div className="max-w-7xl mx-auto relative">
-            {/* Vertical Beam */}
+           
             <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white/5 hidden md:block">
               <motion.div 
                 style={{ scaleY: smoothProgress, originY: 0 }}

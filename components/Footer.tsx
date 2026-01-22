@@ -101,7 +101,7 @@ export const PremiumFooter = () => {
         </div>
       </div>
 
-     
+    
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-12">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-12">
           
