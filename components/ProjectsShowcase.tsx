@@ -37,21 +37,14 @@ const PROJECTS = [
 
     link: "https://bucceo-diving.vercel.app/",
   },
-
-  {
+{
     id: "3",
-
-    title: "Forever Place",
-
-    tagline: "Modern real estate platform for discovering timeless homes.",
-
-    tech: ["TypeScript", "Node.js", "Prisma"],
-
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop",
-
-    link: "https://forever-place.vercel.app/",
-  },
+    title: "PDF-HUB",
+    tagline: "PDFHub is a free online platform to convert, edit, merge, and manage PDF files easily.",
+    tech: ["TypeScript", "Next.js", "Prisma"],
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop",
+    link: "https://pdfhubx.vercel.app/",
+},
 
   {
     id: "4",
