@@ -248,7 +248,7 @@ export const TechnicalEcosystem = () => {
           </motion.div>
         </div>
 
-        {/* Remove colored overlays at the top/bottom to ensure a pure, uninterrupted background */}
+       
         {/* <motion.div
           style={{
             opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.15, 0]),
