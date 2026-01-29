@@ -117,7 +117,7 @@ const PerspectiveSkill = ({
         type: "spring",
         stiffness: 100,
         damping: 20,
-        delay: index * 0.05, // Staggered effect
+        delay: index * 0.05, 
       }}
       className="group relative flex items-center justify-between py-12 border-b border-white/5 perspective-1000 will-change-transform"
     >
