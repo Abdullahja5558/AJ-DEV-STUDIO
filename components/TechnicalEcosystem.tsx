@@ -107,7 +107,7 @@ const PerspectiveSkill = ({
 }) => {
   return (
     <motion.div
-      // Initial state (when off-screen)
+     
       initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
       // While in view (trigger every time it enters)
       whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
