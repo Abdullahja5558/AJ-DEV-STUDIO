@@ -111,7 +111,7 @@ const PerspectiveSkill = ({
       initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
      
       whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-      // Reset state (when scrolled past)
+     
       viewport={{ once: false, amount: 0.2 }}
       transition={{
         type: "spring",
