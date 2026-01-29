@@ -249,12 +249,7 @@ export const TechnicalEcosystem = () => {
         </div>
 
        
-        {/* <motion.div
-          style={{
-            opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.15, 0]),
-          }}
-          className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-cyan-500/20 to-transparent pointer-events-none"
-        /> */}
+       
       </section>
     </ReactLenis>
   );
