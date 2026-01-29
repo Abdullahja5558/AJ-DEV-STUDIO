@@ -14,7 +14,7 @@ const PremiumAbout = () => {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smooth ease-out
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
@@ -85,7 +85,7 @@ const PremiumAbout = () => {
           >
             <div className="relative z-10 w-full max-w-100 aspect-4/5 rounded-[2.5rem] overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl transition-all duration-700 group-hover:border-blue-500/30">
               <Image 
-                src="/imageee.png.jpeg" 
+                src="/about.jpeg" 
                 alt="Abdullah Javed" 
                 fill
                 className="object-cover scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-out"

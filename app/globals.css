@@ -1,5 +1,16 @@
 /* globals.css */
 
+
+/* Default cursor ko har jagah se hide karne ke liye */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+/* Specific elements par bhi ensure karein (kuch browsers overrides karte hain) */
+html, body, a, button, input, textarea, [role="button"] {
+  cursor: none !important;
+}
+
 /* Chrome, Safari, Edge aur Opera ke liye */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -45,9 +56,12 @@ body {
 
 
 /* Hide default cursor globally */
-* {
-  cursor: none !important;
+body, html {
+  cursor: none;
+  
 }
+
+
 
 
 .cursor-container {
@@ -67,5 +81,7 @@ body {
 body {
   background-color: var(--bg-dark);
 }
+
+
 
 /* globals.css */
