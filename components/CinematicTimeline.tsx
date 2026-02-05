@@ -6,22 +6,22 @@ import { ReactLenis } from 'lenis/react';
 
 const EXPERIENCES = [
   {
-    title: "Senior Frontend Engineer",
+    title: "Backend Developer Journey",
     company: "Global Tech Solutions",
     period: "2024 — PRESENT",
-    description: "Architecting high-performance distributed systems and leading the migration to Next.js 15 for enterprise-scale applications.",
+    description: "Currently learning backend development with a focus on Node.js, Express, and database design.",
   },
   {
-    title: "Frontend Architect",
+    title: "React-Native / Three.js Developer",
     company: "Creative Vision Studio",
     period: "2022 — 2024",
-    description: "Crafting immersive 3D web experiences using Three.js and Framer Motion, focusing on ultra-low latency interactions.",
+    description: "Built immersive mobile experiences using React Native and Three.js, including AR features and interactive 3D visualizations for a major retail client.",
   },
   {
-    title: "React Developer",
+    title: "Fronter Developer",
     company: "NextGen Systems",
     period: "2020 — 2022",
-    description: "Developed scalable microservices and implemented complex state-management patterns in large-scale React ecosystems.",
+    description: "Worked on complete front-end applications with React / Next.js. Focused on performance, reusable components, animations, and modern UI/UX practices.",
   },
 ];
 
