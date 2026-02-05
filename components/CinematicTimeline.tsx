@@ -8,19 +8,19 @@ const EXPERIENCES = [
   {
     title: "Backend Developer Journey",
     company: "Global Tech Solutions",
-    period: "2024 — PRESENT",
+    period: "2025 — PRESENT",
     description: "Currently learning backend development with a focus on Node.js, Express, and database design.",
   },
   {
     title: "React-Native / Three.js Developer",
     company: "Creative Vision Studio",
-    period: "2022 — 2024",
+    period: "2023 — 2025",
     description: "Built immersive mobile experiences using React Native and Three.js, including AR features and interactive 3D visualizations for a major retail client.",
   },
   {
-    title: "Fronter Developer",
+    title: "Frontend Developer",
     company: "NextGen Systems",
-    period: "2020 — 2022",
+    period: "2022 — 2023",
     description: "Worked on complete front-end applications with React / Next.js. Focused on performance, reusable components, animations, and modern UI/UX practices.",
   },
 ];
