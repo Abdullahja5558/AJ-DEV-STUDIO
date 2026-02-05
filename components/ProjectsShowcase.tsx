@@ -73,7 +73,7 @@ const ProjectFrame = React.memo(({ project }: { project: (typeof PROJECTS)[0] })
             decoding="async"
             className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-[1.2s] ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-105 will-change-transform"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
         </div>
 
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-14 z-10 pointer-events-none">
