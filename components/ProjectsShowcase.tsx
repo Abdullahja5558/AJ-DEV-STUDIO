@@ -37,7 +37,7 @@ const PROJECTS = [
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2572&auto=format&fit=crop",
     link: "https://brittanychiang.com/",
   },
-  // Naya 5th Project yahan add kiya hai
+ 
   {
     id: "5",
     title: "Noor-ul-Quran",
