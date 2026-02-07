@@ -165,7 +165,7 @@ export const Navbar = () => {
                         <span className="text-4xl md:text-[5vw] font-bold text-zinc-100 uppercase tracking-tighter leading-none transition-all duration-500 group-hover:text-purple-400 group-hover:translate-x-4">
                           {item.name}
                         </span>
-                        <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-[-20px] group-hover:translate-x-0 hidden sm:block">
+                        <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-5 group-hover:translate-x-0 hidden sm:block">
                             <span className="text-purple-400 text-3xl md:text-4xl font-light">→</span>
                         </div>
                       </Link>
