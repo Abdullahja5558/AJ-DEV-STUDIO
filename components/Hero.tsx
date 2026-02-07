@@ -88,7 +88,7 @@ export const Hero = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.1 }}
-        className="relative z-10 w-full max-w-6xl flex flex-col items-center text-center transform-gpu"
+        className="relative z-10 w-full max-w-6xl flex flex-col items-center text-center transform-gpu -mt-6"
       >
      
         <motion.div 
