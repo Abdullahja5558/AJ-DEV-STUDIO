@@ -123,7 +123,7 @@ export const Navbar = () => {
                 y: isOpen ? -4 : 0,
                 rotate: isOpen ? -45 : 0
               }} 
-              className="h-[2px] origin-center" 
+              className="h-0.5 origin-center" 
             />
           </div>
         </button>
