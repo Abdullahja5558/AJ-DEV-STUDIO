@@ -101,7 +101,7 @@ export const Navbar = () => {
   return (
     <>
       {/* --- FIXED TRIGGER --- */}
-      <div className="fixed top-6 right-6 md:top-10 md:right-12 z-[250]">
+      <div className="fixed top-6 right-6 md:top-10 md:right-12 z-250">
         <button 
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center justify-center p-4 group bg-white/5 backdrop-blur-2xl rounded-full border border-white/10 hover:border-purple-500/50 transition-all duration-300 shadow-2xl"
