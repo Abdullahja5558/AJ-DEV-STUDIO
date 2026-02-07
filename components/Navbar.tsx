@@ -137,7 +137,7 @@ export const Navbar = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-0 z-[200] bg-[#07030a] overflow-hidden"
+            className="fixed inset-0 z-200 bg-[#07030a] overflow-hidden"
           >
             {/* Multi-layered Decorative Gradients */}
             <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-purple-900/10 blur-[150px] rounded-full" />
