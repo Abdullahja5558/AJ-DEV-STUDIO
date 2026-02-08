@@ -134,7 +134,7 @@ export const ExperienceTimeline = () => {
           </div>
 
           {/* FIXED: Added a simple subtle line for mobile so the user has a visual guide */}
-          <div className="absolute left-[2px] top-0 bottom-0 w-[1px] bg-cyan-500/10 md:hidden" />
+          <div className="absolute left-0.5 top-0 bottom-0 w-[1px] bg-cyan-500/10 md:hidden" />
 
           <div className="relative z-10">
             {EXPERIENCES.map((exp, i) => (
