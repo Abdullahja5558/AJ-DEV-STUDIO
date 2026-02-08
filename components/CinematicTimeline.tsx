@@ -101,7 +101,7 @@ export const ExperienceTimeline = () => {
 
         <div className="max-w-7xl mx-auto mb-32 md:mb-60 relative z-20">
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-[1px] w-8 bg-cyan-500" />
+            <div className="h-px w-8 bg-cyan-500" />
             <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-cyan-500">
                 THE JOURNEY
             </span>
