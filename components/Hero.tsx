@@ -138,15 +138,7 @@ export const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* SCROLL LINE */}
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        whileInView={{ height: "100px", opacity: 1 }}
-        viewport={{ once: false }}
-        transition={{ delay: 1, duration: 2, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[0.5px] bg-gradient-to-b from-transparent via-white/40 to-transparent"
-      />
-
+     
       <style jsx global>{`
         @keyframes spin {
           from { transform: translateY(-45%) rotate(0deg); }
