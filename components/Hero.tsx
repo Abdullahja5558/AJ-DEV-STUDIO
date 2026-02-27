@@ -52,7 +52,7 @@ export const Hero = () => {
           x: 0, 
           y: 0,
           transition: { 
-            delay: 1, // Content ke baad ayegi
+            delay: 1,
             duration: 3, 
             ease: [0.16, 1, 0.3, 1] 
           } 
