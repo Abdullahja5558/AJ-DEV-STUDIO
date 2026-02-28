@@ -7,6 +7,7 @@ import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
 import ProjectsShowcase from '@/components/ProjectsShowcase'
 import  ReviewsInfinite from '@/components/ReviewsInfinite'
+
 import { TechnicalEcosystem } from '@/components/TechnicalEcosystem'
 
 import React from 'react'
@@ -22,6 +23,7 @@ const page = () => {
     <ReviewsInfinite/>
     <ContactSection/>
     <Footer/>
+  
     
     </>
   )

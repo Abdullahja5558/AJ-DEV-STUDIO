@@ -1,5 +1,5 @@
 /* globals.css */
-
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
 
 /* Default cursor ko har jagah se hide karne ke liye */
 *, *::before, *::after {
