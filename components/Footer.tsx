@@ -3,34 +3,31 @@ import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 
 const NAV_LINKS = [
-  { name: "Github", slug: "gh", color: "#06b6d4", href: "https://github.com/Abdullahja5558" },
- 
+  { name: "Github", slug: "gh", color: "#ffffff", href: "https://github.com/Abdullahja5558" },
   { name: "WhatsApp", slug: "wa", color: "#25D366", href: "https://wa.me/923346932540?text=Hello%20AJ,%20I'd%20like%20to%20discuss%20a%20project." },
-  { name: "Instagram", slug: "ig", color: "#c51dd1", href: "https://www.instagram.com/mian.abdullah.9/" },
-  { name: "Mail", slug: "em", color: "#fffcff", href: "mailto:ajdeveloperr@gmail.com" },
+  { name: "Instagram", slug: "ig", color: "#E1306C", href: "https://www.instagram.com/mian.abdullah.9/" },
+  { name: "Mail", slug: "em", color: "#ffffff", href: "mailto:ajdeveloperr@gmail.com" },
 ];
 
 export const PremiumFooter = () => {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
-
-  
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
     <footer 
-      className="relative min-h-screen w-full bg-[#05001a] overflow-hidden flex flex-col justify-between py-32 px-8 pb-12"
+      className="relative min-h-screen w-full bg-[#000000] overflow-hidden flex flex-col justify-between py-32 px-8 pb-12 selection:bg-white selection:text-black"
       id="footer"
       style={{ contentVisibility: 'auto' }}
     >
-    
+      {/* Background Atmosphere */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-cyan-500/3 rounded-full blur-[120px] transform-gpu" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-zinc-900/10 rounded-full blur-[150px] transform-gpu" 
           style={{ backfaceVisibility: 'hidden' }}
         />
       </div>
 
-      
+      {/* Signature Section */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,23 +36,23 @@ export const PremiumFooter = () => {
           className="space-y-6"
         >
           <div className="flex items-center justify-center gap-4 mb-2">
-             <div className="h-px w-8 bg-cyan-500/50" />
-             <span className="text-[10px] tracking-[1em] text-cyan-500/50 font-bold uppercase">SIGNATURE</span>
-             <div className="h-px w-8 bg-cyan-500/50" />
+             <div className="h-[0.5px] w-8 bg-zinc-800" />
+             <span className="text-[10px] tracking-[1em] text-zinc-500 font-bold uppercase">SIGNATURE</span>
+             <div className="h-[0.5px] w-8 bg-zinc-800" />
           </div>
-          <h2 className="text-6xl md:text-6xl font-black tracking-tighter text-white leading-tight">
+          <h2 className="text-6xl md:text-6xl font-black tracking-tighter text-white leading-tight uppercase">
             Made with care by <br />
-            <span className="text-white/10 italic">AJ</span>
+            <span className="text-zinc-900 italic font-light">AJ</span>
           </h2>
         </motion.div>
       </div>
 
-      
+      {/* Social Nodes Center Card */}
       <div className="relative z-10 flex-1 flex items-center justify-center my-12 transform-gpu">
         <div className="relative w-full max-w-5xl h-75 flex items-center justify-center">
           
           <motion.div 
-            className="absolute inset-0 rounded-[2.5rem] border border-white/3 bg-white/1 backdrop-blur-2xl flex items-center justify-center overflow-hidden transform-gpu"
+            className="absolute inset-0 rounded-[4rem] border border-white/5 bg-white/[0.01] backdrop-blur-3xl flex items-center justify-center overflow-hidden transform-gpu"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -75,23 +72,25 @@ export const PremiumFooter = () => {
                   className="group relative flex flex-col items-center gap-6 transform-gpu will-change-transform"
                 >
                   <div className="relative">
-                   
+                    {/* The Glowing Dot */}
                     <motion.div 
                       animate={{
-                        boxShadow: hoveredNode === link.slug ? `0 0 50px ${link.color}` : "0 0 15px rgba(255,255,255,0.05)",
-                        backgroundColor: hoveredNode === link.slug ? link.color : "rgba(255,255,255,0.1)"
+                        boxShadow: hoveredNode === link.slug ? `0 0 40px ${link.color}66` : "0 0 0px rgba(255,255,255,0)",
+                        backgroundColor: hoveredNode === link.slug ? link.color : "rgba(255,255,255,0.05)",
+                        borderColor: hoveredNode === link.slug ? link.color : "rgba(255,255,255,0.1)"
                       }}
-                      className="w-5 h-5 rounded-full transition-all duration-500" 
+                      className="w-4 h-4 rounded-full border transition-all duration-500" 
                     />
                     
+                    {/* Pulse Ring */}
                     <motion.div 
-                      animate={{ scale: hoveredNode === link.slug ? [1, 1.4, 1] : 1 }}
+                      animate={{ scale: hoveredNode === link.slug ? [1, 1.6, 1] : 1, opacity: hoveredNode === link.slug ? [1, 0, 1] : 0 }}
                       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                      className="absolute inset-0 border border-white/10 rounded-full pointer-events-none transform-gpu"
+                      className="absolute inset-[-8px] border border-white/10 rounded-full pointer-events-none transform-gpu"
                     />
                   </div>
                   
-                  <span className={`text-[11px] uppercase tracking-[0.5em] font-black transition-all duration-500 select-none ${hoveredNode === link.slug ? 'text-white' : 'text-white/20'}`}>
+                  <span className={`text-[11px] uppercase tracking-[0.6em] font-black transition-all duration-500 select-none ${hoveredNode === link.slug ? 'text-white' : 'text-zinc-700'}`}>
                     {link.name}
                   </span>
                 </motion.a>
@@ -101,36 +100,44 @@ export const PremiumFooter = () => {
         </div>
       </div>
 
-    
+      {/* Bottom Info Section */}
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-12">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-12">
           
           <div className="flex flex-col items-center md:items-start gap-4">
-             <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-medium">
+             <p className="text-[10px] tracking-[0.4em] uppercase text-zinc-600 font-medium">
                 Let’s build the future together.
              </p>
-             <div className="h-px w-40 bg-linear-to-r from-cyan-500/50 to-transparent" />
+             <div className="h-[0.5px] w-40 bg-gradient-to-r from-zinc-800 to-transparent" />
           </div>
 
           <div className="flex flex-col items-center md:items-end gap-6 text-center md:text-right">
             <div className="flex gap-16">
               <div className="space-y-1">
-                <p className="text-[9px] uppercase tracking-widest text-white/20 font-bold">Status</p>
-                <p className="text-[10px] uppercase tracking-widest text-cyan-400 font-black">Open to Roles</p>
+                <p className="text-[9px] uppercase tracking-widest text-zinc-800 font-bold">Status</p>
+                <p className="text-[10px] uppercase tracking-widest text-white font-black">Open to Roles</p>
               </div>
               <div className="space-y-1">
-                <p className="text-[9px] uppercase tracking-widest text-white/20 font-bold">Relic</p>
+                <p className="text-[9px] uppercase tracking-widest text-zinc-800 font-bold">Relic</p>
                 <p className="text-[10px] uppercase tracking-widest text-white font-black">© {currentYear}</p>
               </div>
             </div>
-            <p className="text-[8px] uppercase tracking-[0.6em] text-white/10 font-bold">
+            <p className="text-[8px] uppercase tracking-[0.8em] text-zinc-900 font-bold">
               Architecting Digital Resilience
             </p>
           </div>
         </div>
       </div>
 
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50" />
+      {/* Noise Texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50" />
+      
+      <style jsx global>{`
+        ::selection {
+          background-color: #ffffff !important;
+          color: #000000 !important;
+        }
+      `}</style>
     </footer>
   );
 };
