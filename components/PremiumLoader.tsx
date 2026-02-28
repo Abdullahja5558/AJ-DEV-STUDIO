@@ -18,7 +18,7 @@ export default function CinematicStarLoader({ onComplete }: { onComplete: () => 
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#000000] overflow-hidden cursor-none pointer-events-none"
+      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#fafafa] overflow-hidden cursor-none pointer-events-none"
     >
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -51,7 +51,7 @@ export default function CinematicStarLoader({ onComplete }: { onComplete: () => 
          
           <use
             href="#starPath"
-            fill="#060319"
+            fill="#00000"
             
           />
 

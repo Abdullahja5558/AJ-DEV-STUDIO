@@ -87,6 +87,7 @@ export const ExperienceTimeline = () => {
       <section 
         ref={containerRef} 
         className="relative min-h-[250vh] md:min-h-[400vh] bg-[#000000] py-20 md:py-32 px-6 lg:px-24 overflow-hidden selection:bg-white selection:text-black"
+        id="experience"
       >
         
         {/* NEW TOP OBSIDIAN OVERLAY: Matches Hero/Skills colors exactly */}

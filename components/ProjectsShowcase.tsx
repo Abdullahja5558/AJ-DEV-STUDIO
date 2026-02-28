@@ -69,7 +69,8 @@ export const ProjectsShowcase = () => {
 
   return (
     <ReactLenis root options={{ lerp: 0.07, duration: 1.2 }}>
-      <section ref={targetRef} className="relative h-[600vh] bg-black selection:bg-white selection:text-black">
+      <section ref={targetRef} className="relative h-[600vh] bg-black selection:bg-white selection:text-black"
+      id="projects">
         
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
           
