@@ -1,165 +1,158 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform, MotionValue } from "framer-motion";
-import { ReactLenis } from 'lenis/react';
 
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { ArrowRight, MoveRight } from "lucide-react";
+import { ReactLenis } from "lenis/react";
+
+// Original Experience Data
 const EXPERIENCES = [
   {
-    title: "Backend Developer Journey",
+    year: "2025",
+    role: "Backend Developer Journey",
     company: "Global Tech Solutions",
-    period: "2025 — PRESENT",
-    description: "Architecting high-performance server logic and optimizing database queries for real-time applications.",
+    location: "REMOTE • USA",
+    details: "Architecting high-performance server logic and optimizing database queries for real-time applications.",
   },
   {
-    title: "React-Native / Three.js Developer",
+    year: "2023",
+    role: "React-Native / Three.js Developer",
     company: "Creative Vision Studio",
-    period: "2023 — 2025",
-    description: "Crafting immersive 3D mobile experiences and AR-driven user interfaces with seamless performance.",
+    location: "DUBAI • UAE",
+    details: "Crafted immersive mobile experiences and AR-driven interfaces with seamless performance.",
   },
   {
-    title: "Frontend Developer",
+    year: "2022",
+    role: "Frontend Developer",
     company: "NextGen Systems",
-    period: "2022 — 2023",
-    description: "Developing sophisticated web architectures with Next.js, focusing on micro-interactions and atomic design.",
+    location: "FAISALABAD • PK",
+    details: "Developing sophisticated web architectures with Next.js, focusing on micro-interactions and atomic design.",
   },
 ];
 
-const ExperienceCard = ({ exp, index, scrollProgress }: { exp: any, index: number, scrollProgress: MotionValue<number> }) => {
-  const isEven = index % 2 === 0;
-  const step = 1 / EXPERIENCES.length;
-  const start = index * step;
+const ExperienceJourney = () => {
+  const targetRef = useRef<HTMLElement>(null);
   
-  const opacity = useTransform(scrollProgress, [start, start + 0.1], [0, 1]);
-  const y = useTransform(scrollProgress, [start, start + 0.1], [20, 0]);
-  const lineWidth = useTransform(scrollProgress, [start, start + 0.1], ["0%", "80%"]);
-
-  return (
-    <motion.div
-      style={{ opacity, y }}
-      className={`relative flex w-full mb-32 md:mb-[35vh] last:mb-0 ${isEven ? "md:justify-start" : "md:justify-end"} justify-start`}
-    >
-      <div className="w-full md:w-[42%] relative group px-2 md:px-0">
-        <div className={`absolute -top-10 ${isEven ? "md:right-0 md:left-auto" : "md:left-0"} left-0 opacity-10`}>
-           <span className="text-6xl md:text-[32px] font-black font-mono text-zinc-800 italic">0{index + 1}</span>
-        </div>
-
-        <div className="relative pt-6">
-          <div className={`flex items-center gap-3 mb-4 ${!isEven && "md:flex-row-reverse"} flex-row`}>
-            <span className="text-zinc-500 font-mono text-[10px] tracking-[0.45em] uppercase whitespace-nowrap">
-              {exp.period}
-            </span>
-            <motion.div 
-              style={{ width: lineWidth }}
-              className="h-[0.5px] bg-zinc-800 hidden md:block"
-            />
-          </div>
-
-          <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tighter leading-[0.9] transition-all duration-700 group-hover:italic group-hover:text-zinc-100">
-            {exp.title}
-          </h3>
-
-          <div className="flex flex-col gap-4">
-             <p className="text-zinc-400 font-bold uppercase tracking-[0.25em] text-[10px]">
-               {exp.company}
-             </p>
-             <p className="text-zinc-600 font-light leading-relaxed text-base md:text-lg max-w-md border-l border-white/[0.04] pl-6 group-hover:border-white/20 transition-all duration-500">
-               {exp.description}
-             </p>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-export const ExperienceTimeline = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
+  // High vertical height to allow for read-locking space
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 80%", "end end"],
+    target: targetRef,
+    offset: ["start start", "end end"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 50, damping: 30 });
+  // Sticky-like horizontal movement logic. 
+  // We use slightly narrower range on scroll to create visual "dwell" time.
+  const xRaw = useTransform(scrollYProgress, [0.05, 0.9], ["0%", "-70%"]);
+  // Spring makes it feel smooth like the 0.05 lerp
+  const x = useSpring(xRaw, { stiffness: 45, damping: 22 });
 
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.2 }}>
+    <ReactLenis root options={{ lerp: 0.05, duration: 1.5 }}>
       <section 
-        ref={containerRef} 
-        className="relative min-h-[250vh] md:min-h-[400vh] bg-[#000000] py-20 md:py-32 px-6 lg:px-24 overflow-hidden selection:bg-white selection:text-black"
+        ref={targetRef} 
+        className="relative h-[400vh] bg-[#070707] selection:bg-black selection:text-white"
         id="experience"
       >
-        
-        {/* NEW TOP OBSIDIAN OVERLAY: Matches Hero/Skills colors exactly */}
-        <div className="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-[#050505] via-[#060606]/40 to-transparent pointer-events-none z-0" />
-        
-        {/* ATMOSPHERIC TOP-RIGHT GLOW: Syncs with Hero light */}
-        <div className="absolute top-0 right-0 w-[60%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)] blur-[140px] pointer-events-none z-0" />
-        
-        {/* SUBTLE GRID */}
-        <div className="fixed inset-0 pointer-events-none">
-           <div className="absolute inset-0 opacity-[0.01]" 
-                style={{ backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`, backgroundSize: '60px 60px' }} />
-        </div>
-
-        <div className="max-w-7xl mx-auto mb-32 md:mb-60 relative z-20">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-[0.5px] w-12 bg-zinc-800" />
-            <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-zinc-500">
-                THE JOURNEY
-            </span>
-          </div>
-          <h2 className="text-5xl md:text-[100px] font-black leading-[0.85] tracking-[-0.05em] text-white">
-            Engineering <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-400 to-zinc-900">Mastery.</span>
-          </h2>
-        </div>
-
-        <div className="max-w-6xl mx-auto relative">
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full h-full pointer-events-none hidden md:block">
-            <svg width="100%" height="100%" viewBox="0 0 100 1200" preserveAspectRatio="none">
-              <path 
-                d="M50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800 C 80 950, 20 1050, 50 1200" 
-                fill="none" 
-                stroke="white" 
-                strokeOpacity="0.02" 
-                strokeWidth="0.5"
-              />
-              <motion.path 
-                d="M50 0 C 80 150, 20 250, 50 400 C 80 550, 20 650, 50 800 C 80 950, 20 1050, 50 1200" 
-                fill="none" 
-                stroke="white" 
-                strokeOpacity="0.15" 
-                strokeWidth="0.8" 
-                style={{ pathLength: smoothProgress }}
-              />
-            </svg>
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+          
+          {/* Subtle Atmospheric Glows */}
+          <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)] blur-[140px] pointer-events-none" />
+          
+          {/* Giant Background Text */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] select-none pointer-events-none">
+            <h2 className="text-[40vw] font-black text-white uppercase tracking-tighter">PATH</h2>
           </div>
 
-          <div className="absolute left-0.5 top-0 bottom-0 w-[0.5px] bg-white/[0.05] md:hidden" />
+          <motion.div style={{ x }} className="flex items-center">
+            
+            {/* 1. Header Section */}
+            <div className="min-w-[50vw] md:min-w-[45vw] px-10 md:px-24 flex flex-col justify-center gap-10 relative z-10">
+              <div className="space-y-4">
+                <span className="text-[10px] font-mono uppercase tracking-[0.8em] text-zinc-600 block">The Journey</span>
+                <h2 className="text-7xl md:text-[10vw] font-black tracking-tighter text-white leading-[0.85] uppercase">
+                  WORK <br /> <span className="italic font-outline opacity-20 text-white">History</span>
+                </h2>
+              </div>
+              
+              <div className="flex items-center gap-8 mt-12 border-t border-white/5 pt-10">
+                  <p className="text-zinc-600 font-mono text-[9px] uppercase tracking-[0.4em]">Scroll to Navigate</p>
+                  <motion.div 
+                      animate={{ x: [0, 20, 0] }} 
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                      className="text-white opacity-30"
+                  >
+                      <MoveRight size={40} strokeWidth={1} />
+                  </motion.div>
+              </div>
+            </div>
 
-          <div className="relative z-10">
-            {EXPERIENCES.map((exp, i) => (
-              <ExperienceCard key={i} exp={exp} index={i} scrollProgress={smoothProgress} />
-            ))}
-          </div>
+            {/* Visual Spacer */}
+            <div className="min-w-[10vw] md:min-w-[15vw]" /> 
+
+            {/* 2. Experience Cards Loop - Updated to High-Contrast White */}
+            <div className="flex gap-24 md:gap-40 pr-[20vw]">
+              {EXPERIENCES.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -15, scale: 1.01 }}
+                  className="relative min-w-[360px] md:min-w-[550px] h-[600px] bg-white rounded-[60px] p-12 md:p-16 flex flex-col justify-between group cursor-pointer border border-black/5 shadow-2xl overflow-hidden"
+                >
+                  {/* Year Watermark */}
+                  <span className="absolute -top-10 -right-5 text-[15vw] font-black text-black/[0.04] select-none transition-all group-hover:text-black/[0.08] duration-700">
+                    {exp.year}
+                  </span>
+
+                  <div className="z-10 flex flex-col gap-6">
+                    <div className="flex items-center gap-4 text-zinc-600 font-bold text-[10px] tracking-[0.4em] uppercase">
+                       <div className="w-10 h-[1.5px] bg-zinc-300 group-hover:w-16 group-hover:bg-zinc-800 transition-all duration-500" />
+                       <span>{exp.location}</span>
+                    </div>
+                    <h3 className="text-4xl md:text-6xl font-black text-black tracking-tighter leading-[0.95] group-hover:italic transition-all duration-700">
+                        {exp.role}
+                    </h3>
+                    <p className="text-black/80 text-xl font-bold uppercase tracking-tight">
+                        @ {exp.company}
+                    </p>
+                  </div>
+
+                  <div className="z-10">
+                    {/* Increased visibility description p-tag */}
+                    <p className="text-black/70 font-medium text-lg md:text-xl leading-relaxed mb-12 max-w-[420px]">
+                        {exp.details}
+                    </p>
+                    <div className="w-18 h-18 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-110 group-hover:bg-zinc-800 transition-transform duration-500 shadow-2xl">
+                        <ArrowRight size={30} strokeWidth={2}/>
+                    </div>
+                  </div>
+
+                  {/* Vertical Sidebar Text Inside Card */}
+                  <div className="absolute bottom-16 right-10">
+                      <span className="text-[9px] font-mono font-black text-black/10 uppercase tracking-[0.6em] [writing-mode:vertical-lr]">
+                          Archive No. 0{index + 1}
+                      </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* 3. Closing Chapter Space */}
+            <div className="min-w-[60vw] px-24">
+              <h2 className="text-[9vw] font-black text-white tracking-tighter leading-none uppercase">
+                Engineering <br /> <span className="opacity-10 font-outline">Mastery.</span>
+              </h2>
+            </div>
+
+          </motion.div>
         </div>
 
-        <div className="fixed inset-0 pointer-events-none opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        <style jsx global>{`
+          .font-outline {
+            -webkit-text-stroke: 1.5px white;
+            color: transparent;
+          }
+        `}</style>
       </section>
-
-      <style jsx global>{`
-        ::selection {
-          background-color: #ffffff !important;
-          color: #000000 !important;
-        }
-        ::-moz-selection {
-          background-color: #ffffff !important;
-          color: #000000 !important;
-        }
-      `}</style>
     </ReactLenis>
   );
 };
 
-export default ExperienceTimeline;
+export default ExperienceJourney;
