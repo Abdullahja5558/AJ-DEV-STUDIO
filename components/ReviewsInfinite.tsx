@@ -34,7 +34,9 @@ const reviews = [
     role: "Lead Developer",
     text: <>The <span className="bg-white text-black px-2 py-0.5 font-bold mx-1">code quality and architecture</span> are top-notch. Seamless onboarding.</>,
     company: "CodeCraft"  
-  }
+  },
+  
+  
 ];
 
 interface Review {

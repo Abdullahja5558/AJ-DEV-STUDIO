@@ -24,13 +24,14 @@ const msMadi = Ms_Madi({
 
 export const metadata: Metadata = {
   title:
-    "AJ – Frontend Developer | Modern, Fast, SEO-Friendly Websites with React, Next.js, HTML, CSS, JavaScript",
+    "AJ – Full-Stack Developer| Modern, Fast, SEO-Friendly Websites with React, Next.js, Node,js, Express js, MongoDB, JavaScript",
   icons: {
     icon: "/favicon.png",
   },
   description:
-    "AJ is a frontend developer specializing in modern, fast, and SEO-friendly websites using React, Next.js, HTML, CSS, and JavaScript. Expert in web performance, responsive design, and UI/UX best practices.",
+    "AJ is a Full-Stack developer specializing in modern, fast, and SEO-friendly websites using React, Next.js, Node.js , express js, MongoDB,and JavaScript. Expert in web performance, responsive design, and UI/UX best practices.",
   keywords: [
+    "Full stack developer",
     "Frontend Developer",
     "React Developer",
     "Next.js Developer",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     "UI/UX Developer",
     "Web Developer Portfolio",
     "AJ Developer",
-    "Freelance Frontend Developer",
+    "Freelance Full stack Developer",
     "Remote Web Developer",
     "JavaScript Developer",
     "Progressive Web Apps",
@@ -54,13 +55,14 @@ export const metadata: Metadata = {
     "Graphic Designer",
     "Web Developer",
     "Frontend Web Developer",
+    "Backend Web Developer"
   ],
   authors: [{ name: "Abdullah Javed" }],
   openGraph: {
     title:
-      "AJ – Frontend Developer | Modern, Fast, SEO-Friendly Websites with React, Next.js, HTML, CSS, JavaScript",
+      "AJ – Full-Stack Developer | Modern, Fast, SEO-Friendly Websites with React, Next.js, Node.js, Express js, MongoDB, and JavaScript",
     description:
-      "Modern frontend developer building fast, responsive, and SEO-optimized websites with React, Next.js, HTML, CSS, and JavaScript.",
+      "Modern Full-Stack Developer building fast, responsive, and SEO-optimized websites with React, Next.js, Node.js , Express js , MongoDB, and JavaScript.",
     url: "https://aj-code.vercel.app",
     siteName: "AJ Code",
     type: "website",

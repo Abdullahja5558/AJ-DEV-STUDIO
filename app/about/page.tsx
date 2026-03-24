@@ -114,7 +114,7 @@ const PremiumAbout = () => {
 
             <div className="space-y-4 max-w-2xl mx-auto lg:mx-0">
               <p className="text-zinc-400 text-base md:text-lg lg:text-xl leading-relaxed font-light">
-                I am a <span className="text-white font-medium">Bachelor of Computer Science</span> graduate and a <span className="text-zinc-200 font-medium">Frontend Developer</span> dedicated to merging precise logic with artistic vision.
+                I am a <span className="text-white font-medium">Bachelor of Computer Science</span> graduate and a <span className="text-zinc-200 font-medium">Full-Stack Mern Developer</span> dedicated to merging precise logic with artistic vision.
               </p>
               <p className="text-zinc-500 text-sm md:text-base leading-relaxed font-light opacity-80">
                 With a deep focus on <span className="text-white">Next.js and Framer Motion</span>, I build interfaces that aren't just functional, but emotional.

@@ -1,19 +1,20 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export const CustomCursor = () => {
- 
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Mouse Positions
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  
-  const springConfig = { damping: 28, stiffness: 400, mass: 0.1 };
+  // Ultra-Smooth Spring Config (Liquid Feel)
+  const springConfig = { damping: 35, stiffness: 350, mass: 0.5 };
   const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(smoothX, springConfig); // Initial sync
-  const cursorSize = useMotionValue(20);
+  const smoothY = useSpring(mouseY, springConfig);
 
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorSize = useSpring(isHovered ? 80 : 16, springConfig);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -23,21 +24,8 @@ export const CustomCursor = () => {
 
     const handleInteraction = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const isInteractive = target.closest("button, a, input, [role='button']");
-      
-      if (isInteractive) {
-        cursorSize.set(50);
-        if (cursorRef.current) {
-          cursorRef.current.style.backgroundColor = "rgba(30, 64, 175, 0.4)"; // Brighten on hover
-          cursorRef.current.style.borderColor = "rgba(147, 197, 253, 0.5)";
-        }
-      } else {
-        cursorSize.set(20);
-        if (cursorRef.current) {
-          cursorRef.current.style.backgroundColor = "rgba(30, 64, 175, 0.8)"; // Deep blue
-          cursorRef.current.style.borderColor = "rgba(255, 255, 255, 0.1)";
-        }
-      }
+      const isInteractive = target.closest("button, a, input, [role='button'], .premium-hover");
+      setIsHovered(!!isInteractive);
     };
 
     window.addEventListener("mousemove", moveCursor);
@@ -47,34 +35,57 @@ export const CustomCursor = () => {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", handleInteraction);
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
-    <motion.div
-      ref={cursorRef}
-      className="fixed top-0 left-0 rounded-full pointer-events-none z-9999 border flex items-center justify-center transition-colors duration-300"
-      style={{
-        x: smoothX,
-        y: useSpring(mouseY, springConfig),
-        translateX: "-50%",
-        translateY: "-50%",
-        width: cursorSize,
-        height: cursorSize,
-        backgroundColor: "rgba(30, 64, 175, 0.8)", 
-        borderColor: "rgba(255, 255, 255, 0.1)",
-        boxShadow: "0 0 20px rgba(29, 78, 216, 0.3)",
-      }}
-    >
-      
-      <div className="w-1 h-1 bg-white/40 rounded-full" />
-      
-      
-      <motion.div 
-        className="absolute -inset-2 border border-blue-500/10 rounded-full"
-        animate={{ scale: [1, 1.1, 1] }}
-        transition={{ duration: 2, repeat: Infinity }}
+    <>
+      {/* 1. MAIN CURSOR (The Inverter) */}
+      <motion.div
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center"
+        style={{
+          x: smoothX,
+          y: smoothY,
+          translateX: "-50%",
+          translateY: "-50%",
+          width: cursorSize,
+          height: cursorSize,
+          backgroundColor: "white", // Invert mode mein ye white background ko black aur black ko white karega
+        }}
+      >
+        {/* Subtle dot inside when not hovering */}
+        {!isHovered && (
+          <div className="w-1 h-1 bg-black rounded-full" />
+        )}
+      </motion.div>
+
+      {/* 2. OUTER GLOW (The Aesthetic Ring) */}
+      <motion.div
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border border-white/20"
+        style={{
+          x: smoothX,
+          y: smoothY,
+          translateX: "-50%",
+          translateY: "-50%",
+          width: isHovered ? 100 : 40,
+          height: isHovered ? 100 : 40,
+          opacity: isHovered ? 0.5 : 0.2,
+          transition: "width 0.5s ease, height 0.5s ease, opacity 0.5s ease",
+        }}
       />
-    </motion.div>
+
+      <style jsx global>{`
+        /* Hide default cursor only on desktop for better UX */
+        @media (min-width: 1024px) {
+          html, body {
+            cursor: none !important;
+          }
+          a, button, input {
+            cursor: none !important;
+          }
+        }
+      `}</style>
+    </>
   );
 };
+
 export default CustomCursor;
