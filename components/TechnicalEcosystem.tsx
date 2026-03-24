@@ -6,14 +6,14 @@ import { ReactLenis } from "lenis/react";
 const SKILLS = [
   { name: "Next.js 15", tag: "Framework" },
   { name: "TypeScript", tag: "Language" },
-  { name: "HTML5", tag: "Markup" },
+  { name: "MERN Stack", tag: "FullStack" }, // Added for Fullstack Context
   { name: "React", tag: "Library" },
   { name: "Tailwind", tag: "Design" },
   { name: "Node.js", tag: "Backend" },
   { name: "PostgreSQL", tag: "Database" },
-  { name: "Prisma", tag: "ORM" },
+  { name: "MongoDB", tag: "NoSQL" }, // Added for MERN
   { name: "Framer", tag: "Motion" },
-  { name: "CSS", tag: "Styling" },
+  { name: "GSAP", tag: "Animation" },
   { name: "Git", tag: "Version" },
   { name: "JavaScript", tag: "Language" },
 ];
@@ -26,24 +26,26 @@ export const TechnicalEcosystem = () => {
     offset: ["start end", "end start"],
   });
 
-  const stackY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const springY = useSpring(stackY, { stiffness: 30, damping: 15 });
+  // Smooth parallax for the background "STACK" text
+  const stackY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const springY = useSpring(stackY, { stiffness: 40, damping: 20 });
 
   return (
     <ReactLenis root options={{ lerp: 0.05, duration: 1.5 }}>
       <section
         id="skills"
         ref={containerRef}
-        className="relative min-h-screen w-full bg-[#070707] py-40 overflow-hidden selection:bg-white selection:text-black"
+        className="relative min-h-screen w-full bg-[#000000] py-40 overflow-hidden selection:bg-white selection:text-black"
       >
-        {/* ATMOSPHERIC GLOWS */}
-        <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)] blur-[140px] pointer-events-none" />
+        {/* ATMOSPHERIC GLOWS - Subtle & Premium */}
+        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)] blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.01)_0%,transparent_70%)] blur-[100px] pointer-events-none" />
         
         {/* BACKGROUND "STACK" TEXT */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
           <motion.h2
             style={{ y: springY }}
-            className="text-[30vw] font-black text-white/[0.02] leading-none tracking-tighter uppercase whitespace-nowrap"
+            className="text-[35vw] font-black text-white/[0.015] leading-none tracking-tighter uppercase whitespace-nowrap select-none"
           >
             STACK
           </motion.h2>
@@ -54,15 +56,16 @@ export const TechnicalEcosystem = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-6 py-2 border border-white/10 rounded-full mb-8 bg-white/[0.02] backdrop-blur-md"
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-3 px-6 py-2 border border-white/5 rounded-full mb-8 bg-white/[0.01] backdrop-blur-md"
           >
-            <span className="w-8 h-[0.5px] bg-zinc-600" />
-            <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-zinc-400">
+            <span className="w-8 h-[1px] bg-zinc-800" />
+            <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-zinc-500">
               Technical Prowess
             </span>
           </motion.div>
           
-          <h2 className="text-6xl md:text-[8vw] font-bold tracking-tighter text-white leading-[0.85] uppercase">
+          <h2 className="text-6xl md:text-[7vw] font-bold tracking-tighter text-white leading-[0.85] uppercase">
             Modern <br /> 
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-400 to-zinc-800 font-outline">
                 Web Mastery
@@ -72,54 +75,54 @@ export const TechnicalEcosystem = () => {
 
         {/* 2. INFINITE RUNNING STREAMS */}
         <div className="flex flex-col gap-0 w-full relative z-10">
-          {/* Top Row - Dark Theme (Forward) */}
-          <div className="flex overflow-hidden border-y border-white/[0.05] py-12 bg-white/[0.01] backdrop-blur-sm group">
+          {/* Top Row - DARK (Forward) */}
+          <div className="flex overflow-hidden border-y border-white/[0.03] py-14 bg-white/[0.01] backdrop-blur-sm group">
             <motion.div 
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="flex whitespace-nowrap gap-20 items-center"
+              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+              className="flex whitespace-nowrap gap-24 items-center"
             >
               {[...SKILLS, ...SKILLS].map((skill, index) => (
                 <h3 
                   key={index} 
-                  className="text-zinc-500 text-6xl md:text-8xl font-black uppercase tracking-tighter hover:text-white transition-colors cursor-none"
+                  className="text-zinc-600 text-6xl md:text-8xl font-black uppercase tracking-tighter hover:text-white transition-all duration-500 cursor-default"
                 >
-                  {skill.name} <span className="text-zinc-800 ml-10">•</span>
+                  {skill.name} <span className="text-zinc-900 ml-12">•</span>
                 </h3>
               ))}
             </motion.div>
           </div>
 
-          {/* Bottom Row - WHITE BANNER (Reverse) */}
-          <div className="flex overflow-hidden py-12 bg-white group">
+          {/* Bottom Row - BOLD WHITE (Reverse) */}
+          <div className="flex overflow-hidden py-14 bg-white group">
             <motion.div 
               animate={{ x: ["-50%", "0%"] }}
-              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-              className="flex whitespace-nowrap gap-20 items-center"
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              className="flex whitespace-nowrap gap-24 items-center"
             >
               {[...SKILLS].reverse().concat([...SKILLS].reverse()).map((skill, index) => (
                 <h3 
                   key={index} 
-                  className="text-black text-6xl md:text-8xl font-black uppercase tracking-tighter hover:opacity-50 transition-all cursor-none"
+                  className="text-black text-6xl md:text-8xl font-black uppercase tracking-tighter hover:opacity-40 transition-all duration-500 cursor-default"
                 >
-                  {skill.name} <span className="text-black/20 ml-10">—</span>
+                  {skill.name} <span className="text-black/10 ml-12">—</span>
                 </h3>
               ))}
             </motion.div>
           </div>
 
-          {/* 3. CENTER GLASS OVERLAY */}
+          {/* 3. CENTER GLASS OVERLAY - Precision Focus */}
           <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 hidden lg:block">
             <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ type: "spring", damping: 20 }}
-              className="w-[380px] h-[380px] rounded-full border border-white/10 backdrop-blur-xl flex items-center justify-center bg-white/[0.03] shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              className="w-[400px] h-[400px] rounded-full border border-white/10 backdrop-blur-2xl flex items-center justify-center bg-white/[0.02] shadow-[0_0_80px_rgba(0,0,0,0.8)]"
             >
-                <div className="w-[280px] h-[280px] rounded-full border-[1px] border-white/20 flex items-center justify-center bg-black shadow-2xl relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-                    <span className="text-zinc-400 font-mono text-center text-[10px] tracking-[0.4em] uppercase px-12 relative z-10 leading-relaxed">
-                        Precision in every <br /> <span className="text-white">single pixel</span>
+                <div className="w-[300px] h-[300px] rounded-full border border-white/10 flex items-center justify-center bg-black shadow-2xl relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+                    <span className="text-zinc-500 font-mono text-center text-[10px] tracking-[0.4em] uppercase px-12 relative z-10 leading-relaxed">
+                        Precision in every <br /> <span className="text-white">Fullstack Layer</span>
                     </span>
                 </div>
             </motion.div>
@@ -127,28 +130,27 @@ export const TechnicalEcosystem = () => {
         </div>
 
         {/* 4. FOOTER QUOTE */}
-        <div className="mt-40 max-w-4xl mx-auto px-6 text-center relative z-10">
-          <p className="text-2xl md:text-4xl font-light text-zinc-500 leading-tight tracking-tighter italic">
-            "Building systems that scale seamlessly with 
-            <span className="text-white not-italic font-medium"> user growth </span> 
-            and high-performance expectations."
+        <div className="mt-44 max-w-4xl mx-auto px-6 text-center relative z-10">
+          <p className="text-2xl md:text-4xl font-light text-zinc-600 leading-tight tracking-tighter italic">
+            "Architecting resilient systems that 
+            <span className="text-white not-italic font-medium"> scale seamlessly </span> 
+            from prototype to production."
           </p>
           
-          <div className="mt-16 inline-flex items-center gap-4 bg-white/[0.02] border border-white/[0.05] py-4 px-8 rounded-full backdrop-blur-3xl">
-            <div className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-pulse" />
-            <span className="text-[9px] font-mono text-zinc-500 tracking-[0.4em] uppercase">
-              Status: Available 2026
+          <div className="mt-20 inline-flex items-center gap-4 bg-white/[0.01] border border-white/[0.05] py-4 px-10 rounded-full backdrop-blur-3xl">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[10px] font-mono text-zinc-500 tracking-[0.5em] uppercase">
+              Engineered in Pakistan • 2026
             </span>
           </div>
         </div>
 
         <style jsx global>{`
           .font-outline {
-            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+            -webkit-text-stroke: 1px rgba(255,255,255,0.08);
           }
-          ::selection {
-            background-color: #ffffff !important;
-            color: #000000 !important;
+          html {
+            background-color: #000000;
           }
         `}</style>
       </section>

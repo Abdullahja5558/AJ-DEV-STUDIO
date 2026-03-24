@@ -17,17 +17,17 @@ const page = () => {
       <Navbar />
       {/* Main H1 for SEO and accessibility */}
       <h1 className="sr-only">
-        AJ – Frontend Developer | Modern, Fast, SEO-Friendly Websites with
-        React, Next.js, HTML, CSS, JavaScript
+        AJ – Full-Stack Developer | Modern, Fast, SEO-Friendly Websites with
+        React, Next.js, Node js , JavaScript ,Express js , Monogodb
       </h1>
       <Hero />
       {/* Section H2s for hierarchy and SEO */}
       <h2 className="sr-only">
-        Technical Skills and Ecosystem – React, Next.js, HTML, CSS, JavaScript
+        Technical Skills and Ecosystem – React, Next.js, Nodejs, Express js, JavaScript
       </h2>
       <TechnicalEcosystem />
       <h2 className="sr-only">
-        Professional Experience Timeline – Frontend Developer, Web Performance,
+        Professional Experience Timeline – Full-Stack Developer, Web Performance,
         UI/UX
       </h2>
       <ExperienceTimeline />
@@ -37,11 +37,11 @@ const page = () => {
       </h2>
       <ProjectsShowcase />
       <h2 className="sr-only">
-        Client Reviews and Testimonials – React, Next.js, Frontend Developer
+        Client Reviews and Testimonials – React, Next.js, Full-Stack Developer
       </h2>
       <ReviewsInfinite />
       <h2 className="sr-only">
-        Contact and Collaboration – Hire a Frontend Developer, Modern Web
+        Contact and Collaboration – Hire a Full-Stack Developer, Modern Web
         Projects
       </h2>
       <ContactSection />
