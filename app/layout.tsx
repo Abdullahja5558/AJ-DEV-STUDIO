@@ -24,22 +24,17 @@ const msMadi = Ms_Madi({
 
 export const metadata: Metadata = {
   title:
-    "AJ – Full Stack Developer | Full-Stack & Frontend Developer | Modern, Fast, SEO-Friendly Websites with React, Next.js, Node.js, Express.js, MongoDB, JavaScript",
+    "AJ – Full-Stack Developer| Modern, Fast, SEO-Friendly Websites with React, Next.js, Node,js, Express js, MongoDB, JavaScript",
   icons: {
     icon: "/favicon.png",
   },
   description:
-    "AJ is a Full Stack Developer and Frontend Developer specializing in modern, fast, and SEO-friendly websites using React, Next.js, Node.js, Express.js, MongoDB, and JavaScript. Expert in web performance, responsive design, and UI/UX best practices. If you search for AJ Full Stack Developer or AJ Frontend Developer, you will find this portfolio.",
+    "AJ is a Full-Stack developer specializing in modern, fast, and SEO-friendly websites using React, Next.js, Node.js , express js, MongoDB,and JavaScript. Expert in web performance, responsive design, and UI/UX best practices.",
   keywords: [
-    "AJ Full Stack Developer",
-    "AJ Frontend Developer",
-    "Full Stack Developer",
+    "Full stack developer",
     "Frontend Developer",
     "React Developer",
     "Next.js Developer",
-    "Node.js Developer",
-    "Express.js Developer",
-    "MongoDB Developer",
     "SEO Friendly Websites",
     "Modern Website Design",
     "HTML CSS JavaScript",
@@ -60,7 +55,7 @@ export const metadata: Metadata = {
     "Graphic Designer",
     "Web Developer",
     "Frontend Web Developer",
-    "Backend Web Developer",
+    "Backend Web Developer"
   ],
   authors: [{ name: "Abdullah Javed" }],
   openGraph: {
