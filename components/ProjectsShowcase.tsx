@@ -15,7 +15,7 @@ const PROJECTS = [
 const DUPLICATED_PROJECTS = [...PROJECTS, ...PROJECTS, ...PROJECTS];
 
 const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0], containerRef: React.RefObject<HTMLDivElement | null> }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLLIElement>(null);
   
   const { scrollXProgress } = useScroll({
     target: cardRef,
@@ -27,10 +27,10 @@ const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0],
   const scale = useSpring(scaleRaw, { stiffness: 100, damping: 25 });
 
   return (
-    <motion.div
+    <motion.li
       ref={cardRef}
       style={{ scale }}
-      className="relative shrink-0 w-[360px] md:w-[480px] h-[540px] md:h-[680px] mx-5 transform-gpu"
+      className="relative shrink-0 w-[360px] md:w-[480px] h-[540px] md:h-[680px] mx-5 transform-gpu list-none"
     >
       <a
         href={project.link}
@@ -38,6 +38,7 @@ const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0],
         rel="noopener noreferrer"
         className="group relative w-full h-full rounded-[2.5rem] overflow-hidden border border-white/[0.08] bg-[#0A0A0A] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.7)] block cursor-pointer transition-all duration-700 hover:border-white/30 hover:shadow-[0_0_60px_-12px_rgba(255,255,255,0.12)]"
         style={{ isolation: "isolate" }}
+        aria-label={`Visit project: ${project.title}`}
       >
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-white/[0.01] blur-2xl" />
@@ -50,14 +51,15 @@ const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0],
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} project showcase mockup`}
+            loading="lazy"
             className="w-full h-full object-cover grayscale opacity-[0.75] group-hover:grayscale-0 group-hover:opacity-[1] transition-all duration-[0.8s] group-hover:scale-105 will-change-transform"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/90" />
         </div>
 
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-10 pointer-events-none text-left flex flex-col justify-end">
-          <div className="w-10 h-[2px] bg-white/20 group-hover:w-20 group-hover:bg-white/60 transition-all duration-700 mb-5" />
+          <div className="w-10 h-[2px] bg-white/20 group-hover:w-20 group-hover:bg-white/60 transition-all duration-700 mb-5" aria-hidden="true" />
           
           <h3 className="text-3xl md:text-5xl font-extrabold text-white tracking-[-0.03em] mb-2 transition-all duration-500">
             {project.title}
@@ -67,7 +69,7 @@ const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0],
             {project.tagline}
           </p>
           
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-1.5" aria-label="Technologies used">
             {project.tech.map((t, i) => (
               <span key={i} className="px-3.5 py-1.5 rounded-full border border-white/[0.15] bg-black/50 backdrop-blur-xl text-[8.5px] uppercase tracking-[0.15em] text-zinc-300 font-medium group-hover:border-white/[0.3] group-hover:text-white transition-colors duration-500">
                 {t}
@@ -76,7 +78,7 @@ const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0],
           </div>
         </div>
       </a>
-    </motion.div>
+    </motion.li>
   );
 };
 
@@ -87,15 +89,16 @@ export const ProjectsShowcase = () => {
     <section 
       className="relative min-h-screen bg-[#000000] overflow-hidden selection:bg-white selection:text-black flex flex-col justify-between py-24"
       id="projects"
+      aria-labelledby="projects-heading"
     >
       {/* HEADER AREA - With big gap at the bottom */}
       <div className="w-full px-6 md:px-24 z-20 pointer-events-none mb-24 md:mb-32">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-6 mb-5">
-            <div className="h-px w-12 bg-zinc-800" />
+            <div className="h-px w-12 bg-zinc-800" aria-hidden="true" />
             <span className="text-[10px] tracking-[0.6em] text-zinc-600 font-bold uppercase">CURATED WORKS</span>
           </div>
-          <h2 className="text-6xl md:text-[95px] font-black tracking-[-0.05em] text-white leading-[0.85]">
+          <h2 id="projects-heading" className="text-6xl md:text-[95px] font-black tracking-[-0.05em] text-white leading-[0.85]">
             Selected <br /> <span className="text-white/[0.07] uppercase">PROJECTS</span>
           </h2>
         </div>
@@ -107,10 +110,12 @@ export const ProjectsShowcase = () => {
         className="relative w-full overflow-hidden flex items-center h-[650px] md:h-[750px] mb-20 md:mb-28"
         style={{ perspective: "1500px" }}
       >
-        {/* CSS-animated track for 100% stable resume functionality */}
-        <div 
-          className="flex items-center animate-infinite-marquee hover:[animation-play-state:paused]"
+        {/* CSS-animated track for 100% stable resume functionality - SEO FIX: wrapped in <ul> */}
+        <ul 
+          className="flex items-center animate-infinite-marquee hover:[animation-play-state:paused] p-0 m-0"
           style={{ transformStyle: "preserve-3d" }}
+          aria-live="off"
+          aria-label="Carousel of my featured projects"
         >
           {DUPLICATED_PROJECTS.map((project, index) => (
             <ProjectCard 
@@ -119,11 +124,11 @@ export const ProjectsShowcase = () => {
               containerRef={containerRef}
             />
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* Cinematic Grain & Soft Radial Lighting */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.012] mix-blend-overlay" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.008] blur-[250px] rounded-full" />
       </div>

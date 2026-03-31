@@ -93,12 +93,16 @@ export const Navbar = () => {
   return (
     <>
       {/* --- TRIGGER BUTTON --- */}
+      {/* SEO/Accessibility Fix: Added aria controls and label to the button */}
       <div className="fixed top-6 right-6 md:top-10 md:right-12 z-[300]">
         <button 
           onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-controls="navigation-menu"
           className="flex items-center justify-center p-4 group bg-white/5 backdrop-blur-2xl rounded-full border border-white/10 hover:border-white/40 transition-all duration-500 shadow-2xl"
         >
-          <div className="flex flex-col items-end gap-1.5">
+          <div className="flex flex-col items-end gap-1.5" aria-hidden="true">
             <motion.div 
               animate={{ 
                 width: isOpen ? 28 : 20, 
@@ -124,7 +128,11 @@ export const Navbar = () => {
       {/* --- THE DEEP OBSIDIAN MENU --- */}
       <AnimatePresence mode="wait">
         {isOpen && (
+          /* SEO Fix: Changed outer div to <nav> and added ID for accessibility */
           <motion.div 
+            id="navigation-menu"
+            role="navigation"
+            aria-label="Main Navigation"
             variants={menuVars}
             initial="initial"
             animate="animate"
@@ -132,8 +140,8 @@ export const Navbar = () => {
             className="fixed inset-0 z-[250] bg-[#050505] overflow-hidden"
           >
             {/* Ambient Lighting / Noise Texture */}
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-zinc-900/20 blur-[120px] rounded-full" />
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" aria-hidden="true" />
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-zinc-900/20 blur-[120px] rounded-full" aria-hidden="true" />
 
             <div className="flex flex-col h-full justify-center px-6 md:px-24 lg:px-32 relative z-10 pt-20 pb-40">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 max-w-7xl mx-auto w-full">
@@ -158,7 +166,7 @@ export const Navbar = () => {
                           {item.name}
                         </span>
                         <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-5 group-hover:translate-x-0 hidden sm:block">
-                            <span className="text-white text-3xl md:text-4xl font-light">→</span>
+                            <span className="text-white text-3xl md:text-4xl font-light" aria-hidden="true">→</span>
                         </div>
                       </Link>
                     </motion.div>
@@ -167,7 +175,7 @@ export const Navbar = () => {
               </div>
 
               {/* Decorative Background Text (Ultra Subtle) */}
-              <div className="absolute bottom-[-2%] right-[-2%] pointer-events-none opacity-[0.02] select-none hidden lg:block">
+              <div className="absolute bottom-[-2%] right-[-2%] pointer-events-none opacity-[0.02] select-none hidden lg:block" aria-hidden="true">
                   <h2 className="text-[20vw] font-black text-white leading-none uppercase">Abdullah</h2>
                   <h2 className="text-[20vw] font-black text-white leading-none uppercase -mt-20 ml-20">Javed</h2>
               </div>
@@ -181,8 +189,9 @@ export const Navbar = () => {
                 <div className="space-y-1 md:space-y-2">
                   <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold">Socials</p>
                   <div className="flex gap-4 md:gap-6">
-                    <button className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors">LinkedIn</button>
-                    <button className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors">Github</button>
+                    {/* SEO Fix: Changed from buttons to actual anchor tags with dummy hrefs. Update hrefs with real links. */}
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors">Github</a>
                   </div>
                 </div>
               </div>
