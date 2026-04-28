@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { name: "WhatsApp", slug: "wa", color: "#25D366", href: "https://wa.me/923346932540?text=Hello%20AJ,%20I'd%20like%20to%20discuss%20a%20project." },
   { name: "Instagram", slug: "ig", color: "#E1306C", href: "https://www.instagram.com/mian.abdullah.9/" },
   { name: "Mail", slug: "em", color: "#ffffff", href: "mailto:ajdeveloperr@gmail.com" },
+  { name: "LinkedIn", slug: "li", color: "#0077B5", href: "https://www.linkedin.com/in/abdullah-javed-a2b0b0396/" },
 ];
 
 export const PremiumFooter = () => {
