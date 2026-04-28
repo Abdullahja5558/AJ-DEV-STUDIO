@@ -6,7 +6,7 @@ import { ReactLenis } from "lenis/react";
 const SKILLS = [
   { name: "Next.js 15", tag: "Framework" },
   { name: "TypeScript", tag: "Language" },
-  { name: "MERN Stack", tag: "FullStack" }, // Added for Fullstack Context
+  { name: "MERN Stack", tag: "FullStack" }, 
   { name: "React", tag: "Library" },
   { name: "Tailwind", tag: "Design" },
   { name: "Node.js", tag: "Backend" },
