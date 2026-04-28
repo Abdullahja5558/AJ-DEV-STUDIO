@@ -2,7 +2,7 @@ import ExperienceTimeline from "@/components/CinematicTimeline";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Name from "@/components/Name";
+
 import Navbar from "@/components/Navbar";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import ReviewsInfinite from "@/components/ReviewsInfinite";
