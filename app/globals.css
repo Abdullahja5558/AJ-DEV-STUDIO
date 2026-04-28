@@ -1,33 +1,9 @@
-/* globals.css */
-
-/* Default cursor ko har jagah se hide karne ke liye */
-*, *::before, *::after {
-  cursor: none !important;
-}
-
-/* Specific elements par bhi ensure karein (kuch browsers overrides karte hain) */
-html, body, a, button, input, textarea, [role="button"] {
-  cursor: none !important;
-}
-
-/* Chrome, Safari, Edge aur Opera ke liye */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none !important;
-}
-
-/* Firefox ke liye */
-html, body {
-  scrollbar-width: none !important;
-  /* IE aur purane Edge ke liye */
-  -ms-overflow-style: none !important;
-}
-
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030014;
+  --foreground: #ededed;
+  --bg-dark: #030014;
 }
 
 @theme inline {
@@ -37,50 +13,47 @@ html, body {
   --font-mono: var(--font-geist-mono);
 }
 
+/* 1. Reset & Global Styles */
+*, *::before, *::after {
+  cursor: none !important;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--bg-dark);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+/* 2. Hide Scrollbar for Chrome, Safari, Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* 3. Interactive Elements Cursor Hide */
+a, button, input, textarea, [role="button"] {
+  cursor: none !important;
+}
+
+/* 4. Custom Cursor Logic */
+.cursor-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: exclusion;
+}
+
+/* Dark Mode Preferences */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
-
-body {
-  background: black;
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-
-  
-}
-
-
-
-/* Hide default cursor globally */
-body, html {
-  cursor: none;
-  
-}
-
-
-
-
-.cursor-container {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  /* Mix blend mode exclusion creates a reactive color effect */
-  mix-blend-mode: exclusion;
-}
-
-/* globals.css */
-:root {
-  --bg-dark: #030014;
-}
-
-body {
-  background-color: var(--bg-dark);
-}
-
-
-
-/* globals.css */

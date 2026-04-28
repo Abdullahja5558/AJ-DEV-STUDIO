@@ -94,7 +94,7 @@ export const Hero = () => {
         initial="hidden"
         animate="visible"
         // Desktop: left-[-10%] top-[-6%] w-[600px] | Mobile: scaled and pushed further left to avoid text overlap
-        className="absolute left-[-20%] top-[-5%] md:left-[-10%] md:top-[-6%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-60 md:opacity-80 z-0 pointer-events-none"
+        className="absolute left-[-24%] top-[-6%] md:left-[-10%] md:top-[-6%] w-[280px] sm:w-[400px] lg:w-[540px] opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
         <Image src="/hero.png" alt="Hero Left" width={600} height={600} priority className="w-full h-auto object-contain" />
       </motion.div>
@@ -104,7 +104,7 @@ export const Hero = () => {
         initial="hidden"
         animate="visible"
         // Desktop: right-[-10%] bottom-[-5%] w-[600px] | Mobile: scaled
-        className="absolute right-[-20%] bottom-[-5%] md:right-[-10%] md:bottom-[-5%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-60 md:opacity-80 z-0 pointer-events-none"
+        className="absolute right-[-24%] bottom-[-6%] md:right-[-10%] md:bottom-[-5%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
         <Image src="/hero.png" alt="Hero Right" width={600} height={600} priority className="w-full h-auto object-contain transform scale-x-[-1] rotate-90" />
       </motion.div>
