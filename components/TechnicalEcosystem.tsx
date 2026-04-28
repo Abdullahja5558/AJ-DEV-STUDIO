@@ -26,7 +26,7 @@ export const TechnicalEcosystem = () => {
     offset: ["start end", "end start"],
   });
 
-  // Smooth parallax for the background "STACK" text
+  
   const stackY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   const springY = useSpring(stackY, { stiffness: 40, damping: 20 });
 
