@@ -82,7 +82,7 @@ export const Hero = () => {
         variants={variants.spotlight}
         initial="hidden"
         animate="visible"
-        className="absolute -top-[20%] -left-[10%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-white rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-0 opacity-10" 
+        className="absolute -top-[20%] -left-[10%] w-[300px] h-[300px] md:w-[599px] md:h-[600px] bg-white rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-0 opacity-10" 
       />
 
       {/* TEXTURE */}
