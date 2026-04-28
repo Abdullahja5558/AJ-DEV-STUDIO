@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Ms_Madi } from "next/font/google";
-import "./globals.css";
+
 
 import CustomCursor from "@/components/CustomCursor";
 import LoaderWrapper from "@/components/LoaderWrapper";
