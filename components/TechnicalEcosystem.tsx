@@ -11,7 +11,7 @@ const SKILLS = [
   { name: "Tailwind", tag: "Design" },
   { name: "Node.js", tag: "Backend" },
   { name: "PostgreSQL", tag: "Database" },
-  { name: "MongoDB", tag: "NoSQL" }, // Added for MERN
+  { name: "MongoDB", tag: "NoSQL" }, 
   { name: "Framer", tag: "Motion" },
   { name: "GSAP", tag: "Animation" },
   { name: "Git", tag: "Version" },
