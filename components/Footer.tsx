@@ -1,111 +1,92 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 
 const NAV_LINKS = [
   { name: "Github", slug: "gh", color: "#ffffff", href: "https://github.com/Abdullahja5558" },
-  { name: "WhatsApp", slug: "wa", color: "#25D366", href: "https://wa.me/923346932540?text=Hello%20AJ,%20I'd%20like%20to%20discuss%20a%20project." },
+  { name: "WhatsApp", slug: "wa", color: "#25D366", href: "https://wa.me/923346932540" },
   { name: "Instagram", slug: "ig", color: "#E1306C", href: "https://www.instagram.com/mian.abdullah.9/" },
-  { name: "Mail", slug: "em", color: "#ffffff", href: "mailto:ajdeveloperr@gmail.com" },
   { name: "LinkedIn", slug: "li", color: "#0077B5", href: "https://www.linkedin.com/in/abdullah-javed-a2b0b0396/" },
 ];
 
 export const PremiumFooter = () => {
-  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <footer
-      id="footer"
-      className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col justify-between py-28 px-6"
-      style={{ contentVisibility: "auto", containIntrinsicSize: "900px" }}
-      aria-label="Footer section"
-    >
-      {/* SEO hidden text (helps search engines) */}
-      <div className="sr-only">
-        Premium developer footer by AJ. Contact links include GitHub, WhatsApp, Instagram and Email.
-      </div>
-
-      {/* Background (lighter for performance) */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-zinc-900/10 rounded-full blur-2xl" />
-      </div>
-
-      {/* HEADER */}
-      <header className="relative z-10 text-center max-w-5xl mx-auto">
-        <p className="text-[10px] tracking-[0.6em] text-zinc-500 uppercase">
-          Signature
-        </p>
-
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white mt-6">
-          Made with care by{" "}
-          <span className="text-zinc-500 font-light italic">AJ</span>
-        </h1>
-      </header>
-
-      {/* SOCIAL LINKS */}
-      <section className="relative z-10 flex justify-center items-center">
-        <div className="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.slug}
-              href={link.href}
-              target={link.slug === "wa" || link.slug === "gh" ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              className="group relative flex flex-col items-center gap-5"
-              onMouseEnter={() => setHoveredNode(link.slug)}
-              onMouseLeave={() => setHoveredNode(null)}
-              aria-label={link.name}
-            >
-              {/* DOT (no framer motion = faster) */}
-              <span
-                className="w-3.5 h-3.5 rounded-full border transition-all duration-300 group-hover:scale-125"
-                style={{
-                  backgroundColor:
-                    hoveredNode === link.slug ? link.color : "rgba(255,255,255,0.05)",
-                  borderColor:
-                    hoveredNode === link.slug ? link.color : "rgba(255,255,255,0.1)",
-                  boxShadow:
-                    hoveredNode === link.slug
-                      ? `0 0 25px ${link.color}66`
-                      : "none",
-                }}
-              />
-
-              {/* PULSE (CSS instead of framer motion = faster FPS) */}
-              <span className="absolute w-10 h-10 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
-
-              <span
-                className={`text-[11px] tracking-[0.5em] uppercase font-bold transition-colors duration-300 ${
-                  hoveredNode === link.slug ? "text-white" : "text-zinc-600"
-                }`}
-              >
-                {link.name}
-              </span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* BOTTOM */}
-      <footer className="relative z-10 max-w-5xl mx-auto w-full pt-16">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+    <footer className="relative w-full bg-black pt-24 md:pt-40 overflow-hidden flex flex-col items-center">
+      
+      {/* 1. MAIN CONTENT AREA */}
+      <div className="w-full max-w-[1600px] px-8 md:px-16 z-20">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-20 border-b border-zinc-900 pb-20">
           
-          <p className="text-xs tracking-widest text-zinc-500 text-center md:text-left">
-            Let’s build the future together.
-          </p>
+          {/* Big Statement Text */}
+          <div className="max-w-2xl">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-6xl md:text-8xl font-bold text-white tracking-[ -0.05em] leading-[0.85]"
+            >
+              LET’S BUILD <br /> 
+              <span className="text-zinc-800">YOUR VISION.</span>
+            </motion.h2>
+          </div>
 
-          <div className="text-center md:text-right space-y-2">
-            <p className="text-xs text-white">Open to Roles</p>
-            <p className="text-xs text-zinc-400">© {currentYear}</p>
-            <p className="text-[10px] tracking-[0.3em] text-zinc-600 uppercase">
-              Architecting Digital Resilience
-            </p>
+          {/* Social & Contact Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-24 gap-y-12">
+            <div className="space-y-4">
+              <p className="text-zinc-600 uppercase text-[10px] tracking-[0.4em] font-bold">Socials</p>
+              <div className="flex flex-col gap-3">
+                {NAV_LINKS.map((link) => (
+                  <a key={link.slug} href={link.href} className="text-zinc-400 hover:text-white text-lg transition-all duration-300 font-medium">
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-zinc-600 uppercase text-[10px] tracking-[0.4em] font-bold">Get in touch</p>
+              <a href="mailto:ajdeveloperr@gmail.com" className="text-zinc-400 hover:text-white text-lg block transition-all">
+                ajdeveloperr@gmail.com
+              </a>
+              <p className="text-zinc-500 text-sm italic font-light">Based in Faisalabad, PK</p>
+            </div>
           </div>
         </div>
-      </footer>
 
-      {/* IMPORTANT: removed heavy noise + heavy blur layers */}
+        {/* BOTTOM METADATA */}
+        <div className="flex flex-col md:flex-row justify-between items-center py-10 text-[10px] text-zinc-700 tracking-[0.3em] uppercase">
+          <p>© {currentYear} — ALL RIGHTS RESERVED</p>
+          <p className="mt-4 md:mt-0">EST. 2024 / ARCHITECTING DIGITAL RESILIENCE</p>
+        </div>
+      </div>
+
+      {/* 2. THE CINEMATIC IMAGE SECTION (name.png) */}
+      <motion.div 
+        className="relative w-full overflow-hidden select-none"
+        initial={{ opacity: 0, scale: 1.1 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="w-full flex items-end justify-center pointer-events-none">
+          <img
+            src="/name.png"
+            alt="ABDULLAH"
+            className="w-full h-auto max-h-[40vh] md:max-h-[85vh] object-contain object-bottom"
+            style={{ 
+              filter: "drop-shadow(0px -20px 50px rgba(255,255,255,0.02))",
+            }}
+          />
+        </div>
+
+        {/* Premium Layering: Gradient Cover to make image blend into background */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 z-10" />
+      </motion.div>
+
+      {/* Decorative Light Glow */}
+      <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[90%] h-[400px] bg-zinc-900/10 blur-[150px] rounded-full pointer-events-none" />
+
     </footer>
   );
 };
