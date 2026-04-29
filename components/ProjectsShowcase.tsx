@@ -11,7 +11,7 @@ const PROJECTS = [
   { id: "05", title: "Noor-ul-Quran", tagline: "Experience the Holy Quran with 114 Surahs, Audio, Prayer times, and Seerah.", tech: ["Next.js", "Audio API", "Tailwind CSS"], image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=2000&auto=format&fit=crop", link: "https://noor-ulquran.vercel.app/" },
 ];
 
-// 3 times duplicated for perfect seamless CSS loop
+
 const DUPLICATED_PROJECTS = [...PROJECTS, ...PROJECTS, ...PROJECTS];
 
 const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0], containerRef: React.RefObject<HTMLDivElement | null> }) => {
