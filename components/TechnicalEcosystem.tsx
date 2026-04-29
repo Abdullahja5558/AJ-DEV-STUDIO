@@ -38,7 +38,7 @@ export const TechnicalEcosystem = () => {
         className="relative min-h-screen w-full bg-[#000000] py-40 overflow-hidden selection:bg-white selection:text-black"
         aria-labelledby="skills-heading"
       >
-        {/* ATMOSPHERIC GLOWS - Subtle & Premium */}
+       
         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)] blur-[120px] pointer-events-none" aria-hidden="true" />
         <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.01)_0%,transparent_70%)] blur-[100px] pointer-events-none" aria-hidden="true" />
         
