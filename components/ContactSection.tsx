@@ -20,7 +20,7 @@ export const ContactSection = () => {
 
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
-  // ✅ better focus handling (less re-trigger)
+  
   useEffect(() => {
     if (isEngaged) inputRef.current?.focus();
   }, [isEngaged, step]);
