@@ -193,7 +193,7 @@ export const Testimonials = () => {
         }
       `}</style>
 
-      {/* Moved standard lenis styles to global properly or keep as is if you are using it globally elsewhere */}
+      {/* Moved standard lenis stylrly or keep as is if you are using it globally elsewhere */}
       <style jsx global>{`
         /* Essential for Lenis smooth scrolling */
         html.lenis {
