@@ -77,7 +77,7 @@ export const Hero = () => {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] px-4 sm:px-6 py-20 selection:bg-white selection:text-black">
       
-      {/* --- LIGHTING --- */}
+     
       <motion.div 
         variants={variants.spotlight}
         initial="hidden"
