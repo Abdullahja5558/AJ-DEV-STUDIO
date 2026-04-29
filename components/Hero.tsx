@@ -92,7 +92,7 @@ export const Hero = () => {
         initial="hidden"
         animate="visible"
         // Desktop: left-[-10%] top-[-6%] w-[600px] | Mobile: scaled and pushed further left to avoid text overlap
-        className="absolute left-[-24%] top-[-6%] md:left-[-10%] md:top-[-6%] w-[280px] sm:w-[400px] lg:w-[540px] opacity-60 md:opacity-80 z-0 pointer-events-none"
+        className="absolute left-[-24%] top-[-6%] md:left-[-10%] md:top-[-6%] w-70 sm:w-[400px] lg:w-[540px] opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
         <Image src="/hero.png" alt="Hero Left" width={600} height={600} priority className="w-full h-auto object-contain" />
       </motion.div>
