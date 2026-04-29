@@ -85,7 +85,6 @@ export const Hero = () => {
         className="absolute -top-[20%] -left-[10%] w-[300px] h-[300px] md:w-[599px] md:h-[600px] bg-white rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-0 opacity-10" 
       />
 
-      {/* TEXTURE */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50 transform-gpu" />
 
       {/* --- HERO IMAGES (RESPONSIVE BUT DESKTOP-PRESERVED) --- */}
