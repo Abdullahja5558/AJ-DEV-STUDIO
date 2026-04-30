@@ -28,7 +28,7 @@ const structuredData = {
   ],
 };
 
-// Original Experience Data
+
 const EXPERIENCES = [
   {
     year: "2025",
