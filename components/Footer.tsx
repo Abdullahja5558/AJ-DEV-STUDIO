@@ -50,7 +50,7 @@ export const PremiumFooter = () => {
               <a href="mailto:ajdeveloperr@gmail.com" className="text-zinc-400 hover:text-white text-lg block transition-all">
                 ajdeveloperr@gmail.com
               </a>
-              <p className="text-zinc-500 text-sm italic font-light">Based in Faisalabad, PK</p>
+              <p className="text-zinc-500 text-sm italic font-light">Based in Fsd, PK</p>
             </div>
           </div>
         </div>
