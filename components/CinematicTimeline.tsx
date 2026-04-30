@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, MoveRight } from "lucide-react";
 import { ReactLenis } from "lenis/react";
 
-// SEO-friendly structured data (optional but powerful)
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
