@@ -15,7 +15,7 @@ export const PremiumFooter = () => {
   return (
     <footer className="relative w-full bg-black pt-24 md:pt-40 overflow-hidden flex flex-col items-center">
       
-      {/* 1. MAIN CONTENT AREA */}
+      
       <div className="w-full max-w-[1600px] px-8 md:px-16 z-20">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-20 border-b border-zinc-900 pb-20">
           
