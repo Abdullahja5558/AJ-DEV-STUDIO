@@ -32,7 +32,7 @@ export const PremiumFooter = () => {
             </motion.h2>
           </div>
 
-          {/* Social & Contact Grid */}
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-24 gap-y-12">
             <div className="space-y-4">
               <p className="text-zinc-600 uppercase text-[10px] tracking-[0.4em] font-bold">Socials</p>
