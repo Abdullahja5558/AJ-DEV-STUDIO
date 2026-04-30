@@ -25,7 +25,7 @@ export const ContactSection = () => {
     if (isEngaged) inputRef.current?.focus();
   }, [isEngaged, step]);
 
-  // ✅ memoized email validator (performance boost)
+  
   const validateEmail = useCallback((email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
   }, []);
