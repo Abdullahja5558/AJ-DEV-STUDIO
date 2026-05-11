@@ -30,7 +30,6 @@ export const ContactSection = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
   }, []);
 
-  // ✅ optimized email send (no blocking UI)
   const sendEmail = useCallback(
     async (data: typeof formData) => {
       try {
