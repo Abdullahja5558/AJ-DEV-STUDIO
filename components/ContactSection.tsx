@@ -139,7 +139,6 @@ export const ContactSection = () => {
         <div className="flex-1 flex flex-col items-center justify-center">
           <AnimatePresence mode="wait">
 
-            {/* INTRO */}
             {!isEngaged ? (
               <motion.div
                 key="intro"
