@@ -111,7 +111,6 @@ export const ContactSection = () => {
         Contact a Full Stack Developer for modern web projects, React, Next.js, Node.js applications
       </h2>
 
-      {/* Background Atmosphere */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-zinc-900/10 blur-[120px] rounded-full" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
