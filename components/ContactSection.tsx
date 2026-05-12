@@ -177,7 +177,6 @@ export const ContactSection = () => {
 
             ) : !isFinished ? (
 
-              /* FORM */
               <motion.form
                 key="form"
                 onSubmit={handleNext}
