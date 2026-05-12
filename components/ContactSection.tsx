@@ -122,7 +122,6 @@ export const ContactSection = () => {
         viewport={{ once: true }}
         className="flex flex-col h-full w-full max-w-7xl mx-auto px-6 md:px-10 py-12 relative z-10"
       >
-        {/* HEADER (unchanged design) */}
         <header className="mb-12 mt-10">
           <div className="flex items-center gap-4 mb-6">
             <div className="h-[0.5px] w-12 bg-zinc-800" />
