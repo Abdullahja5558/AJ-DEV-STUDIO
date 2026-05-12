@@ -107,7 +107,6 @@ export const ContactSection = () => {
       aria-label="Contact section"
       className="relative h-screen min-h-[650px] w-full bg-[#000000] flex flex-col justify-center overflow-hidden selection:bg-white selection:text-black"
     >
-      {/* SEO SAFE HEADINGS (hidden but accessible) */}
       <h2 className="sr-only">
         Contact a Full Stack Developer for modern web projects, React, Next.js, Node.js applications
       </h2>
