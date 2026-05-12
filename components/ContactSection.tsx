@@ -73,7 +73,6 @@ export const ContactSection = () => {
       const key = QUESTIONS[step].id;
       const value = formData[key as keyof typeof formData];
 
-      // empty validation
       if (!value?.trim()) {
         setError("FIELD_REQUIRED_FOR_TRANSMISSION");
         return;
