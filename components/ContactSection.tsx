@@ -205,7 +205,6 @@ export const ContactSection = () => {
                       </div>
                     </div>
 
-                    {/* INPUT */}
                     <div className="relative max-w-2xl mx-auto">
                       <input
                         ref={inputRef as any}
