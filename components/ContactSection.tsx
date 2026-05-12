@@ -78,7 +78,6 @@ export const ContactSection = () => {
         return;
       }
 
-      // email validation
       if (key === "email" && !validateEmail(value)) {
         setError("INVALID_ENDPOINT_FORMAT");
         return;
