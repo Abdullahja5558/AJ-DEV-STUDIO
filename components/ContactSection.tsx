@@ -193,7 +193,6 @@ export const ContactSection = () => {
                     exit={{ opacity: 0, x: -20 }}
                     className="space-y-8"
                   >
-                    {/* LABEL */}
                     <div className="space-y-3">
                       <div className="inline-block px-4 py-1 border border-white/10 rounded-full bg-white/[0.02]">
                         <span className="text-[10px] font-mono text-zinc-400 tracking-[0.4em] uppercase">
