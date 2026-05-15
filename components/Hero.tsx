@@ -152,7 +152,6 @@ export const Hero = () => {
           </span>
         </motion.h1>
 
-        {/* H2 */}
         <motion.h2
           variants={variants.item}
           className="text-[10px] sm:text-lg md:text-xl text-zinc-500 max-w-3xl font-light leading-relaxed mb-14 px-4 tracking-[0.15em] uppercase"
