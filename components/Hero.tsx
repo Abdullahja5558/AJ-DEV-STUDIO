@@ -128,7 +128,7 @@ export const Hero = () => {
         viewport={{ once: true }}
         className="relative z-10 w-full max-w-6xl flex flex-col items-center text-center transform-gpu"
       >
-        {/* AVAILABILITY BADGE */}
+        
         <motion.div
           variants={variants.item}
           className="flex items-center gap-3 mb-10 px-5 py-2 rounded-full border border-white/[0.05] bg-white/[0.02] backdrop-blur-2xl"
