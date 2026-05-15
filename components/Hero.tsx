@@ -142,7 +142,6 @@ export const Hero = () => {
           </span>
         </motion.div>
 
-        {/* MAIN H1 - Desktop stays 110px, Mobile uses fluid text */}
         <motion.h1
           variants={variants.item}
           className="text-4xl sm:text-7xl md:text-8xl lg:text-[110px] font-bold leading-[1] md:leading-[0.9] tracking-tighter text-white mb-8 transform-gpu"
