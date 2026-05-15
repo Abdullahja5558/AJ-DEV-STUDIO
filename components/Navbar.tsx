@@ -124,7 +124,6 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* --- THE DEEP OBSIDIAN MENU --- */}
       <AnimatePresence mode="wait">
         {isOpen && (
           /* SEO Fix: Changed outer div to <nav> and added ID for accessibility */
