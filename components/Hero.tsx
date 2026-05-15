@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 import Lenis from "lenis";
 import Image from "next/image";
 
-const luxuryEase = [0.19, 1, 0.22, 1]; 
+const luxuryEase = [0.19, 1, 0.22, 1];
 
 export const Hero = () => {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.4, 
+      duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      lerp: 0.1, 
+      lerp: 0.1,
     });
 
     function raf(time: number) {
@@ -37,21 +37,23 @@ export const Hero = () => {
       item: {
         hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
         visible: {
-          opacity: 1, y: 0, filter: "blur(0px)",
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
           transition: { duration: 1.5, ease: luxuryEase },
         },
       } as any,
       spotlight: {
         hidden: { opacity: 0, scale: 0.8 },
-        visible: { 
-          opacity: 0.15, 
+        visible: {
+          opacity: 0.15,
           scale: 1,
-          transition: { 
+          transition: {
             delay: 0.5,
-            duration: 4, 
-            ease: [0.16, 1, 0.3, 1] 
-          } 
-        } as any
+            duration: 4,
+            ease: [0.16, 1, 0.3, 1],
+          },
+        } as any,
       },
       heroImageLeft: {
         hidden: { opacity: 0, x: -100, rotate: -20 },
@@ -76,13 +78,11 @@ export const Hero = () => {
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] px-4 sm:px-6 py-20 selection:bg-white selection:text-black">
-      
-     
-      <motion.div 
+      <motion.div
         variants={variants.spotlight}
         initial="hidden"
         animate="visible"
-        className="absolute -top-[20%] -left-[10%] w-75 h-75 md:w-149.75 md:h-150 bg-white rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-0 opacity-10" 
+        className="absolute -top-[20%] -left-[10%] w-75 h-75 md:w-149.75 md:h-150 bg-white rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-0 opacity-10"
       />
 
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50 transform-gpu" />
@@ -94,7 +94,14 @@ export const Hero = () => {
         // Desktop: left-[-10%] top-[-6%] w-[600px] | Mobile: scaled and pushed further left to avoid text overlap
         className="absolute left-[-24%] top-[-6%] md:left-[-10%] md:top-[-6%] w-70 sm:w-100 lg:w-135 opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
-        <Image src="/hero.png" alt="Hero Left" width={600} height={600} priority className="w-full h-auto object-contain" />
+        <Image
+          src="/hero.png"
+          alt="Hero Left"
+          width={600}
+          height={600}
+          priority
+          className="w-full h-auto object-contain"
+        />
       </motion.div>
 
       <motion.div
@@ -104,9 +111,15 @@ export const Hero = () => {
         // Desktop: right-[-10%] bottom-[-5%] w-[600px] | Mobile: scaled
         className="absolute right-[-29%] bottom-[-6%] md:right-[-10%] md:bottom-[-5%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
-        <Image src="/hero.png" alt="Hero Right" width={600} height={600} priority className="w-full h-auto object-contain transform scale-x-[-1] rotate-90" />
+        <Image
+          src="/hero.png"
+          alt="Hero Right"
+          width={600}
+          height={600}
+          priority
+          className="w-full h-auto object-contain transform scale-x-[-1] rotate-90"
+        />
       </motion.div>
-
 
       <motion.div
         variants={variants.container}
@@ -115,10 +128,9 @@ export const Hero = () => {
         viewport={{ once: true }}
         className="relative z-10 w-full max-w-6xl flex flex-col items-center text-center transform-gpu"
       >
-     
         {/* AVAILABILITY BADGE */}
-        <motion.div 
-          variants={variants.item} 
+        <motion.div
+          variants={variants.item}
           className="flex items-center gap-3 mb-10 px-5 py-2 rounded-full border border-white/[0.05] bg-white/[0.02] backdrop-blur-2xl"
         >
           <span className="relative flex h-2 w-2">
@@ -146,23 +158,39 @@ export const Hero = () => {
           variants={variants.item}
           className="text-[10px] sm:text-lg md:text-xl text-zinc-500 max-w-3xl font-light leading-relaxed mb-14 px-4 tracking-[0.15em] uppercase"
         >
-          Senior <span className="text-zinc-200">MERN Stack Developer</span> specializing in 
-          <br className="hidden md:block" /> 
-          robust architectures and premium <span className="text-zinc-200">digital craftsmanship.</span>
+          Senior <span className="text-zinc-200">MERN Stack Developer</span>{" "}
+          specializing in
+          <br className="hidden md:block" />
+          robust architectures and premium{" "}
+          <span className="text-zinc-200">digital craftsmanship.</span>
         </motion.h2>
 
         {/* BUTTONS */}
-        <motion.div variants={variants.item} className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-6 sm:px-0">
-          <button className="group relative px-10 py-5 bg-white rounded-full overflow-hidden transition-all duration-700 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.03)]">
+        <motion.div
+          variants={variants.item}
+          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-6 sm:px-0"
+        >
+          <button
+            className="group relative px-10 py-5 bg-white rounded-full overflow-hidden transition-all duration-700 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.03)]"
+            onClick={() => {
+              const section = document.getElementById("projects");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
             <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-black rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
-            <a className="relative z-10 text-black font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-white transition-colors duration-500" href="#work">
+            <span className="relative z-10 text-black font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-white transition-colors duration-500">
               Explore Portfolio
-            </a>
+            </span>
           </button>
 
           <button className="group relative px-10 py-5 bg-transparent border border-white/10 rounded-full overflow-hidden transition-all duration-700 active:scale-95">
             <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
-            <a className="relative z-10 text-zinc-400 font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-black transition-colors duration-500" href="#contact">
+            <a
+              className="relative z-10 text-zinc-400 font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-black transition-colors duration-500"
+              href="#contact"
+            >
               Let's Collaborate
             </a>
           </button>
@@ -171,12 +199,23 @@ export const Hero = () => {
 
       <style jsx global>{`
         @keyframes spin {
-          from { transform: translateY(-45%) rotate(0deg); }
-          to { transform: translateY(-45%) rotate(360deg); }
+          from {
+            transform: translateY(-45%) rotate(0deg);
+          }
+          to {
+            transform: translateY(-45%) rotate(360deg);
+          }
         }
-        html.lenis, html.lenis body { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto !important; }
-        .lenis.lenis-stopped { overflow: hidden; }
+        html.lenis,
+        html.lenis body {
+          height: auto;
+        }
+        .lenis.lenis-smooth {
+          scroll-behavior: auto !important;
+        }
+        .lenis.lenis-stopped {
+          overflow: hidden;
+        }
       `}</style>
     </section>
   );

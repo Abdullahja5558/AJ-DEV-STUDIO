@@ -27,7 +27,9 @@ const ProjectCard = ({ project, containerRef }: { project: (typeof PROJECTS)[0],
   const scale = useSpring(scaleRaw, { stiffness: 100, damping: 25 });
 
   return (
+    
     <motion.li
+    
       ref={cardRef}
       style={{ scale }}
       className="relative shrink-0 w-[360px] md:w-[480px] h-[540px] md:h-[680px] mx-5 transform-gpu list-none"
