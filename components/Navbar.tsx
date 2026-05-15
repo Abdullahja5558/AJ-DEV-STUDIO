@@ -92,7 +92,6 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* --- TRIGGER BUTTON --- */}
       {/* SEO/Accessibility Fix: Added aria controls and label to the button */}
       <div className="fixed top-6 right-6 md:top-10 md:right-12 z-[300]">
         <button 
