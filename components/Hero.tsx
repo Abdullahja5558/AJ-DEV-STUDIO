@@ -108,7 +108,7 @@ export const Hero = () => {
         variants={variants.heroImageRight}
         initial="hidden"
         animate="visible"
-        // Desktop: right-[-10%] bottom-[-5%] w-[600px] | Mobile: scaled
+        
         className="absolute right-[-29%] bottom-[-6%] md:right-[-10%] md:bottom-[-5%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
         <Image
