@@ -126,7 +126,7 @@ export const Navbar = () => {
 
       <AnimatePresence mode="wait">
         {isOpen && (
-          /* SEO Fix: Changed outer div to <nav> and added ID for accessibility */
+          
           <motion.div 
             id="navigation-menu"
             role="navigation"
