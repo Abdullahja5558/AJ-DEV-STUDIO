@@ -163,7 +163,6 @@ export const Hero = () => {
           <span className="text-zinc-200">digital craftsmanship.</span>
         </motion.h2>
 
-        {/* BUTTONS */}
         <motion.div
           variants={variants.item}
           className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-6 sm:px-0"
