@@ -137,7 +137,6 @@ export const Navbar = () => {
             exit="exit"
             className="fixed inset-0 z-[250] bg-[#050505] overflow-hidden"
           >
-            {/* Ambient Lighting / Noise Texture */}
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" aria-hidden="true" />
             <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-zinc-900/20 blur-[120px] rounded-full" aria-hidden="true" />
 
