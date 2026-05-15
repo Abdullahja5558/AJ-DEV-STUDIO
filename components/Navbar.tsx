@@ -17,7 +17,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const lenis = useLenis();
 
-  // --- Scroll Lock Logic ---
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
