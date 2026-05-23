@@ -42,7 +42,6 @@ export const TechnicalEcosystem = () => {
         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)] blur-[120px] pointer-events-none" aria-hidden="true" />
         <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.01)_0%,transparent_70%)] blur-[100px] pointer-events-none" aria-hidden="true" />
         
-        {/* BACKGROUND "STACK" TEXT */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
           <motion.div
             style={{ y: springY }}
