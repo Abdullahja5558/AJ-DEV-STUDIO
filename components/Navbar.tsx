@@ -2,15 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useLenis } from "lenis/react"; 
 
 const navItems = [
   { name: "About", id: "01", href: "/about" },
-  { name: "Skills", id: "02", href: "#skills" },
-  { name: "Experience", id: "03", href: "#experience" },
-  { name: "Projects", id: "04", href: "#projects" },
-  { name: "Contact", id: "05", href: "#contact" },
+  { name: "Skills", id: "02", href: "/#skills" },
+  { name: "Experience", id: "03", href: "/#experience" },
+  { name: "Projects", id: "04", href: "/#projects" },
+  { name: "Contact", id: "05", href: "/contact" },
 ];
 
 export const Navbar = () => {
@@ -32,15 +33,23 @@ export const Navbar = () => {
     };
   }, [isOpen, lenis]);
 
+  const pathname = usePathname();
+
   const handleScroll = (e: React.MouseEvent, href: string) => {
-    if (href.startsWith("#")) {
-      e.preventDefault();
-      const targetId = href.replace("#", "");
-      const targetElement = document.getElementById(targetId);
-      if (targetElement && lenis) {
+    const hashIndex = href.indexOf("#");
+    if (hashIndex !== -1) {
+      const hash = href.substring(hashIndex);
+      const isHomePage = pathname === "/";
+      if (isHomePage) {
+        e.preventDefault();
+        const targetElement = document.getElementById(hash.replace("#", ""));
+        if (targetElement && lenis) {
+          setIsOpen(false);
+          lenis.start();
+          lenis.scrollTo(targetElement, { offset: -20, duration: 2 });
+        }
+      } else {
         setIsOpen(false);
-        lenis.start();
-        lenis.scrollTo(targetElement, { offset: -20, duration: 2 });
       }
     } else {
       setIsOpen(false);

@@ -4,6 +4,7 @@ import React, { useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import Lenis from "lenis";
 import Image from "next/image";
+import Link from "next/link";
 
 const luxuryEase = [0.19, 1, 0.22, 1];
 
@@ -131,30 +132,113 @@ export const Hero = () => {
         
         <motion.div
           variants={variants.item}
-          className="flex items-center gap-3 mb-10 px-5 py-2 rounded-full border border-white/[0.05] bg-white/[0.02] backdrop-blur-2xl"
+          className="flex items-center justify-center gap-2 sm:gap-3 mb-10 select-none scale-90 sm:scale-100"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-40"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          {/* Left Laurel */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/weather-L.png"
+            alt="Laurel Left"
+            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain opacity-75"
+          />
+
+          {/* Avatars Overlap (No Box Wrapper) */}
+          <div className="flex items-center">
+            {/* Avatar 1 */}
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 z-20 bg-zinc-900 flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://api.dicebear.com/7.x/lorelei/svg?seed=Aria"
+                alt="Partner 1"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Avatar 2 */}
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 -ml-2.5 z-10 bg-zinc-900 flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://api.dicebear.com/7.x/lorelei/svg?seed=John"
+                alt="Partner 2"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Avatar 3 */}
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 -ml-2.5 z-0 bg-zinc-900 flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://api.dicebear.com/7.x/lorelei/svg?seed=Mia"
+                alt="Partner 3"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Text */}
+          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-zinc-300 tracking-wider">
+            Trusted by <span className="text-white">3k+ Global Clients</span>
           </span>
-          <span className="text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-medium text-zinc-400">
-            Available for Q2 2026 Projects • Pakistan
-          </span>
+
+          {/* Right Laurel */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/weather-R.png"
+            alt="Laurel Right"
+            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain opacity-75"
+          />
         </motion.div>
 
         <motion.h1
           variants={variants.item}
-          className="text-4xl sm:text-7xl md:text-8xl lg:text-[110px] font-bold leading-[1] md:leading-[0.9] tracking-tighter text-white mb-8 transform-gpu"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[92px] font-bold leading-[1.05] md:leading-[1] tracking-tighter text-white mb-8 transform-gpu"
         >
-          Engineering <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-600">
-            Full-Stack Solutions
+          Engineering Digital <br className="hidden sm:block" />
+          <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-600 pb-2">
+            Masterpieces
+            {/* Animated Wavy Underline */}
+            <div className="absolute left-[-8%] -bottom-3 w-[116%] overflow-hidden h-[33px] pointer-events-none select-none">
+              <motion.div
+                initial={{ x: "-100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  duration: 1.2,
+                  delay: 1,
+                  ease: [0.19, 1, 0.22, 1]
+                }}
+                className="w-full h-full"
+              >
+                <svg
+                  width="100%"
+                  height="33"
+                  viewBox="0 0 240 16"
+                  fill="none"
+                  className="text-zinc-400 opacity-75"
+                >
+                  <motion.path
+                    animate={{
+                      d: [
+                        "M 0 8 Q 15 14, 30 8 T 60 8 T 90 8 T 120 8 T 150 8 T 180 8 T 210 8 T 240 8",
+                        "M 0 8 Q 15 2, 30 8 T 60 8 T 90 8 T 120 8 T 150 8 T 180 8 T 210 8 T 240 8",
+                        "M 0 8 Q 15 14, 30 8 T 60 8 T 90 8 T 120 8 T 150 8 T 180 8 T 210 8 T 240 8"
+                      ]
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      ease: "easeInOut",
+                      repeat: Infinity
+                    }}
+                    stroke="currentColor"
+                    strokeWidth="4.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </motion.div>
+            </div>
           </span>
         </motion.h1>
 
         <motion.h2
           variants={variants.item}
-          className="text-[10px] sm:text-lg md:text-xl text-zinc-500 max-w-3xl font-light leading-relaxed mb-14 px-4 tracking-[0.15em] uppercase"
+          className="text-[10px] sm:text-sm md:text-base lg:text-[17px] text-zinc-500 max-w-3xl font-light leading-relaxed mb-12 px-4 tracking-[0.15em] uppercase"
         >
           Senior <span className="text-zinc-200">MERN Stack Developer</span>{" "}
           specializing in
@@ -168,7 +252,7 @@ export const Hero = () => {
           className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-6 sm:px-0"
         >
           <button
-            className="group relative px-10 py-5 bg-white rounded-full overflow-hidden transition-all duration-700 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.03)]"
+            className="group relative px-8 py-4 bg-white rounded-full overflow-hidden transition-all duration-700 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.03)]"
             onClick={() => {
               const section = document.getElementById("projects");
               if (section) {
@@ -182,14 +266,14 @@ export const Hero = () => {
             </span>
           </button>
 
-          <button className="group relative px-10 py-5 bg-transparent border border-white/10 rounded-full overflow-hidden transition-all duration-700 active:scale-95">
+          <button className="group relative px-8 py-4 bg-transparent border border-white/10 rounded-full overflow-hidden transition-all duration-700 active:scale-95">
             <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
-            <a
+            <Link
               className="relative z-10 text-zinc-400 font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-black transition-colors duration-500"
-              href="#contact"
+              href="/contact"
             >
               Let's Collaborate
-            </a>
+            </Link>
           </button>
         </motion.div>
       </motion.div>

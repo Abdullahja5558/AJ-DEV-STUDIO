@@ -2,37 +2,37 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import Lenis from "lenis";
-import { Quote, Sparkles } from "lucide-react";
+import { Quote, Sparkles, Star } from "lucide-react";
 
 const reviews = [
   { 
     name: "Alex Rivera", 
     role: "Product Manager", 
-    text: <>Exceptional frontend work. The <span className="bg-white text-black px-2 py-0.5 font-bold mx-1">Next.js optimization</span> improved our LCP by 40%.</>, 
+    text: <>Exceptional frontend work. The <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">Next.js optimization</span> improved our LCP by 40%.</>, 
     company: "Global Tech" 
   },
   { 
     name: "Sarah Chen", 
     role: "UI/UX Designer", 
-    text: <>Translated my Figma designs into <span className="bg-white text-black px-2 py-0.5 font-bold mx-1">pixel-perfect code</span>. The attention to detail is unmatched.</>, 
+    text: <>Translated my Figma designs into <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">pixel-perfect code</span>. The attention to detail is unmatched.</>, 
     company: "Creative Studio" 
   },
   { 
     name: "James Watt", 
     role: "Startup Founder", 
-    text: <>Fixed complex <span className="bg-white text-black px-2 py-0.5 font-bold mx-1">state management bugs</span> in hours. A true TS expert.</>, 
+    text: <>Fixed complex <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">state management bugs</span> in hours. A true TS expert.</>, 
     company: "NextGen" 
   },
   {
     name: "Emily Davis",
     role: "CTO",
-    text: <>Implemented a custom <span className="bg-white text-black px-2 py-0.5 font-bold mx-1">SSR caching strategy</span> that reduced server costs by 30%.</>,
+    text: <>Implemented a custom <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">SSR caching strategy</span> that reduced server costs by 30%.</>,
     company: "Tech Innovators"  
   },
   {
     name: "Michael Johnson",
     role: "Lead Developer",
-    text: <>The <span className="bg-white text-black px-2 py-0.5 font-bold mx-1">code quality and architecture</span> are top-notch. Seamless onboarding.</>,
+    text: <>The <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">code quality and architecture</span> are top-notch. Seamless onboarding.</>,
     company: "CodeCraft"  
   },
 ];
@@ -62,12 +62,14 @@ const ReviewCard = ({
 
   const yRaw = useTransform(scrollYProgress, [start, end], [0, -1200]);
   const y = useSpring(yRaw, { stiffness: 40, damping: 30 });
-  const rotate = useTransform(scrollYProgress, [start, end], [0, index % 2 === 0 ? -15 : 15]);
+  const rotate = useTransform(scrollYProgress, [start, end], [0, index % 2 === 0 ? -10 : 10]);
   const scale = useTransform(scrollYProgress, [start, end], [1 - (total - index) * 0.04, 1]);
   const opacity = useTransform(scrollYProgress, [end - 0.05, end], [1, 0]);
 
+  // Alternating background colors: even index = clean white, odd index = deep dark
+  const isWhiteBg = index % 2 === 0;
+
   return (
-    /* SEO & Accessibility Fix: Wrapped in <figure> for proper semantic structure */
     <motion.figure
       style={{ 
         y: index === total - 1 ? 0 : y, 
@@ -76,39 +78,61 @@ const ReviewCard = ({
         opacity: index === total - 1 ? 1 : opacity,
         zIndex: total - index 
       }}
-      className="absolute w-full h-full p-10 md:p-20 flex flex-col justify-between rounded-[4rem] md:rounded-[5rem] border border-white/10 bg-[#0a0a0a] shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden"
+      className={`absolute w-full h-full p-8 md:p-12 flex flex-col justify-between rounded-[2.5rem] md:rounded-[3.5rem] border shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transition-colors duration-300 ${
+        isWhiteBg 
+          ? "bg-white text-zinc-900 border-zinc-200" 
+          : "bg-[#0c0c0c] text-white border-white/10"
+      }`}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" aria-hidden="true" />
-      <Quote size={200} className="absolute -top-12 -right-12 text-white opacity-[0.02] pointer-events-none" aria-hidden="true" />
-      
-      <div className="z-10 flex flex-col gap-8">
-        {/* Accessibility Fix: Added label for screen readers to understand the 5-star rating */}
-        <div className="flex gap-2" aria-label="5 star rating">
-          {[...Array(5)].map((_, i) => (
-            <svg key={i} className="w-5 h-5 text-[#fbbf24] fill-current" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          ))}
+      <div className={`absolute inset-0 pointer-events-none ${isWhiteBg ? "bg-gradient-to-br from-black/[0.01] to-transparent" : "bg-gradient-to-br from-white/[0.02] to-transparent"}`} aria-hidden="true" />
+      <Quote size={100} className={`absolute -top-4 -right-4 pointer-events-none ${isWhiteBg ? "text-black opacity-[0.02]" : "text-white opacity-[0.02]"}`} aria-hidden="true" />
+
+      {/* Header section with rating and counter */}
+      <div className="z-10 flex flex-col gap-6 mt-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5" aria-label="5 star rating">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 text-amber-400 fill-current" />
+            ))}
+          </div>
+          <span className={`text-xs font-mono font-medium tracking-wider ${isWhiteBg ? "text-zinc-400" : "text-zinc-600"}`}>
+            0{index + 1} / 0{total}
+          </span>
         </div>
         
-        {/* SEO Fix: Using <blockquote> for the actual review content */}
-        <blockquote className="text-2xl md:text-[3.5vw] font-medium text-white leading-[1.2] tracking-tight italic m-0">
+        <blockquote className={`text-xl md:text-[2.2vw] font-normal leading-[1.3] tracking-tight m-0 ${isWhiteBg ? "text-zinc-800" : "text-zinc-100"}`}>
           "{review.text}"
         </blockquote>
       </div>
 
-      {/* SEO Fix: Using <figcaption> for author details */}
-      <figcaption className="z-10 flex justify-between items-end border-t border-white/5 pt-10">
-        <div className="space-y-3">
-          <h4 className="text-3xl md:text-4xl font-bold text-white tracking-tighter leading-none uppercase">{review.name}</h4>
-          <div className="flex items-center gap-3">
-            <span className="text-zinc-500 text-[10px] font-black uppercase tracking-[0.3em]">{review.role}</span>
-            <div className="w-1.5 h-1.5 rounded-full bg-zinc-800" aria-hidden="true" />
-            <span className="text-zinc-600 text-[10px] font-bold uppercase tracking-widest">{review.company}</span>
+      {/* Footer section with author details */}
+      <figcaption className={`z-10 flex items-center justify-between border-t pt-6 mt-4 ${isWhiteBg ? "border-zinc-200" : "border-white/10"}`}>
+        <div className="flex items-center gap-4">
+          <div className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-base shadow-sm ${
+            isWhiteBg ? "bg-zinc-100 text-zinc-900 border border-zinc-200" : "bg-zinc-900 text-white border border-zinc-800"
+          }`}>
+            {review.name.charAt(0)}
+          </div>
+          <div>
+            <h4 className={`text-lg md:text-xl font-bold tracking-tight leading-snug uppercase ${isWhiteBg ? "text-zinc-900" : "text-white"}`}>
+              {review.name}
+            </h4>
+            <div className="flex items-center gap-2 mt-0.5">
+              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-zinc-600" : "text-zinc-400"}`}>
+                {review.role}
+              </span>
+              <span className={`text-xs ${isWhiteBg ? "text-zinc-300" : "text-zinc-700"}`}>•</span>
+              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-zinc-500" : "text-zinc-500"}`}>
+                {review.company}
+              </span>
+            </div>
           </div>
         </div>
+
         <div className="hidden md:block">
-           <span className="text-8xl font-black text-white/[0.03] select-none font-mono tracking-tighter leading-none" aria-hidden="true">0{index + 1}</span>
+           <span className={`text-xs font-mono uppercase tracking-[0.2em] px-3 py-1.5 rounded-md ${isWhiteBg ? "bg-zinc-100 text-zinc-500" : "bg-zinc-900 text-zinc-400"}`}>
+             Verified Client
+           </span>
         </div>
       </figcaption>
     </motion.figure>
@@ -119,10 +143,9 @@ export const Testimonials = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Lenis Configuration for Ultra Smooth Scroll
     const lenis = new Lenis({
         duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for premium feel
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: 'vertical',
         gestureOrientation: 'vertical',
         smoothWheel: true,
@@ -154,22 +177,21 @@ export const Testimonials = () => {
       className="bg-black relative selection:bg-white selection:text-black"
       aria-labelledby="testimonials-heading"
     >
-      
       <div className="w-full h-screen flex flex-col items-center justify-center bg-black relative z-20 px-6 text-center">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Sparkles size={16} className="text-zinc-500" aria-hidden="true" />
-            <span className="text-zinc-500 text-[11px] font-black uppercase tracking-[0.8em]">Client Feedback</span>
+          <div className="flex items-center justify-center gap-3 mb-4 bg-zinc-900/80 border border-zinc-800 px-4 py-1.5 rounded-full shadow-inner">
+            <Sparkles size={14} className="text-amber-400" aria-hidden="true" />
+            <span className="text-zinc-300 text-[10px] font-black uppercase tracking-[0.4em]">Verified Testimonials</span>
           </div>
-          <h2 id="testimonials-heading" className="text-7xl md:text-[12vw] font-black text-white leading-[0.8] tracking-[-0.05em] uppercase">
+          <h2 id="testimonials-heading" className="text-6xl md:text-[11vw] font-black text-white leading-[0.85] tracking-[-0.04em] uppercase">
             VOICES <br />
-            <span className="text-zinc-900 italic font-outline">That Matter.</span>
+            <span className="text-zinc-800 italic font-outline">That Matter.</span>
           </h2>
-          <p className="text-zinc-600 mt-12 text-[9px] uppercase tracking-[0.5em] animate-pulse">Scroll to Unstack Reviews</p>
+          <p className="text-zinc-500 mt-10 text-[10px] font-bold uppercase tracking-[0.4em] animate-pulse">Scroll down to explore feedback</p>
       </div>
 
       <div className="relative h-[450vh]"> 
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6">
-          <div className="relative w-full max-w-6xl h-[500px] md:h-[620px]">
+          <div className="relative w-full max-w-4xl h-[400px] md:h-[480px]">
             {reviews.map((review, index) => (
               <ReviewCard 
                 key={index} 
@@ -194,7 +216,6 @@ export const Testimonials = () => {
       `}</style>
 
       <style jsx global>{`
-        /* Essential for Lenis smooth scrolling */
         html.lenis {
           height: auto;
         }

@@ -1,7 +1,7 @@
 import ExperienceTimeline from "@/components/CinematicTimeline";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import LetsTalk from "@/components/LetsTalk";
 
 import Navbar from "@/components/Navbar";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
@@ -42,11 +42,7 @@ export default function Page() {
         <h2 className="sr-only">Client Testimonials</h2>
         <ReviewsInfinite />
       </section>
-
-      <section aria-label="Contact">
-        <h2 className="sr-only">Contact Developer</h2>
-        <ContactSection />
-      </section>
+      <LetsTalk/>
 
       <Footer />
 

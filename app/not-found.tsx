@@ -68,7 +68,7 @@ export default function NotFound() {
             Projects
           </Link>
           <Link
-            href="/#contact"
+            href="/contact"
             className="px-6 py-3 rounded-full bg-zinc-800 text-white font-bold hover:bg-zinc-700 transition"
           >
             Contact
