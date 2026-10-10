@@ -117,14 +117,14 @@ export const AIAssistantWidget = () => {
       setMessages((prev) => [...prev, assistantReply]);
     } catch (error) {
       console.error("Chat error:", error);
-      const isEng = /^[a-zA-Z0-9\s.,?!'"-_]+$/.test(messageContent) && (messageContent.includes("I ") || messageContent.includes("the") || messageContent.includes("about") || messageContent.includes("build") || messageContent.includes("want") || messageContent.includes("schedule"));
+      const isEng = /^[a-zA-Z0-9\s.,?!'"-_]+$/.test(messageContent) && (messageContent.includes("I ") || messageContent.includes("the") || messageContent.includes("about") || messageContent.includes("build") || messageContent.includes("want") || messageContent.includes("schedule") || messageContent.includes("what"));
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
           content: isEng
-            ? "Thank you! Please click 'Forward to WhatsApp' below to connect with the AJ Code Team."
-            : "Bohat shukriya! 'Forward to WhatsApp' par click kar ke apni details share kar dein, AJ Code Team aapse jald rabta karegi.",
+            ? "We engineer high-performance Next.js 16 web applications. Tell us a bit more about your features or connect with AJ Code Team directly anytime!"
+            : "AJ Code Team Next.js 16 par high-performance web applications develop karti hai. Aap apne project ke specific requirements share karein ya direct connect karein!",
           time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
         },
       ]);
@@ -156,17 +156,28 @@ export const AIAssistantWidget = () => {
       .map((m) => m.content.trim())
       .filter(Boolean);
 
-    // Pick only the client's direct requirement / demand without messy chat history
-    let clientDemand = "a custom web project";
-    if (userMessages.length > 0) {
-      clientDemand = userMessages[0];
+    // Filter out pure single-word greetings or trivial filler phrases
+    const filteredDemands = userMessages.filter((txt) => {
+      const clean = txt.toLowerCase().replace(/[^a-z0-9]/g, "");
+      return !["hi", "hello", "salam", "hey", "ok", "theek", "g", "ji", "yes"].includes(clean);
+    });
+
+    const finalDemands = filteredDemands.length > 0 ? filteredDemands : userMessages;
+
+    let requirementsSection = "";
+    if (finalDemands.length === 1) {
+      requirementsSection = `*Project Requirement:*\n- ${finalDemands[0]}`;
+    } else if (finalDemands.length > 1) {
+      requirementsSection = `*Project Details & Requirements:*\n` + finalDemands.map((d) => `- ${d}`).join("\n");
+    } else {
+      requirementsSection = `*Inquiry:*\n- I would like to discuss building a custom web development project.`;
     }
 
     const formattedText = 
-      `Hi AJ Code Team! 👋\n\n` +
-      `I want to build a website/project:\n` +
-      `"${clientDemand}"\n\n` +
-      `Please connect with me to discuss details!`;
+      `Hello AJ Code Team,\n\n` +
+      `I am reaching out through your portfolio to discuss a project.\n\n` +
+      `${requirementsSection}\n\n` +
+      `Please connect with me to discuss the next steps!`;
 
     return `https://wa.me/923715909509?text=${encodeURIComponent(formattedText)}`;
   };
@@ -322,23 +333,29 @@ export const AIAssistantWidget = () => {
                     >
                       <p>{renderFormattedText(msg.content)}</p>
 
-                      {isStudio && index === messages.length - 1 && (
-                        msg.content.toLowerCase().includes("whatsapp") ||
-                        msg.content.toLowerCase().includes("forward") ||
-                        msg.content.toLowerCase().includes("receive") ||
-                        msg.content.toLowerCase().includes("register") ||
-                        msg.content.toLowerCase().includes("rabta")
-                      ) && (
-                        <a
-                          href={generateWhatsAppLink()}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-2.5 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#DEBA75] text-[#3B0007] text-[10px] font-bold shadow hover:bg-[#FAF4EC] transition-all cursor-pointer"
-                        >
-                          <span>Forward to WhatsApp 📲</span>
-                          <ExternalLink size={10} />
-                        </a>
-                      )}
+                      {isStudio && index === messages.length - 1 && (() => {
+                        const contentLower = msg.content.toLowerCase();
+                        const isRelevant = 
+                          contentLower.includes("whatsapp") ||
+                          contentLower.includes("discovery consultation") ||
+                          contentLower.includes("details receive ho chuki") ||
+                          contentLower.includes("details have been received") ||
+                          contentLower.includes("contact details receive");
+                        
+                        if (!isRelevant) return null;
+
+                        return (
+                          <a
+                            href={generateWhatsAppLink()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#DEBA75] text-[#3B0007] text-[10px] font-bold shadow hover:bg-[#FAF4EC] transition-all cursor-pointer"
+                          >
+                            <span>Chat on WhatsApp 📲</span>
+                            <ExternalLink size={10} />
+                          </a>
+                        );
+                      })()}
 
                       <span
                         className={`text-[7.5px] font-mono mt-1 block ${
