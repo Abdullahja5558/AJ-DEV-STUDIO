@@ -1,31 +1,13 @@
 "use client";
 
-import React, { useMemo, useEffect } from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import Lenis from "lenis";
 import Image from "next/image";
 import Link from "next/link";
 
 const luxuryEase = [0.19, 1, 0.22, 1];
 
 export const Hero = () => {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      lerp: 0.1,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
-
   const variants = useMemo(() => {
     return {
       container: {
@@ -78,29 +60,37 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] px-4 sm:px-6 py-20 selection:bg-white selection:text-black">
+    <section 
+      aria-label="Hero Introduction"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] px-4 sm:px-6 py-20 selection:bg-white selection:text-black"
+    >
       <motion.div
         variants={variants.spotlight}
         initial="hidden"
         animate="visible"
         className="absolute -top-[20%] -left-[10%] w-75 h-75 md:w-149.75 md:h-150 bg-white rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-0 opacity-10"
+        aria-hidden="true"
       />
 
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50 transform-gpu" />
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50 transform-gpu" 
+        aria-hidden="true"
+      />
 
       <motion.div
         variants={variants.heroImageLeft}
         initial="hidden"
         animate="visible"
-      
+        aria-hidden="true"
         className="absolute left-[-24%] top-[-6%] md:left-[-10%] md:top-[-6%] w-70 sm:w-100 lg:w-135 opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
         <Image
           src="/hero.png"
-          alt="Hero Left"
+          alt="AJ Developer Hero Artwork Left"
           width={600}
           height={600}
           priority
+          sizes="(max-width: 768px) 280px, 600px"
           className="w-full h-auto object-contain"
         />
       </motion.div>
@@ -109,15 +99,16 @@ export const Hero = () => {
         variants={variants.heroImageRight}
         initial="hidden"
         animate="visible"
-        
+        aria-hidden="true"
         className="absolute right-[-29%] bottom-[-6%] md:right-[-10%] md:bottom-[-5%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-60 md:opacity-80 z-0 pointer-events-none"
       >
         <Image
           src="/hero.png"
-          alt="Hero Right"
+          alt="AJ Developer Hero Artwork Right"
           width={600}
           height={600}
           priority
+          sizes="(max-width: 768px) 280px, 600px"
           className="w-full h-auto object-contain transform scale-x-[-1] rotate-90"
         />
       </motion.div>
@@ -130,63 +121,74 @@ export const Hero = () => {
         className="relative z-10 w-full max-w-6xl flex flex-col items-center text-center transform-gpu"
       >
         
+        {/* Social Proof Badge */}
         <motion.div
           variants={variants.item}
           className="flex items-center justify-center gap-2 sm:gap-3 mb-10 select-none scale-90 sm:scale-100"
         >
           {/* Left Laurel */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/weather-L.png"
-            alt="Laurel Left"
-            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain opacity-75"
-          />
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-75">
+            <Image
+              src="/weather-L.png"
+              alt="Laurel Award Icon"
+              fill
+              sizes="56px"
+              className="object-contain"
+            />
+          </div>
 
-          {/* Avatars Overlap (No Box Wrapper) */}
-          <div className="flex items-center">
-            {/* Avatar 1 */}
+          {/* Avatars Overlap */}
+          <div className="flex items-center" aria-label="Global Client Endorsements">
             <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 z-20 bg-zinc-900 flex-shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://api.dicebear.com/7.x/lorelei/svg?seed=Aria"
-                alt="Partner 1"
+                alt="Client avatar Aria"
+                width={28}
+                height={28}
                 className="w-full h-full object-cover"
+                unoptimized
               />
             </div>
-            {/* Avatar 2 */}
             <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 -ml-2.5 z-10 bg-zinc-900 flex-shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://api.dicebear.com/7.x/lorelei/svg?seed=John"
-                alt="Partner 2"
+                alt="Client avatar John"
+                width={28}
+                height={28}
                 className="w-full h-full object-cover"
+                unoptimized
               />
             </div>
-            {/* Avatar 3 */}
             <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 -ml-2.5 z-0 bg-zinc-900 flex-shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://api.dicebear.com/7.x/lorelei/svg?seed=Mia"
-                alt="Partner 3"
+                alt="Client avatar Mia"
+                width={28}
+                height={28}
                 className="w-full h-full object-cover"
+                unoptimized
               />
             </div>
           </div>
 
           {/* Text */}
           <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-zinc-300 tracking-wider">
-            Trusted by <span className="text-white">3k+ Global Clients</span>
+            Trusted by <strong className="text-white font-semibold">3k+ Global Clients</strong>
           </span>
 
           {/* Right Laurel */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/weather-R.png"
-            alt="Laurel Right"
-            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain opacity-75"
-          />
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-75">
+            <Image
+              src="/weather-R.png"
+              alt="Laurel Award Icon Right"
+              fill
+              sizes="56px"
+              className="object-contain"
+            />
+          </div>
         </motion.div>
 
+        {/* Semantic H1 with High-Value Ranking Keywords */}
         <motion.h1
           variants={variants.item}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-[92px] font-bold leading-[1.05] md:leading-[1] tracking-tighter text-white mb-8 transform-gpu"
@@ -195,7 +197,7 @@ export const Hero = () => {
           <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-600 pb-2">
             Masterpieces
             {/* Animated Wavy Underline */}
-            <div className="absolute left-[-8%] -bottom-3 w-[116%] overflow-hidden h-[33px] pointer-events-none select-none">
+            <div className="absolute left-[-8%] -bottom-3 w-[116%] overflow-hidden h-[33px] pointer-events-none select-none" aria-hidden="true">
               <motion.div
                 initial={{ x: "-100%", opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -236,23 +238,26 @@ export const Hero = () => {
           </span>
         </motion.h1>
 
-        <motion.h2
+        {/* Subtitle / Core Role Keyword Target */}
+        <motion.p
           variants={variants.item}
           className="text-[10px] sm:text-sm md:text-base lg:text-[17px] text-zinc-500 max-w-3xl font-light leading-relaxed mb-12 px-4 tracking-[0.15em] uppercase"
         >
-          Senior <span className="text-zinc-200">MERN Stack Developer</span>{" "}
+          Senior <strong className="text-zinc-200 font-normal">MERN Stack & Next.js Developer</strong>{" "}
           specializing in
           <br className="hidden md:block" />
           robust architectures and premium{" "}
-          <span className="text-zinc-200">digital craftsmanship.</span>
-        </motion.h2>
+          <strong className="text-zinc-200 font-normal">digital craftsmanship.</strong>
+        </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           variants={variants.item}
           className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-6 sm:px-0"
         >
           <button
-            className="group relative px-8 py-4 bg-white rounded-full overflow-hidden transition-all duration-700 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.03)]"
+            aria-label="Explore Portfolio Projects"
+            className="group relative px-8 py-4 bg-white rounded-full overflow-hidden transition-all duration-700 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.03)] cursor-pointer"
             onClick={() => {
               const section = document.getElementById("projects");
               if (section) {
@@ -266,15 +271,16 @@ export const Hero = () => {
             </span>
           </button>
 
-          <button className="group relative px-8 py-4 bg-transparent border border-white/10 rounded-full overflow-hidden transition-all duration-700 active:scale-95">
+          <Link
+            href="/contact"
+            aria-label="Contact and Collaborate with AJ"
+            className="group relative px-8 py-4 bg-transparent border border-white/10 rounded-full overflow-hidden transition-all duration-700 active:scale-95 inline-flex items-center justify-center cursor-pointer"
+          >
             <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
-            <Link
-              className="relative z-10 text-zinc-400 font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-black transition-colors duration-500"
-              href="/contact"
-            >
-              Let's Collaborate
-            </Link>
-          </button>
+            <span className="relative z-10 text-zinc-400 font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-black transition-colors duration-500">
+              Let&apos;s Collaborate
+            </span>
+          </Link>
         </motion.div>
       </motion.div>
 
@@ -286,16 +292,6 @@ export const Hero = () => {
           to {
             transform: translateY(-45%) rotate(360deg);
           }
-        }
-        html.lenis,
-        html.lenis body {
-          height: auto;
-        }
-        .lenis.lenis-smooth {
-          scroll-behavior: auto !important;
-        }
-        .lenis.lenis-stopped {
-          overflow: hidden;
         }
       `}</style>
     </section>

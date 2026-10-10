@@ -1,7 +1,6 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
-import Lenis from "lenis";
 import { Quote, Sparkles, Star } from "lucide-react";
 
 const reviews = [
@@ -141,30 +140,6 @@ const ReviewCard = ({
 
 export const Testimonials = () => {
   const containerRef = useRef(null);
-
-  useEffect(() => {
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
-        infinite: false,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,

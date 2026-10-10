@@ -3,7 +3,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, MoveRight } from "lucide-react";
-import { ReactLenis } from "lenis/react";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -78,13 +77,12 @@ const ExperienceJourney = () => {
 
       {/* DESKTOP & TABLET LANDSCAPE TIMELINE (Horizontal Scroll Layout - Hidden on Mobile) */}
       <div className="hidden md:block">
-        <ReactLenis root={false} options={{ lerp: 0.07, duration: 1.4 }}>
-          <section
-            ref={targetRef}
-            className="relative h-[400vh] bg-[#010101] selection:bg-white selection:text-black"
-            id="experience"
-            aria-label="Professional Experience Timeline"
-          >
+        <section
+          ref={targetRef}
+          className="relative h-[400vh] bg-[#010101] selection:bg-white selection:text-black"
+          id="experience"
+          aria-label="Professional Experience Timeline"
+        >
             <div className="sticky top-0 h-screen flex items-center overflow-hidden">
               
               {/* Background Glow */}
@@ -224,7 +222,6 @@ const ExperienceJourney = () => {
               </motion.div>
             </div>
           </section>
-        </ReactLenis>
       </div>
 
       {/* MOBILE TIMELINE (Optimized Vertical Stack Layout) */}

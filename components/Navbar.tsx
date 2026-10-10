@@ -195,9 +195,9 @@ export const Navbar = () => {
                 <div className="space-y-1 md:space-y-2">
                   <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold">Socials</p>
                   <div className="flex gap-4 md:gap-6">
-                    {/* SEO Fix: Changed from buttons to actual anchor tags with dummy hrefs. Update hrefs with real links. */}
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors">LinkedIn</a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors">Github</a>
+                    <a href="https://www.linkedin.com/in/abdullah-javed-a2b0b0396/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors" aria-label="Abdullah Javed LinkedIn Profile">LinkedIn</a>
+                    <a href="https://github.com/Abdullahja5558" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors" aria-label="Abdullah Javed GitHub Profile">GitHub</a>
+                    <a href="https://www.instagram.com/mian.abdullah.9/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors" aria-label="Abdullah Javed Instagram Profile">Instagram</a>
                   </div>
                 </div>
               </div>

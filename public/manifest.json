@@ -1,0 +1,21 @@
+{
+  "name": "AJ – Full-Stack Developer Portfolio",
+  "short_name": "AJ Dev",
+  "description": "Portfolio of Abdullah Javed (AJ) - Full-Stack MERN & Next.js Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
