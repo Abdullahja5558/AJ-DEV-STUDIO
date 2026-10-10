@@ -7,31 +7,31 @@ const reviews = [
   { 
     name: "Alex Rivera", 
     role: "Product Manager", 
-    text: <>Exceptional frontend work. The <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">Next.js optimization</span> improved our LCP by 40%.</>, 
+    text: <>Exceptional frontend work. The <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">Next.js optimization</span> improved our LCP by 40%.</>, 
     company: "Global Tech" 
   },
   { 
     name: "Sarah Chen", 
     role: "UI/UX Designer", 
-    text: <>Translated my Figma designs into <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">pixel-perfect code</span>. The attention to detail is unmatched.</>, 
+    text: <>Translated my Figma designs into <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">pixel-perfect code</span>. The attention to detail is unmatched.</>, 
     company: "Creative Studio" 
   },
   { 
     name: "James Watt", 
     role: "Startup Founder", 
-    text: <>Fixed complex <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">state management bugs</span> in hours. A true TS expert.</>, 
+    text: <>Fixed complex <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">state management bugs</span> in hours. A true TS expert.</>, 
     company: "NextGen" 
   },
   {
     name: "Emily Davis",
     role: "CTO",
-    text: <>Implemented a custom <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">SSR caching strategy</span> that reduced server costs by 30%.</>,
+    text: <>Implemented a custom <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">SSR caching strategy</span> that reduced server costs by 30%.</>,
     company: "Tech Innovators"  
   },
   {
     name: "Michael Johnson",
     role: "Lead Developer",
-    text: <>The <span className="bg-zinc-800 text-white dark:bg-white dark:text-black px-2 py-0.5 font-semibold mx-1 rounded">code quality and architecture</span> are top-notch. Seamless onboarding.</>,
+    text: <>The <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">code quality and architecture</span> are top-notch. Seamless onboarding.</>,
     company: "CodeCraft"  
   },
 ];
@@ -65,7 +65,7 @@ const ReviewCard = ({
   const scale = useTransform(scrollYProgress, [start, end], [1 - (total - index) * 0.04, 1]);
   const opacity = useTransform(scrollYProgress, [end - 0.05, end], [1, 0]);
 
-  // Alternating background colors: even index = clean white, odd index = deep dark
+  // Alternating background colors: even index = champagne cream, odd index = deep wine burgundy
   const isWhiteBg = index % 2 === 0;
 
   return (
@@ -77,51 +77,51 @@ const ReviewCard = ({
         opacity: index === total - 1 ? 1 : opacity,
         zIndex: total - index 
       }}
-      className={`absolute w-full h-full p-8 md:p-12 flex flex-col justify-between rounded-[2.5rem] md:rounded-[3.5rem] border shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transition-colors duration-300 ${
+      className={`absolute w-full h-full p-8 md:p-12 flex flex-col justify-between rounded-[2.5rem] md:rounded-[3.5rem] border overflow-hidden transition-colors duration-300 ${
         isWhiteBg 
-          ? "bg-white text-zinc-900 border-zinc-200" 
-          : "bg-[#0c0c0c] text-white border-white/10"
+          ? "bg-[#FAF4EC] text-[#3B0007] border-[#DEBA75]/30" 
+          : "bg-[#2E0006] text-[#FAF4EC] border-[#DEBA75]/25"
       }`}
     >
-      <div className={`absolute inset-0 pointer-events-none ${isWhiteBg ? "bg-gradient-to-br from-black/[0.01] to-transparent" : "bg-gradient-to-br from-white/[0.02] to-transparent"}`} aria-hidden="true" />
-      <Quote size={100} className={`absolute -top-4 -right-4 pointer-events-none ${isWhiteBg ? "text-black opacity-[0.02]" : "text-white opacity-[0.02]"}`} aria-hidden="true" />
+      <div className={`absolute inset-0 pointer-events-none ${isWhiteBg ? "bg-gradient-to-br from-black/[0.02] to-transparent" : "bg-gradient-to-br from-[#DEBA75]/[0.03] to-transparent"}`} aria-hidden="true" />
+      <Quote size={100} className={`absolute -top-4 -right-4 pointer-events-none ${isWhiteBg ? "text-[#3B0007] opacity-[0.04]" : "text-[#DEBA75] opacity-[0.04]"}`} aria-hidden="true" />
 
       {/* Header section with rating and counter */}
       <div className="z-10 flex flex-col gap-6 mt-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5" aria-label="5 star rating">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 text-amber-400 fill-current" />
+              <Star key={i} className="w-4 h-4 text-[#DEBA75] fill-current" />
             ))}
           </div>
-          <span className={`text-xs font-mono font-medium tracking-wider ${isWhiteBg ? "text-zinc-400" : "text-zinc-600"}`}>
+          <span className={`text-xs font-mono font-bold tracking-wider ${isWhiteBg ? "text-[#3B0007]/60" : "text-[#DEBA75]/60"}`}>
             0{index + 1} / 0{total}
           </span>
         </div>
         
-        <blockquote className={`text-xl md:text-[2.2vw] font-normal leading-[1.3] tracking-tight m-0 ${isWhiteBg ? "text-zinc-800" : "text-zinc-100"}`}>
-          "{review.text}"
+        <blockquote className={`text-xl md:text-[2.2vw] font-normal leading-[1.3] tracking-tight m-0 ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
+          &ldquo;{review.text}&rdquo;
         </blockquote>
       </div>
 
       {/* Footer section with author details */}
-      <figcaption className={`z-10 flex items-center justify-between border-t pt-6 mt-4 ${isWhiteBg ? "border-zinc-200" : "border-white/10"}`}>
+      <figcaption className={`z-10 flex items-center justify-between border-t pt-6 mt-4 ${isWhiteBg ? "border-[#DEBA75]/20" : "border-[#DEBA75]/15"}`}>
         <div className="flex items-center gap-4">
-          <div className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-base shadow-sm ${
-            isWhiteBg ? "bg-zinc-100 text-zinc-900 border border-zinc-200" : "bg-zinc-900 text-white border border-zinc-800"
+          <div className={`w-11 h-11 rounded-full flex items-center justify-center font-bold text-base ${
+            isWhiteBg ? "bg-[#3B0007] text-[#FAF4EC] border border-[#DEBA75]/30" : "bg-[#3D050E] text-[#DEBA75] border border-[#DEBA75]/25"
           }`}>
             {review.name.charAt(0)}
           </div>
           <div>
-            <h4 className={`text-lg md:text-xl font-bold tracking-tight leading-snug uppercase ${isWhiteBg ? "text-zinc-900" : "text-white"}`}>
+            <h4 className={`text-lg md:text-xl font-bold tracking-tight leading-snug uppercase ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
               {review.name}
             </h4>
             <div className="flex items-center gap-2 mt-0.5">
-              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-zinc-600" : "text-zinc-400"}`}>
+              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-[#5C0A15]" : "text-[#D4C3B3]"}`}>
                 {review.role}
               </span>
-              <span className={`text-xs ${isWhiteBg ? "text-zinc-300" : "text-zinc-700"}`}>•</span>
-              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-zinc-500" : "text-zinc-500"}`}>
+              <span className={`text-xs ${isWhiteBg ? "text-[#DEBA75]" : "text-[#DEBA75]/40"}`}>•</span>
+              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-[#5C0A15]/80" : "text-[#D4C3B3]/70"}`}>
                 {review.company}
               </span>
             </div>
@@ -129,7 +129,7 @@ const ReviewCard = ({
         </div>
 
         <div className="hidden md:block">
-           <span className={`text-xs font-mono uppercase tracking-[0.2em] px-3 py-1.5 rounded-md ${isWhiteBg ? "bg-zinc-100 text-zinc-500" : "bg-zinc-900 text-zinc-400"}`}>
+           <span className={`text-xs font-mono uppercase tracking-[0.2em] px-3 py-1.5 rounded-md font-bold ${isWhiteBg ? "bg-[#3B0007]/10 text-[#3B0007]" : "bg-[#DEBA75]/10 text-[#DEBA75]"}`}>
              Verified Client
            </span>
         </div>
@@ -149,19 +149,19 @@ export const Testimonials = () => {
   return (
     <section 
       ref={containerRef} 
-      className="bg-black relative selection:bg-white selection:text-black"
+      className="bg-[#3B0007] relative selection:bg-[#DEBA75] selection:text-[#3B0007]"
       aria-labelledby="testimonials-heading"
     >
-      <div className="w-full h-screen flex flex-col items-center justify-center bg-black relative z-20 px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4 bg-zinc-900/80 border border-zinc-800 px-4 py-1.5 rounded-full shadow-inner">
-            <Sparkles size={14} className="text-amber-400" aria-hidden="true" />
-            <span className="text-zinc-300 text-[10px] font-black uppercase tracking-[0.4em]">Verified Testimonials</span>
+      <div className="w-full h-screen flex flex-col items-center justify-center bg-[#3B0007] relative z-20 px-6 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4 bg-[#2E0006] border border-[#DEBA75]/25 px-4 py-1.5 rounded-full">
+            <Sparkles size={14} className="text-[#DEBA75]" aria-hidden="true" />
+            <span className="text-[#DEBA75] text-[10px] font-black uppercase tracking-[0.4em]">Verified Testimonials</span>
           </div>
-          <h2 id="testimonials-heading" className="text-6xl md:text-[11vw] font-black text-white leading-[0.85] tracking-[-0.04em] uppercase">
+          <h2 id="testimonials-heading" className="text-6xl md:text-[11vw] font-black text-[#FAF4EC] leading-[0.85] tracking-[-0.04em] uppercase">
             VOICES <br />
-            <span className="text-zinc-800 italic font-outline">That Matter.</span>
+            <span className="font-outline italic text-transparent">That Matter.</span>
           </h2>
-          <p className="text-zinc-500 mt-10 text-[10px] font-bold uppercase tracking-[0.4em] animate-pulse">Scroll down to explore feedback</p>
+          <p className="text-[#DEBA75] mt-10 text-[10px] font-bold uppercase tracking-[0.4em] animate-pulse">Scroll down to explore feedback</p>
       </div>
 
       <div className="relative h-[450vh]"> 
@@ -182,11 +182,11 @@ export const Testimonials = () => {
 
       <style jsx>{`
         .font-outline {
-          -webkit-text-stroke: 1.5px #27272a;
+          -webkit-text-stroke: 1.5px rgba(222, 186, 117, 0.4);
           color: transparent;
         }
         @media (min-width: 768px) {
-          .font-outline { -webkit-text-stroke: 2px #27272a; }
+          .font-outline { -webkit-text-stroke: 2px rgba(222, 186, 117, 0.4); }
         }
       `}</style>
 
@@ -206,7 +206,6 @@ export const Testimonials = () => {
         .lenis.lenis-scrolling iframe {
           pointer-events: none;
         }
-        ::selection { background-color: #fff !important; color: #000 !important; }
       `}</style>
     </section>
   );

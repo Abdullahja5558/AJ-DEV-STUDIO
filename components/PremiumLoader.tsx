@@ -18,7 +18,7 @@ export default function CinematicStarLoader({ onComplete }: { onComplete: () => 
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#fafafa] overflow-hidden cursor-none pointer-events-none"
+      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#3B0007] overflow-hidden cursor-none pointer-events-none"
     >
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -39,7 +39,7 @@ export default function CinematicStarLoader({ onComplete }: { onComplete: () => 
       >
         <svg
           viewBox="0 0 200 200"
-          className="w-45 h-45 sm:w-75 sm:h-75 md:w-100 md:h-100 filter drop-shadow(0 0 20px rgba(255,255,255,0.1))"
+          className="w-45 h-45 sm:w-75 sm:h-75 md:w-100 md:h-100"
         >
           <defs>
             <path
@@ -48,23 +48,20 @@ export default function CinematicStarLoader({ onComplete }: { onComplete: () => 
             />
           </defs>
 
-         
           <use
             href="#starPath"
-            fill="#00000"
-            
+            fill="#2E0006"
           />
 
-          
           <motion.path
             d="M100 0 C105 70 130 95 200 100 C130 105 105 130 100 200 C95 130 70 105 0 100 C70 95 95 70 100 0 Z"
             fill="none"
-            stroke="white"
-            strokeWidth="0.8"
+            stroke="#DEBA75"
+            strokeWidth="1.2"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="opacity-80"
+            className="opacity-90"
           />
         </svg>
       </motion.div>

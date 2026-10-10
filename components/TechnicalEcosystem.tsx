@@ -31,15 +31,12 @@ export const TechnicalEcosystem = () => {
   return (
     <div
       ref={containerRef as any}
-      className="relative min-h-screen w-full bg-[#000000] py-40 overflow-hidden selection:bg-white selection:text-black"
+      className="relative min-h-screen w-full bg-[#3B0007] py-40 overflow-hidden selection:bg-[#DEBA75] selection:text-[#3B0007]"
     >
-      <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)] blur-[120px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.01)_0%,transparent_70%)] blur-[100px] pointer-events-none" aria-hidden="true" />
-      
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <motion.div
           style={{ y: springY }}
-          className="text-[35vw] font-black text-white/[0.015] leading-none tracking-tighter uppercase whitespace-nowrap select-none"
+          className="text-[35vw] font-black text-[#DEBA75]/[0.02] leading-none tracking-tighter uppercase whitespace-nowrap select-none"
           aria-hidden="true"
         >
           STACK
@@ -52,17 +49,17 @@ export const TechnicalEcosystem = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-3 px-6 py-2 border border-white/5 rounded-full mb-8 bg-white/[0.01] backdrop-blur-md"
+          className="inline-flex items-center gap-3 px-6 py-2 border border-[#DEBA75]/25 rounded-full mb-8 bg-[#3B0007]"
         >
-          <div className="w-8 h-[1px] bg-zinc-800" aria-hidden="true" />
-          <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-zinc-500">
+          <div className="w-8 h-[1px] bg-[#DEBA75]/40" aria-hidden="true" />
+          <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-[#DEBA75] font-bold">
             Technical Prowess
           </span>
         </motion.div>
         
-        <h2 id="skills-heading" className="text-6xl md:text-[7vw] font-bold tracking-tighter text-white leading-[0.85] uppercase">
+        <h2 id="skills-heading" className="text-6xl md:text-[7vw] font-bold tracking-tighter text-[#FAF4EC] leading-[0.85] uppercase">
           Modern <br /> 
-          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-400 to-zinc-800 font-outline">
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FAF4EC] via-[#DEBA75] to-[#B38C41]">
               Web Mastery
           </span>
         </h2>
@@ -76,8 +73,8 @@ export const TechnicalEcosystem = () => {
         role="region"
         aria-label="Infinite scrolling list of technical skills"
       >
-        {/* Top Row - DARK (Forward) */}
-        <div className="flex overflow-hidden border-y border-white/[0.03] py-14 bg-white/[0.01] backdrop-blur-sm group">
+        {/* Top Row - DARK BURGUNDY (Forward) */}
+        <div className="flex overflow-hidden border-y border-[#DEBA75]/15 py-14 bg-[#2E0006] group">
           <motion.div 
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
@@ -87,16 +84,16 @@ export const TechnicalEcosystem = () => {
             {[...SKILLS, ...SKILLS].map((skill, index) => (
               <span 
                 key={index} 
-                className="text-zinc-600 text-6xl md:text-8xl font-black uppercase tracking-tighter hover:text-white transition-all duration-500 cursor-default"
+                className="text-[#D4C3B3]/40 text-6xl md:text-8xl font-black uppercase tracking-tighter hover:text-[#DEBA75] transition-all duration-300 cursor-default"
               >
-                {skill.name} <span className="text-zinc-900 ml-12">•</span>
+                {skill.name} <span className="text-[#DEBA75]/30 ml-12">•</span>
               </span>
             ))}
           </motion.div>
         </div>
 
-        {/* Bottom Row - BOLD WHITE (Reverse) */}
-        <div className="flex overflow-hidden py-14 bg-white group">
+        {/* Bottom Row - BOLD CREAM (Reverse) */}
+        <div className="flex overflow-hidden py-14 bg-[#FAF4EC] group">
           <motion.div 
             animate={{ x: ["-50%", "0%"] }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -106,9 +103,9 @@ export const TechnicalEcosystem = () => {
             {[...SKILLS].reverse().concat([...SKILLS].reverse()).map((skill, index) => (
               <span 
                 key={index} 
-                className="text-black text-6xl md:text-8xl font-black uppercase tracking-tighter hover:opacity-40 transition-all duration-500 cursor-default"
+                className="text-[#3B0007] text-6xl md:text-8xl font-black uppercase tracking-tighter hover:opacity-50 transition-all duration-300 cursor-default"
               >
-                {skill.name} <span className="text-black/10 ml-12">—</span>
+                {skill.name} <span className="text-[#3B0007]/20 ml-12">—</span>
               </span>
             ))}
           </motion.div>
@@ -120,12 +117,12 @@ export const TechnicalEcosystem = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="w-[400px] h-[400px] rounded-full border border-white/10 backdrop-blur-2xl flex items-center justify-center bg-white/[0.02] shadow-[0_0_80px_rgba(0,0,0,0.8)]"
+            className="w-[400px] h-[400px] rounded-full border border-[#DEBA75]/20 backdrop-blur-2xl flex items-center justify-center bg-[#DEBA75]/[0.03]"
           >
-              <div className="w-[300px] h-[300px] rounded-full border border-white/10 flex items-center justify-center bg-black shadow-2xl relative overflow-hidden">
+              <div className="w-[300px] h-[300px] rounded-full border border-[#DEBA75]/30 flex items-center justify-center bg-[#3B0007] relative overflow-hidden">
                   <div className="absolute inset-0 opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-                  <span className="text-zinc-500 font-mono text-center text-[10px] tracking-[0.4em] uppercase px-12 relative z-10 leading-relaxed">
-                      Precision in every <br /> <span className="text-white">Fullstack Layer</span>
+                  <span className="text-[#D4C3B3] font-mono text-center text-[10px] tracking-[0.4em] uppercase px-12 relative z-10 leading-relaxed font-semibold">
+                      Precision in every <br /> <span className="text-[#DEBA75] font-bold">Fullstack Layer</span>
                   </span>
               </div>
           </motion.div>
@@ -134,15 +131,15 @@ export const TechnicalEcosystem = () => {
 
       {/* 4. FOOTER QUOTE */}
       <div className="mt-44 max-w-4xl mx-auto px-6 text-center relative z-10">
-        <p className="text-2xl md:text-4xl font-light text-zinc-600 leading-tight tracking-tighter italic">
+        <p className="text-2xl md:text-4xl font-light text-[#D4C3B3] leading-tight tracking-tighter italic">
           &quot;Architecting resilient systems that 
-          <span className="text-white not-italic font-medium"> scale seamlessly </span> 
+          <span className="text-[#FAF4EC] not-italic font-medium"> scale seamlessly </span> 
           from prototype to production.&quot;
         </p>
         
-        <div className="mt-20 inline-flex items-center gap-4 bg-white/[0.01] border border-white/[0.05] py-4 px-10 rounded-full backdrop-blur-3xl">
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-          <span className="text-[10px] font-mono text-zinc-500 tracking-[0.5em] uppercase">
+        <div className="mt-20 inline-flex items-center gap-4 bg-[#2E0006] border border-[#DEBA75]/20 py-4 px-10 rounded-full">
+          <div className="w-2 h-2 rounded-full bg-[#DEBA75]" aria-hidden="true" />
+          <span className="text-[10px] font-mono text-[#DEBA75] tracking-[0.5em] uppercase font-bold">
             Engineered in Pakistan • 2026
           </span>
         </div>
@@ -150,7 +147,7 @@ export const TechnicalEcosystem = () => {
 
       <style jsx global>{`
         .font-outline {
-          -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+          -webkit-text-stroke: 1px rgba(222,186,117,0.25);
         }
       `}</style>
     </div>

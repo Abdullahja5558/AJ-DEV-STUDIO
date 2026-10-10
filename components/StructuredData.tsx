@@ -52,6 +52,30 @@ export function StructuredData() {
         inLanguage: "en-US",
       },
       {
+        "@type": "BreadcrumbList",
+        "@id": "https://aj-code.vercel.app/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://aj-code.vercel.app"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://aj-code.vercel.app/about"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Contact",
+            "item": "https://aj-code.vercel.app/contact"
+          }
+        ]
+      },
+      {
         "@type": "ProfessionalService",
         "@id": "https://aj-code.vercel.app/#service",
         name: "AJ Web Development & Engineering Services",
@@ -61,6 +85,12 @@ export function StructuredData() {
           "Custom full-stack web application development, Next.js optimization, responsive UI/UX design, and SEO-engineered web architecture.",
         priceRange: "$$",
         telephone: "+923715909509",
+        email: "ajdeveloperr@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "PK",
+          addressRegion: "Punjab"
+        },
         areaServed: {
           "@type": "Place",
           name: "Worldwide",

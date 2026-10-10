@@ -1,13 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Ms_Madi } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono, Ms_Madi } from "next/font/google";
 import React from "react";
 import "./globals.css";
 
 import CustomCursor from "@/components/CustomCursor";
 import LoaderWrapper from "@/components/LoaderWrapper";
-import ScrollIndicator from "@/components/ScrollIndicator";
+import AIAssistantWidget from "@/components/AIAssistantWidget";
 import SmoothScroll from "@/components/SmoothScroll";
 import { StructuredData } from "@/components/StructuredData";
+
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +35,12 @@ const msMadi = Ms_Madi({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#3B0007",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  userScalable: true,
 };
 
 export const metadata: Metadata = {
@@ -62,12 +70,16 @@ export const metadata: Metadata = {
     "Backend Engineer",
     "JavaScript Developer",
     "UI UX Engineering",
+    "Web Performance Engineer",
+    "Hire React Developer",
+    "Hire Next.js Developer",
   ],
 
   authors: [{ name: "Abdullah Javed", url: "https://aj-code.vercel.app" }],
   creator: "Abdullah Javed",
   publisher: "AJ Code Studio",
   category: "technology",
+  applicationName: "AJ Portfolio",
 
   icons: {
     icon: [
@@ -125,6 +137,15 @@ export const metadata: Metadata = {
   verification: {
     google: "googlefc24be5cd256c9a9",
   },
+
+  other: {
+    "geo.region": "PK-PB",
+    "geo.placename": "Punjab, Pakistan",
+    "format-detection": "telephone=no",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-title": "AJ.DEV",
+  },
 };
 
 export default function RootLayout({
@@ -142,12 +163,12 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${msMadi.variable} antialiased bg-black text-white selection:bg-white selection:text-black`}
+        className={`${bricolageGrotesque.className} ${bricolageGrotesque.variable} ${geistSans.variable} ${geistMono.variable} ${msMadi.variable} antialiased bg-[#3B0007] text-[#FAF4EC] selection:bg-[#DEBA75] selection:text-[#3B0007]`}
       >
         <SmoothScroll />
 
         <LoaderWrapper>
-          <ScrollIndicator />
+          <AIAssistantWidget />
           <CustomCursor />
           {children}
         </LoaderWrapper>

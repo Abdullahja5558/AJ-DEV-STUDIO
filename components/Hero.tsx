@@ -62,27 +62,14 @@ export const Hero = () => {
   return (
     <section 
       aria-label="Hero Introduction"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] px-4 sm:px-6 py-20 selection:bg-white selection:text-black"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#3B0007] px-4 sm:px-6 py-20 selection:bg-[#DEBA75] selection:text-[#3B0007]"
     >
-      <motion.div
-        variants={variants.spotlight}
-        initial="hidden"
-        animate="visible"
-        className="absolute -top-[20%] -left-[10%] w-75 h-75 md:w-149.75 md:h-150 bg-white rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-0 opacity-10"
-        aria-hidden="true"
-      />
-
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50 transform-gpu" 
-        aria-hidden="true"
-      />
-
       <motion.div
         variants={variants.heroImageLeft}
         initial="hidden"
         animate="visible"
         aria-hidden="true"
-        className="absolute left-[-24%] top-[-6%] md:left-[-10%] md:top-[-6%] w-70 sm:w-100 lg:w-135 opacity-60 md:opacity-80 z-0 pointer-events-none"
+        className="absolute left-[-24%] top-[-6%] md:left-[-10%] md:top-[-6%] w-70 sm:w-100 lg:w-135 opacity-70 md:opacity-90 z-0 pointer-events-none"
       >
         <Image
           src="/hero.png"
@@ -100,7 +87,7 @@ export const Hero = () => {
         initial="hidden"
         animate="visible"
         aria-hidden="true"
-        className="absolute right-[-29%] bottom-[-6%] md:right-[-10%] md:bottom-[-5%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-60 md:opacity-80 z-0 pointer-events-none"
+        className="absolute right-[-29%] bottom-[-6%] md:right-[-10%] md:bottom-[-5%] w-[280px] sm:w-[400px] lg:w-[600px] opacity-70 md:opacity-90 z-0 pointer-events-none"
       >
         <Image
           src="/hero.png"
@@ -124,10 +111,10 @@ export const Hero = () => {
         {/* Social Proof Badge */}
         <motion.div
           variants={variants.item}
-          className="flex items-center justify-center gap-2 sm:gap-3 mb-10 select-none scale-90 sm:scale-100"
+          className="flex items-center justify-center gap-2 sm:gap-3 mb-8 select-none scale-90 sm:scale-100"
         >
           {/* Left Laurel */}
-          <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-75">
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-90 brightness-125 sepia contrast-125">
             <Image
               src="/weather-L.png"
               alt="Laurel Award Icon"
@@ -139,7 +126,7 @@ export const Hero = () => {
 
           {/* Avatars Overlap */}
           <div className="flex items-center" aria-label="Global Client Endorsements">
-            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 z-20 bg-zinc-900 flex-shrink-0">
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-[#3B0007] ring-1 ring-[#DEBA75]/40 z-20 bg-[#2E0006] flex-shrink-0">
               <Image
                 src="https://api.dicebear.com/7.x/lorelei/svg?seed=Aria"
                 alt="Client avatar Aria"
@@ -149,7 +136,7 @@ export const Hero = () => {
                 unoptimized
               />
             </div>
-            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 -ml-2.5 z-10 bg-zinc-900 flex-shrink-0">
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-[#3B0007] ring-1 ring-[#DEBA75]/40 -ml-2.5 z-10 bg-[#2E0006] flex-shrink-0">
               <Image
                 src="https://api.dicebear.com/7.x/lorelei/svg?seed=John"
                 alt="Client avatar John"
@@ -159,7 +146,7 @@ export const Hero = () => {
                 unoptimized
               />
             </div>
-            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-black ring-1 ring-white/10 -ml-2.5 z-0 bg-zinc-900 flex-shrink-0">
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-[#3B0007] ring-1 ring-[#DEBA75]/40 -ml-2.5 z-0 bg-[#2E0006] flex-shrink-0">
               <Image
                 src="https://api.dicebear.com/7.x/lorelei/svg?seed=Mia"
                 alt="Client avatar Mia"
@@ -172,12 +159,12 @@ export const Hero = () => {
           </div>
 
           {/* Text */}
-          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-zinc-300 tracking-wider">
-            Trusted by <strong className="text-white font-semibold">3k+ Global Clients</strong>
+          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-[#D4C3B3] tracking-wider">
+            Trusted by <strong className="text-[#FAF4EC] font-semibold">3k+ Global Clients</strong>
           </span>
 
           {/* Right Laurel */}
-          <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-75">
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-90 brightness-125 sepia contrast-125">
             <Image
               src="/weather-R.png"
               alt="Laurel Award Icon Right"
@@ -191,10 +178,10 @@ export const Hero = () => {
         {/* Semantic H1 with High-Value Ranking Keywords */}
         <motion.h1
           variants={variants.item}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-[92px] font-bold leading-[1.05] md:leading-[1] tracking-tighter text-white mb-8 transform-gpu"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[92px] font-bold leading-[1.05] md:leading-[1] tracking-tighter text-[#FAF4EC] mb-8 transform-gpu"
         >
           Engineering Digital <br className="hidden sm:block" />
-          <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-600 pb-2">
+          <span className="relative inline-block text-[#DEBA75] pb-2">
             Masterpieces
             {/* Animated Wavy Underline */}
             <div className="absolute left-[-8%] -bottom-3 w-[116%] overflow-hidden h-[33px] pointer-events-none select-none" aria-hidden="true">
@@ -213,7 +200,7 @@ export const Hero = () => {
                   height="33"
                   viewBox="0 0 240 16"
                   fill="none"
-                  className="text-zinc-400 opacity-75"
+                  className="text-[#DEBA75] opacity-90"
                 >
                   <motion.path
                     animate={{
@@ -241,13 +228,12 @@ export const Hero = () => {
         {/* Subtitle / Core Role Keyword Target */}
         <motion.p
           variants={variants.item}
-          className="text-[10px] sm:text-sm md:text-base lg:text-[17px] text-zinc-500 max-w-3xl font-light leading-relaxed mb-12 px-4 tracking-[0.15em] uppercase"
+          className="text-[10px] sm:text-xs md:text-sm lg:text-[15px] text-[#D4C3B3] max-w-3xl font-light leading-relaxed mb-12 px-4 tracking-[0.16em] uppercase"
         >
-          Senior <strong className="text-zinc-200 font-normal">MERN Stack & Next.js Developer</strong>{" "}
-          specializing in
+          Senior <strong className="text-[#DEBA75] font-semibold">MERN STACK</strong> developer specializing in
           <br className="hidden md:block" />
           robust architectures and premium{" "}
-          <strong className="text-zinc-200 font-normal">digital craftsmanship.</strong>
+          <strong className="text-[#DEBA75] font-semibold">DIGITAL</strong> craftsmanship.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -257,7 +243,7 @@ export const Hero = () => {
         >
           <button
             aria-label="Explore Portfolio Projects"
-            className="group relative px-8 py-4 bg-white rounded-full overflow-hidden transition-all duration-700 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.03)] cursor-pointer"
+            className="group relative px-8 py-4 bg-[#FAF4EC] rounded-full overflow-hidden transition-all duration-700 active:scale-95 cursor-pointer"
             onClick={() => {
               const section = document.getElementById("projects");
               if (section) {
@@ -265,8 +251,8 @@ export const Hero = () => {
               }
             }}
           >
-            <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-black rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
-            <span className="relative z-10 text-black font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-white transition-colors duration-500">
+            <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-[#3B0007] rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
+            <span className="relative z-10 text-[#3B0007] font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-[#FAF4EC] transition-colors duration-500">
               Explore Portfolio
             </span>
           </button>
@@ -274,10 +260,10 @@ export const Hero = () => {
           <Link
             href="/contact"
             aria-label="Contact and Collaborate with AJ"
-            className="group relative px-8 py-4 bg-transparent border border-white/10 rounded-full overflow-hidden transition-all duration-700 active:scale-95 inline-flex items-center justify-center cursor-pointer"
+            className="group relative px-8 py-4 bg-transparent border border-[#DEBA75]/30 rounded-full overflow-hidden transition-all duration-700 active:scale-95 inline-flex items-center justify-center cursor-pointer"
           >
-            <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-white rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
-            <span className="relative z-10 text-zinc-400 font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-black transition-colors duration-500">
+            <span className="absolute left-0 top-0 w-full h-[300%] -translate-y-full group-hover:-translate-y-[20%] transition-transform duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] bg-[#FAF4EC] rounded-[40%] group-hover:animate-[spin_6s_linear_infinite]" />
+            <span className="relative z-10 text-[#DEBA75] font-bold text-[10px] uppercase tracking-[0.3em] group-hover:text-[#3B0007] transition-colors duration-500">
               Let&apos;s Collaborate
             </span>
           </Link>

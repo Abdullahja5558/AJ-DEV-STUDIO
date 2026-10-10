@@ -31,17 +31,17 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main
-      className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-6 py-24"
+      className="min-h-screen flex flex-col items-center justify-center bg-[#3B0007] text-[#FAF4EC] px-6 py-24 selection:bg-[#DEBA75] selection:text-[#3B0007]"
       role="main"
     >
       {/* H1 for SEO & accessibility */}
-      <h1 className="text-7xl font-black mb-4 tracking-tight" aria-label="404 Page Not Found">
+      <h1 className="text-7xl font-black mb-4 tracking-tight text-[#DEBA75]" aria-label="404 Page Not Found">
         404
       </h1>
-      <h2 className="text-2xl font-bold mb-6">
+      <h2 className="text-2xl font-bold mb-6 text-[#FAF4EC]">
         Page Not Found
       </h2>
-      <p className="text-zinc-400 mb-8 max-w-xl text-center">
+      <p className="text-[#D4C3B3] mb-8 max-w-xl text-center">
         Oops! The page you’re looking for doesn’t exist or has been moved.
         <br />
         Don’t worry, here are some helpful links to get you back on track:
@@ -51,36 +51,36 @@ export default function NotFound() {
         <div className="flex flex-wrap gap-4 justify-center mb-10">
           <Link
             href="/"
-            className="px-6 py-3 rounded-full bg-white text-black font-bold hover:bg-zinc-200 transition"
+            className="px-6 py-3 rounded-full bg-[#FAF4EC] text-[#3B0007] font-bold hover:bg-[#DEBA75] transition shadow-md"
           >
             Home
           </Link>
           <Link
             href="/about"
-            className="px-6 py-3 rounded-full bg-zinc-800 text-white font-bold hover:bg-zinc-700 transition"
+            className="px-6 py-3 rounded-full bg-[#240106] text-[#FAF4EC] border border-[#DEBA75]/30 font-bold hover:border-[#DEBA75] hover:text-[#DEBA75] transition shadow-md"
           >
             About
           </Link>
           <Link
             href="/#projects"
-            className="px-6 py-3 rounded-full bg-zinc-800 text-white font-bold hover:bg-zinc-700 transition"
+            className="px-6 py-3 rounded-full bg-[#240106] text-[#FAF4EC] border border-[#DEBA75]/30 font-bold hover:border-[#DEBA75] hover:text-[#DEBA75] transition shadow-md"
           >
             Projects
           </Link>
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-full bg-zinc-800 text-white font-bold hover:bg-zinc-700 transition"
+            className="px-6 py-3 rounded-full bg-[#240106] text-[#FAF4EC] border border-[#DEBA75]/30 font-bold hover:border-[#DEBA75] hover:text-[#DEBA75] transition shadow-md"
           >
             Contact
           </Link>
         </div>
       </nav>
 
-      <p className="text-zinc-600 text-sm">
+      <p className="text-[#D4C3B3]/60 text-sm">
         If you believe this is an error, please{" "}
         <a
           href="mailto:ajdeveloperr@gmail.com"
-          className="underline hover:text-white"
+          className="underline hover:text-[#DEBA75]"
         >
           let us know
         </a>

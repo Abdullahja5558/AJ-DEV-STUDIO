@@ -105,14 +105,13 @@ export const ContactSection = () => {
     <section
       id="contact"
       aria-label="Contact section"
-      className="relative h-screen min-h-[650px] w-full bg-[#000000] flex flex-col justify-center overflow-hidden selection:bg-white selection:text-black"
+      className="relative h-screen min-h-[650px] w-full bg-[#3B0007] flex flex-col justify-center overflow-hidden selection:bg-[#DEBA75] selection:text-[#3B0007]"
     >
       <h2 className="sr-only">
         Contact a Full Stack Developer for modern web projects, React, Next.js, Node.js applications
       </h2>
 
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-zinc-900/10 blur-[120px] rounded-full" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
       </div>
 
@@ -124,15 +123,15 @@ export const ContactSection = () => {
       >
         <header className="mb-12 mt-10">
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-[0.5px] w-12 bg-zinc-800" />
-            <span className="text-[10px] tracking-[1em] text-zinc-500 font-bold uppercase">
+            <div className="h-[0.5px] w-12 bg-[#DEBA75]/40" />
+            <span className="text-[10px] tracking-[1em] text-[#DEBA75] font-bold uppercase">
               CONNECT
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-[75px] font-black tracking-tighter text-white leading-[0.85] uppercase">
-            Let's Work <br />
-            <span className="text-zinc-900 italic font-light">TOGETHER</span>
+          <h1 className="text-5xl md:text-[75px] font-black tracking-tighter text-[#FAF4EC] leading-[0.85] uppercase">
+            Let&apos;s Work <br />
+            <span className="font-outline-contact italic font-light text-transparent">TOGETHER</span>
           </h1>
         </header>
 
@@ -144,7 +143,7 @@ export const ContactSection = () => {
                 key="intro"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+                exit={{ opacity: 0, scale: 1.1 }}
                 className="flex flex-col items-center gap-8"
               >
                 <button
@@ -155,7 +154,7 @@ export const ContactSection = () => {
                   {[...Array(3)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="absolute inset-0 rounded-full border border-white/40"
+                      className="absolute inset-0 rounded-full border border-[#DEBA75]/40"
                       animate={{ scale: [1, 1.8], opacity: [0.5, 0] }}
                       transition={{
                         duration: 2.5,
@@ -165,12 +164,12 @@ export const ContactSection = () => {
                       }}
                     />
                   ))}
-                  <div className="relative h-16 w-16 rounded-full border border-white/20 bg-white/5 backdrop-blur-2xl flex items-center justify-center">
-                    <div className="h-2 w-2 bg-white rounded-full shadow-[0_0_15px_#fff]" />
+                  <div className="relative h-16 w-16 rounded-full border border-[#DEBA75]/30 bg-[#2E0006] flex items-center justify-center">
+                    <div className="h-2.5 w-2.5 bg-[#DEBA75] rounded-full" />
                   </div>
                 </button>
 
-                <span className="text-[9px] tracking-[1.2em] text-zinc-600 uppercase font-mono animate-pulse">
+                <span className="text-[9px] tracking-[1.2em] text-[#DEBA75] uppercase font-mono font-bold animate-pulse">
                   Click to Initialize
                 </span>
               </motion.div>
@@ -194,13 +193,13 @@ export const ContactSection = () => {
                     className="space-y-8"
                   >
                     <div className="space-y-3">
-                      <div className="inline-block px-4 py-1 border border-white/10 rounded-full bg-white/[0.02]">
-                        <span className="text-[10px] font-mono text-zinc-400 tracking-[0.4em] uppercase">
+                      <div className="inline-block px-4 py-1 border border-[#DEBA75]/25 rounded-full bg-[#DEBA75]/10">
+                        <span className="text-[10px] font-mono text-[#DEBA75] tracking-[0.4em] uppercase font-bold">
                           {current.label}
                         </span>
                       </div>
 
-                      <div className="text-[9px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
+                      <div className="text-[9px] font-mono text-[#D4C3B3]/60 tracking-[0.3em] uppercase font-semibold">
                         {current.sub}
                       </div>
                     </div>
@@ -217,24 +216,24 @@ export const ContactSection = () => {
                           }))
                         }
                         placeholder={current.placeholder}
-                        className={`w-full bg-transparent text-center text-4xl md:text-6xl text-white font-light outline-none uppercase tracking-tighter transition-all ${
-                          error ? "text-red-500" : ""
+                        className={`w-full bg-transparent text-center text-4xl md:text-6xl text-[#FAF4EC] placeholder-[#D4C3B3]/30 font-light outline-none uppercase tracking-tighter transition-all ${
+                          error ? "text-red-400" : ""
                         }`}
                         aria-label={current.label}
                       />
 
-                      <div className="mt-6 h-[0.5px] w-full bg-zinc-900 overflow-hidden">
+                      <div className="mt-6 h-[0.5px] w-full bg-[#DEBA75]/20 overflow-hidden">
                         <motion.div
                           initial={{ x: "-100%" }}
                           animate={{ x: "0%" }}
                           className={`h-full w-full bg-gradient-to-r from-transparent ${
-                            error ? "via-red-600" : "via-zinc-500"
+                            error ? "via-red-500" : "via-[#DEBA75]"
                           } to-transparent`}
                         />
                       </div>
 
                       {error && (
-                        <p className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[8px] font-mono text-red-500 uppercase tracking-[0.5em]">
+                        <p className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[8px] font-mono text-red-400 uppercase tracking-[0.5em]">
                           [ {error} ]
                         </p>
                       )}
@@ -246,7 +245,7 @@ export const ContactSection = () => {
                         <button
                           type="button"
                           onClick={handleBack}
-                          className="text-[10px] font-mono text-zinc-500 uppercase"
+                          className="text-[10px] font-mono text-[#D4C3B3] uppercase hover:text-[#DEBA75] transition-colors"
                         >
                           ← Prev
                         </button>
@@ -255,7 +254,7 @@ export const ContactSection = () => {
                       <button
                         type="submit"
                         disabled={isSending}
-                        className="px-10 py-2.5 border border-white/10 bg-white/[0.02] text-white text-[10px] font-mono uppercase tracking-[0.3em]"
+                        className="px-10 py-2.5 border border-[#DEBA75]/40 bg-[#DEBA75]/10 text-[#DEBA75] hover:bg-[#DEBA75] hover:text-[#3B0007] transition-all text-[10px] font-mono uppercase tracking-[0.3em] font-bold rounded-full cursor-pointer"
                       >
                         {step === QUESTIONS.length - 1
                           ? isSending
@@ -277,17 +276,17 @@ export const ContactSection = () => {
                 animate={{ opacity: 1 }}
                 className="text-center"
               >
-                <h2 className="text-5xl md:text-7xl font-black text-white uppercase italic">
+                <h2 className="text-5xl md:text-7xl font-black text-[#FAF4EC] uppercase italic">
                   SUCCESS
                 </h2>
 
-                <p className="text-zinc-500 text-[9px] tracking-[0.6em] uppercase mt-6">
+                <p className="text-[#DEBA75] text-[9px] tracking-[0.6em] uppercase mt-6 font-bold">
                   Message delivered successfully
                 </p>
 
                 <button
                   onClick={resetForm}
-                  className="mt-10 px-6 py-2 border border-white/5 text-zinc-400 text-[9px] uppercase"
+                  className="mt-10 px-6 py-2 border border-[#DEBA75]/25 text-[#D4C3B3] hover:text-[#FAF4EC] text-[9px] uppercase rounded-full cursor-pointer"
                 >
                   Reset
                 </button>
@@ -296,6 +295,12 @@ export const ContactSection = () => {
           </AnimatePresence>
         </div>
       </motion.div>
+
+      <style jsx global>{`
+        .font-outline-contact {
+          -webkit-text-stroke: 1.5px rgba(222, 186, 117, 0.4);
+        }
+      `}</style>
     </section>
   );
 };

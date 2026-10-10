@@ -60,7 +60,7 @@ export const CustomCursor = () => {
 
       {/* 2. OUTER GLOW (The Aesthetic Ring) */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border border-white/20"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border border-[#DEBA75]/40"
         style={{
           x: smoothX,
           y: smoothY,
@@ -68,7 +68,7 @@ export const CustomCursor = () => {
           translateY: "-50%",
           width: isHovered ? 100 : 40,
           height: isHovered ? 100 : 40,
-          opacity: isHovered ? 0.5 : 0.2,
+          opacity: isHovered ? 0.6 : 0.25,
           transition: "width 0.5s ease, height 0.5s ease, opacity 0.5s ease",
         }}
       />

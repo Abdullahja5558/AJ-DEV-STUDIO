@@ -101,20 +101,19 @@ export const Navbar = () => {
 
   return (
     <>
-      
       <div className="fixed top-6 right-6 md:top-10 md:right-12 z-[300]">
         <button 
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-controls="navigation-menu"
-          className="flex items-center justify-center p-4 group bg-white/5 backdrop-blur-2xl rounded-full border border-white/10 hover:border-white/40 transition-all duration-500 shadow-2xl"
+          className="flex items-center justify-center p-4 group bg-[#3B0007] rounded-full border border-[#DEBA75]/40 hover:border-[#DEBA75] transition-all duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-end gap-1.5" aria-hidden="true">
             <motion.div 
               animate={{ 
-                width: isOpen ? 28 : 20, 
-                backgroundColor: "#fff",
+                width: isOpen ? 26 : 20, 
+                backgroundColor: isOpen ? "#DEBA75" : "#FAF4EC",
                 y: isOpen ? 4 : 0,
                 rotate: isOpen ? 45 : 0
               }} 
@@ -122,8 +121,8 @@ export const Navbar = () => {
             />
             <motion.div 
               animate={{ 
-                width: 28, 
-                backgroundColor: isOpen ? "#fff" : "#888",
+                width: 26, 
+                backgroundColor: isOpen ? "#DEBA75" : "#DEBA75",
                 y: isOpen ? -4 : 0,
                 rotate: isOpen ? -45 : 0
               }} 
@@ -135,7 +134,6 @@ export const Navbar = () => {
 
       <AnimatePresence mode="wait">
         {isOpen && (
-          
           <motion.div 
             id="navigation-menu"
             role="navigation"
@@ -144,15 +142,13 @@ export const Navbar = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-0 z-[250] bg-[#050505] overflow-hidden"
+            className="fixed inset-0 z-[250] bg-[#3B0007] overflow-hidden"
+            style={{ backgroundColor: "#3B0007" }}
           >
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" aria-hidden="true" />
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-zinc-900/20 blur-[120px] rounded-full" aria-hidden="true" />
-
             <div className="flex flex-col h-full justify-center px-6 md:px-24 lg:px-32 relative z-10 pt-20 pb-40">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 max-w-7xl mx-auto w-full">
                 {navItems.map((item, idx) => (
-                  <div key={item.name} className="overflow-hidden border-b border-white/5 py-3 md:py-6">
+                  <div key={item.name} className="overflow-hidden border-b border-[#DEBA75]/15 py-3 md:py-6">
                     <motion.div
                       custom={idx}
                       variants={linkVars}
@@ -165,14 +161,14 @@ export const Navbar = () => {
                         onClick={(e) => handleScroll(e, item.href)}
                         className="group flex items-center gap-4 md:gap-6"
                       >
-                        <span className="text-[10px] md:text-xs font-mono text-zinc-500 font-bold opacity-40 group-hover:opacity-100 group-hover:text-white transition-all">
-                            {item.id}
+                        <span className="text-[10px] md:text-xs font-mono text-[#DEBA75]/60 font-bold opacity-60 group-hover:opacity-100 group-hover:text-[#DEBA75] transition-all">
+                          {item.id}
                         </span>
-                        <span className="text-4xl md:text-[5vw] font-black text-[#fafafa] uppercase tracking-tighter leading-none transition-all duration-500 group-hover:italic group-hover:translate-x-4">
+                        <span className="text-4xl md:text-[5vw] font-black text-[#FAF4EC] uppercase tracking-tighter leading-none transition-all duration-300 group-hover:text-[#DEBA75] group-hover:translate-x-3">
                           {item.name}
                         </span>
-                        <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-5 group-hover:translate-x-0 hidden sm:block">
-                            <span className="text-white text-3xl md:text-4xl font-light" aria-hidden="true">→</span>
+                        <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-5 group-hover:translate-x-0 hidden sm:block">
+                          <span className="text-[#DEBA75] text-3xl md:text-4xl font-light" aria-hidden="true">→</span>
                         </div>
                       </Link>
                     </motion.div>
@@ -180,24 +176,18 @@ export const Navbar = () => {
                 ))}
               </div>
 
-              {/* Decorative Background Text (Ultra Subtle) */}
-              <div className="absolute bottom-[-2%] right-[-2%] pointer-events-none opacity-[0.02] select-none hidden lg:block" aria-hidden="true">
-                  <h2 className="text-[20vw] font-black text-white leading-none uppercase">Abdullah</h2>
-                  <h2 className="text-[20vw] font-black text-white leading-none uppercase -mt-20 ml-20">Javed</h2>
-              </div>
-
               {/* Menu Footer */}
               <div className="absolute bottom-8 left-6 md:bottom-12 md:left-24 lg:left-32 flex flex-col md:flex-row gap-6 md:gap-24">
                 <div className="space-y-1 md:space-y-2">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold">Location</p>
-                  <p className="text-xs md:text-sm font-medium text-zinc-400 uppercase">Punjab, Pakistan</p>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#DEBA75]/50 font-bold">Location</p>
+                  <p className="text-xs md:text-sm font-medium text-[#D4C3B3] uppercase">Punjab, Pakistan</p>
                 </div>
                 <div className="space-y-1 md:space-y-2">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold">Socials</p>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#DEBA75]/50 font-bold">Socials</p>
                   <div className="flex gap-4 md:gap-6">
-                    <a href="https://www.linkedin.com/in/abdullah-javed-a2b0b0396/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors" aria-label="Abdullah Javed LinkedIn Profile">LinkedIn</a>
-                    <a href="https://github.com/Abdullahja5558" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors" aria-label="Abdullah Javed GitHub Profile">GitHub</a>
-                    <a href="https://www.instagram.com/mian.abdullah.9/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-zinc-500 uppercase hover:text-white transition-colors" aria-label="Abdullah Javed Instagram Profile">Instagram</a>
+                    <a href="https://www.linkedin.com/in/abdullah-javed-a2b0b0396/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#DEBA75] transition-colors" aria-label="Abdullah Javed LinkedIn Profile">LinkedIn</a>
+                    <a href="https://github.com/Abdullahja5558" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#DEBA75] transition-colors" aria-label="Abdullah Javed GitHub Profile">GitHub</a>
+                    <a href="https://www.instagram.com/mian.abdullah.9/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#DEBA75] transition-colors" aria-label="Abdullah Javed Instagram Profile">Instagram</a>
                   </div>
                 </div>
               </div>
