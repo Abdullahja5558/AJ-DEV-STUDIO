@@ -155,7 +155,6 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      style={{ scrollBehavior: "smooth" }}
     >
       <head>
         {/* Structured Data (Schema.org Graph) */}

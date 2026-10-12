@@ -39,9 +39,9 @@ export const CustomCursor = () => {
 
   return (
     <>
-      {/* 1. MAIN CURSOR (The Inverter) */}
+      {/* 1. MAIN CURSOR (The Inverter - Desktop Only) */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center"
+        className="hidden lg:flex fixed top-0 left-0 rounded-full pointer-events-none z-[9999] mix-blend-difference items-center justify-center"
         style={{
           x: smoothX,
           y: smoothY,
@@ -58,9 +58,9 @@ export const CustomCursor = () => {
         )}
       </motion.div>
 
-      {/* 2. OUTER GLOW (The Aesthetic Ring) */}
+      {/* 2. OUTER GLOW (The Aesthetic Ring - Desktop Only) */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border border-[#DEBA75]/40"
+        className="hidden lg:block fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border border-[#DEBA75]/40"
         style={{
           x: smoothX,
           y: smoothY,

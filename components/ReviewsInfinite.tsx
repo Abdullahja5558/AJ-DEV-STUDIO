@@ -1,47 +1,47 @@
 "use client";
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Quote, Sparkles, Star } from "lucide-react";
 
-const reviews = [
+interface Review {
+  name: string;
+  role: string;
+  text: string;
+  company: string;
+}
+
+const reviews: Review[] = [
   { 
     name: "Alex Rivera", 
     role: "Product Manager", 
-    text: <>Exceptional frontend work. The <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">Next.js optimization</span> improved our LCP by 40%.</>, 
+    text: "Exceptional frontend work. The Next.js optimization improved our LCP by 40%.", 
     company: "Global Tech" 
   },
   { 
     name: "Sarah Chen", 
     role: "UI/UX Designer", 
-    text: <>Translated my Figma designs into <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">pixel-perfect code</span>. The attention to detail is unmatched.</>, 
+    text: "Translated my Figma designs into pixel-perfect code. The attention to detail is unmatched.", 
     company: "Creative Studio" 
   },
   { 
     name: "James Watt", 
     role: "Startup Founder", 
-    text: <>Fixed complex <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">state management bugs</span> in hours. A true TS expert.</>, 
+    text: "Fixed complex state management bugs in hours. A true TS expert.", 
     company: "NextGen" 
   },
   {
     name: "Emily Davis",
     role: "CTO",
-    text: <>Implemented a custom <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">SSR caching strategy</span> that reduced server costs by 30%.</>,
+    text: "Implemented a custom SSR caching strategy that reduced server costs by 30%.",
     company: "Tech Innovators"  
   },
   {
     name: "Michael Johnson",
     role: "Lead Developer",
-    text: <>The <span className="bg-[#3B0007] text-[#FAF4EC] dark:bg-[#DEBA75] dark:text-[#3B0007] px-2 py-0.5 font-semibold mx-1 rounded">code quality and architecture</span> are top-notch. Seamless onboarding.</>,
+    text: "The code quality and architecture are top-notch. Seamless onboarding.",
     company: "CodeCraft"  
   },
 ];
-
-interface Review {
-  name: string;
-  role: string;
-  text: React.ReactNode;
-  company: string;
-}
 
 const ReviewCard = ({ 
   review, 
@@ -54,84 +54,103 @@ const ReviewCard = ({
   total: number; 
   scrollYProgress: MotionValue<number>; 
 }) => {
-  const animationStart = 0.2; 
-  const step = (1 - animationStart) / total;
-  const start = animationStart + (index * step);
-  const end = start + step;
+  const isLast = index === total - 1;
 
-  const yRaw = useTransform(scrollYProgress, [start, end], [0, -1200]);
-  const y = useSpring(yRaw, { stiffness: 40, damping: 30 });
-  const rotate = useTransform(scrollYProgress, [start, end], [0, index % 2 === 0 ? -10 : 10]);
-  const scale = useTransform(scrollYProgress, [start, end], [1 - (total - index) * 0.04, 1]);
-  const opacity = useTransform(scrollYProgress, [end - 0.05, end], [1, 0]);
+  // Step allocation for cards peel-away
+  const step = 0.85 / (total - 1);
+  const start = index * step;
+  const end = Math.min(start + step * 0.92, 1);
 
-  // Alternating background colors: even index = champagne cream, odd index = deep wine burgundy
+  // Card movement: flies up and rotates cleanly
+  const y = useTransform(scrollYProgress, [start, end], [0, -820]);
+  const rotate = useTransform(scrollYProgress, [start, end], [0, index % 2 === 0 ? -7 : 7]);
+  const opacity = useTransform(scrollYProgress, [end - 0.08, end], [1, 0]);
+
+  // Card scale:
+  // Card 0 starts at scale 1.
+  // Cards behind scale up from 0.95 to 1.0 as the preceding card peels off.
+  const prevStart = (index - 1) * step;
+  const prevEnd = prevStart + step * 0.92;
+  const scaleUp = useTransform(scrollYProgress, [prevStart, prevEnd], [0.95, 1]);
+
+  const scale = index === 0 ? 1 : scaleUp;
+
+  // Alternating themes: even index = champagne cream, odd index = deep burgundy
   const isWhiteBg = index % 2 === 0;
 
   return (
     <motion.figure
       style={{ 
-        y: index === total - 1 ? 0 : y, 
-        rotate: index === total - 1 ? 0 : rotate,
-        scale,
-        opacity: index === total - 1 ? 1 : opacity,
-        zIndex: total - index 
+        y: isLast ? 0 : y, 
+        rotate: isLast ? 0 : rotate,
+        scale: isLast ? scaleUp : scale,
+        opacity: isLast ? 1 : opacity,
+        zIndex: (total - index) * 10
       }}
-      className={`absolute w-full h-full p-8 md:p-12 flex flex-col justify-between rounded-[2.5rem] md:rounded-[3.5rem] border overflow-hidden transition-colors duration-300 ${
+      className={`absolute inset-0 p-6 sm:p-8 md:p-12 flex flex-col justify-between rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3.2rem] border overflow-hidden transition-colors duration-300 select-none will-change-transform ${
         isWhiteBg 
-          ? "bg-[#FAF4EC] text-[#3B0007] border-[#DEBA75]/30" 
-          : "bg-[#2E0006] text-[#FAF4EC] border-[#DEBA75]/25"
+          ? "!bg-[#FAF4EC] !text-[#3B0007] border-[#DEBA75]/35 shadow-[0_20px_50px_rgba(20,0,4,0.35)]" 
+          : "!bg-[#260106] !text-[#FAF4EC] border-[#DEBA75]/25 shadow-[0_20px_50px_rgba(20,0,4,0.45)]"
       }`}
     >
-      <div className={`absolute inset-0 pointer-events-none ${isWhiteBg ? "bg-gradient-to-br from-black/[0.02] to-transparent" : "bg-gradient-to-br from-[#DEBA75]/[0.03] to-transparent"}`} aria-hidden="true" />
-      <Quote size={100} className={`absolute -top-4 -right-4 pointer-events-none ${isWhiteBg ? "text-[#3B0007] opacity-[0.04]" : "text-[#DEBA75] opacity-[0.04]"}`} aria-hidden="true" />
+      {/* Decorative gradient overlay */}
+      <div 
+        className={`absolute inset-0 pointer-events-none ${isWhiteBg ? "bg-gradient-to-br from-black/[0.02] to-transparent" : "bg-gradient-to-br from-[#DEBA75]/[0.03] to-transparent"}`} 
+        aria-hidden="true" 
+      />
+
+      {/* Background quote mark */}
+      <Quote 
+        className={`absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 pointer-events-none ${isWhiteBg ? "text-[#3B0007] opacity-[0.04]" : "text-[#DEBA75] opacity-[0.04]"}`} 
+        aria-hidden="true" 
+      />
 
       {/* Header section with rating and counter */}
-      <div className="z-10 flex flex-col gap-6 mt-2">
+      <div className="z-10 flex flex-col gap-4 sm:gap-6 mt-1">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5" aria-label="5 star rating">
+          <div className="flex items-center gap-1 sm:gap-1.5" aria-label="5 star verified rating">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 text-[#DEBA75] fill-current" />
+              <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DEBA75] fill-current" />
             ))}
           </div>
-          <span className={`text-xs font-mono font-bold tracking-wider ${isWhiteBg ? "text-[#3B0007]/60" : "text-[#DEBA75]/60"}`}>
+          <span className={`text-[11px] sm:text-xs font-mono font-bold tracking-wider ${isWhiteBg ? "text-[#3B0007]/60" : "text-[#DEBA75]/60"}`}>
             0{index + 1} / 0{total}
           </span>
         </div>
         
-        <blockquote className={`text-xl md:text-[2.2vw] font-normal leading-[1.3] tracking-tight m-0 ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
+        <blockquote className={`text-base sm:text-xl md:text-2xl lg:text-[2vw] font-normal leading-snug sm:leading-relaxed tracking-tight m-0 !bg-transparent ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
           &ldquo;{review.text}&rdquo;
         </blockquote>
       </div>
 
       {/* Footer section with author details */}
-      <figcaption className={`z-10 flex items-center justify-between border-t pt-6 mt-4 ${isWhiteBg ? "border-[#DEBA75]/20" : "border-[#DEBA75]/15"}`}>
-        <div className="flex items-center gap-4">
-          <div className={`w-11 h-11 rounded-full flex items-center justify-center font-bold text-base ${
+      <figcaption className={`z-10 flex items-center justify-between border-t pt-4 sm:pt-6 mt-3 sm:mt-4 !bg-transparent ${isWhiteBg ? "border-[#DEBA75]/25" : "border-[#DEBA75]/15"}`}>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 ${
             isWhiteBg ? "bg-[#3B0007] text-[#FAF4EC] border border-[#DEBA75]/30" : "bg-[#3D050E] text-[#DEBA75] border border-[#DEBA75]/25"
           }`}>
             {review.name.charAt(0)}
           </div>
           <div>
-            <h4 className={`text-lg md:text-xl font-bold tracking-tight leading-snug uppercase ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
+            <h4 className={`text-base sm:text-lg md:text-xl font-bold tracking-tight leading-snug uppercase !bg-transparent ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
               {review.name}
             </h4>
-            <div className="flex items-center gap-2 mt-0.5">
-              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-[#5C0A15]" : "text-[#D4C3B3]"}`}>
+            <div className="flex items-center gap-1.5 sm:gap-2 mt-0.5">
+              <span className={`text-[10px] sm:text-xs font-medium tracking-wide !bg-transparent ${isWhiteBg ? "text-[#5C0A15]" : "text-[#D4C3B3]"}`}>
                 {review.role}
               </span>
-              <span className={`text-xs ${isWhiteBg ? "text-[#DEBA75]" : "text-[#DEBA75]/40"}`}>•</span>
-              <span className={`text-xs font-medium tracking-wide ${isWhiteBg ? "text-[#5C0A15]/80" : "text-[#D4C3B3]/70"}`}>
+              <span className={`text-[10px] sm:text-xs ${isWhiteBg ? "text-[#DEBA75]" : "text-[#DEBA75]/40"}`}>•</span>
+              <span className={`text-[10px] sm:text-xs font-medium tracking-wide !bg-transparent ${isWhiteBg ? "text-[#5C0A15]/80" : "text-[#D4C3B3]/70"}`}>
                 {review.company}
               </span>
             </div>
           </div>
         </div>
 
-        <div className="hidden md:block">
-           <span className={`text-xs font-mono uppercase tracking-[0.2em] px-3 py-1.5 rounded-md font-bold ${isWhiteBg ? "bg-[#3B0007]/10 text-[#3B0007]" : "bg-[#DEBA75]/10 text-[#DEBA75]"}`}>
-             Verified Client
-           </span>
+        <div>
+          <span className={`text-[9px] sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] px-2 sm:px-3 py-1 sm:py-1.5 rounded-md font-bold ${isWhiteBg ? "bg-[#3B0007]/10 text-[#3B0007]" : "bg-[#DEBA75]/10 text-[#DEBA75]"}`}>
+            Verified
+          </span>
         </div>
       </figcaption>
     </motion.figure>
@@ -139,34 +158,71 @@ const ReviewCard = ({
 };
 
 export const Testimonials = () => {
-  const containerRef = useRef(null);
+  const cardsTrackRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: cardsTrackRef,
     offset: ["start start", "end end"]
   });
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Verified Client Testimonials",
+    "description": "Client reviews and feedback for Abdullah Javed (AJ), Senior Full-Stack MERN & Next.js Developer.",
+    "itemListElement": reviews.map((r, i) => ({
+      "@type": "Review",
+      "position": i + 1,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": r.name,
+        "jobTitle": r.role
+      },
+      "reviewBody": r.text,
+      "publisher": {
+        "@type": "Organization",
+        "name": r.company
+      }
+    }))
+  };
+
   return (
     <section 
-      ref={containerRef} 
-      className="bg-[#3B0007] relative selection:bg-[#DEBA75] selection:text-[#3B0007]"
+      className="bg-[#3B0007] relative selection:bg-[#DEBA75] selection:text-[#3B0007] overflow-clip"
       aria-labelledby="testimonials-heading"
     >
-      <div className="w-full h-screen flex flex-col items-center justify-center bg-[#3B0007] relative z-20 px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4 bg-[#2E0006] border border-[#DEBA75]/25 px-4 py-1.5 rounded-full">
-            <Sparkles size={14} className="text-[#DEBA75]" aria-hidden="true" />
-            <span className="text-[#DEBA75] text-[10px] font-black uppercase tracking-[0.4em]">Verified Testimonials</span>
-          </div>
-          <h2 id="testimonials-heading" className="text-6xl md:text-[11vw] font-black text-[#FAF4EC] leading-[0.85] tracking-[-0.04em] uppercase">
-            VOICES <br />
-            <span className="font-outline italic text-transparent">That Matter.</span>
-          </h2>
-          <p className="text-[#DEBA75] mt-10 text-[10px] font-bold uppercase tracking-[0.4em] animate-pulse">Scroll down to explore feedback</p>
+      {/* Schema.org Reviews structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData)
+        }}
+      />
+
+      {/* Header Viewport Screen */}
+      <div className="w-full min-h-[55vh] sm:min-h-[70vh] md:h-screen flex flex-col items-center justify-center bg-[#3B0007] relative z-20 px-4 sm:px-6 py-20 sm:py-24 text-center">
+        <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-4 bg-[#2E0006] border border-[#DEBA75]/25 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full">
+          <Sparkles size={13} className="text-[#DEBA75]" aria-hidden="true" />
+          <span className="text-[#DEBA75] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em]">Verified Testimonials</span>
+        </div>
+        <h2 id="testimonials-heading" className="text-5xl sm:text-6xl md:text-[9vw] lg:text-[10vw] font-black text-[#FAF4EC] leading-[0.88] tracking-[-0.04em] uppercase">
+          VOICES <br />
+          <span className="font-outline italic text-transparent">That Matter.</span>
+        </h2>
+        <p className="text-[#DEBA75] mt-8 sm:mt-10 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.35em] sm:tracking-[0.4em] animate-pulse">
+          Scroll down to explore feedback
+        </p>
       </div>
 
-      <div className="relative h-[450vh]"> 
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6">
-          <div className="relative w-full max-w-4xl h-[400px] md:h-[480px]">
+      {/* Cards Sticky Stack Track */}
+      <div ref={cardsTrackRef} className="relative h-[320vh] sm:h-[360vh] md:h-[400vh]"> 
+        <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden px-4 sm:px-6">
+          <div className="relative w-full max-w-4xl h-[380px] sm:h-[420px] md:h-[460px]">
             {reviews.map((review, index) => (
               <ReviewCard 
                 key={index} 
@@ -182,29 +238,11 @@ export const Testimonials = () => {
 
       <style jsx>{`
         .font-outline {
-          -webkit-text-stroke: 1.5px rgba(222, 186, 117, 0.4);
+          -webkit-text-stroke: 1.5px rgba(222, 186, 117, 0.45);
           color: transparent;
         }
         @media (min-width: 768px) {
-          .font-outline { -webkit-text-stroke: 2px rgba(222, 186, 117, 0.4); }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html.lenis {
-          height: auto;
-        }
-        .lenis.lenis-smooth {
-          scroll-behavior: auto !important;
-        }
-        .lenis.lenis-smooth [data-lenis-prevent] {
-          overscroll-behavior: contain;
-        }
-        .lenis.lenis-stopped {
-          overflow: hidden;
-        }
-        .lenis.lenis-scrolling iframe {
-          pointer-events: none;
+          .font-outline { -webkit-text-stroke: 2px rgba(222, 186, 117, 0.45); }
         }
       `}</style>
     </section>

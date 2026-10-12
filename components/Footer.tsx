@@ -42,11 +42,11 @@ export const PremiumFooter = () => {
           {/* Banner Text & Button */}
           <div className="relative z-10 max-w-xl space-y-5 sm:space-y-7 text-[#3B0007] w-full text-left">
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] uppercase text-[#3B0007]">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] uppercase text-[#3B0007] !bg-transparent">
                 Ready to build <br />
                 something legendary?
               </h2>
-              <p className="text-xs sm:text-sm md:text-base text-[#5C0A15] font-normal leading-relaxed max-w-md">
+              <p className="text-xs sm:text-sm md:text-base text-[#5C0A15] font-normal leading-relaxed max-w-md !bg-transparent">
                 Combining smooth, high-fidelity user experiences with secure and robust backend architectures.
               </p>
             </div>
