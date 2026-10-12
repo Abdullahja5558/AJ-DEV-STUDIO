@@ -242,8 +242,10 @@ export const Hero = () => {
           className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-6 sm:px-0"
         >
           <button
+            type="button"
             aria-label="Explore Portfolio Projects"
-            className="group relative px-8 py-4 bg-[#FAF4EC] rounded-full overflow-hidden transition-all duration-700 active:scale-95 cursor-pointer"
+            className="group relative px-8 py-4 !bg-[#FAF4EC] !text-[#3B0007] rounded-full overflow-hidden transition-all duration-700 active:scale-95 cursor-pointer shadow-lg shadow-black/20"
+            style={{ backgroundColor: "#FAF4EC", color: "#3B0007" }}
             onClick={() => {
               const section = document.getElementById("projects");
               if (section) {

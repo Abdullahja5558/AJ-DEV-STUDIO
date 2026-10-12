@@ -25,34 +25,17 @@
 *,
 *::before,
 *::after {
-  cursor: none !important;
   box-sizing: border-box;
 }
 
 html,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-button,
-input,
-textarea,
-select {
-  background-color: var(--bg-dark);
+body {
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
-}
-
-html,
-body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
@@ -68,13 +51,18 @@ body::-webkit-scrollbar {
   display: none !important;
 }
 
-/* 3. Interactive Elements Cursor Hide */
-a,
-button,
-input,
-textarea,
-[role="button"] {
-  cursor: none !important;
+/* 3. Interactive Elements Cursor Hide (Desktop mouse pointers only) */
+@media (hover: hover) and (pointer: fine) {
+  *,
+  *::before,
+  *::after,
+  a,
+  button,
+  input,
+  textarea,
+  [role="button"] {
+    cursor: none !important;
+  }
 }
 
 /* 4. Custom Cursor Logic */
