@@ -164,13 +164,13 @@ export default function RootLayout({
       <body
         className={`${bricolageGrotesque.className} ${bricolageGrotesque.variable} ${geistSans.variable} ${geistMono.variable} ${msMadi.variable} antialiased bg-[#3B0007] text-[#FAF4EC] selection:bg-[#DEBA75] selection:text-[#3B0007]`}
       >
-        <SmoothScroll />
-
-        <LoaderWrapper>
-          <AIAssistantWidget />
-          <CustomCursor />
-          {children}
-        </LoaderWrapper>
+        <SmoothScroll>
+          <LoaderWrapper>
+            <AIAssistantWidget />
+            <CustomCursor />
+            {children}
+          </LoaderWrapper>
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -8,20 +8,17 @@ export default function LoaderWrapper({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     if (isLoading) {
-      
       document.body.style.cursor = "none";
-     
       document.body.style.overflow = "hidden";
     } else {
-
       document.body.style.cursor = "default";
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
+      window.dispatchEvent(new Event("resize"));
     }
 
-    
     return () => {
       document.body.style.cursor = "default";
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
   }, [isLoading]);
 

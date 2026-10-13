@@ -46,7 +46,10 @@ export const Navbar = () => {
         if (targetElement && lenis) {
           setIsOpen(false);
           lenis.start();
-          lenis.scrollTo(targetElement, { offset: -20, duration: 2 });
+          lenis.scrollTo(targetElement, { offset: -20, duration: 1.5 });
+        } else if (targetElement) {
+          setIsOpen(false);
+          targetElement.scrollIntoView({ behavior: "smooth" });
         }
       } else {
         setIsOpen(false);

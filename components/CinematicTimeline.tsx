@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, MoveRight } from "lucide-react";
 
 const structuredData = {
@@ -56,14 +56,31 @@ const EXPERIENCES = [
 
 const ExperienceJourney = () => {
   const targetRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [scrollDistance, setScrollDistance] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end end"],
   });
 
-  const xRaw = useTransform(scrollYProgress, [0.05, 0.9], ["0%", "-75%"]);
-  const x = useSpring(xRaw, { stiffness: 50, damping: 25 });
+  React.useEffect(() => {
+    const updateScrollDistance = () => {
+      if (trackRef.current) {
+        const total = trackRef.current.scrollWidth;
+        const viewport = window.innerWidth;
+        // Exactly scroll so the final card and signature line up cleanly without flying away
+        const dist = Math.max(0, total - viewport + 80);
+        setScrollDistance(dist);
+      }
+    };
+
+    updateScrollDistance();
+    window.addEventListener("resize", updateScrollDistance);
+    return () => window.removeEventListener("resize", updateScrollDistance);
+  }, []);
+
+  const x = useTransform(scrollYProgress, [0.02, 0.96], [0, -scrollDistance]);
 
   return (
     <>
@@ -79,8 +96,7 @@ const ExperienceJourney = () => {
       <div className="hidden md:block">
         <section
           ref={targetRef}
-          className="relative h-[400vh] bg-[#3B0007] selection:bg-[#DEBA75] selection:text-[#3B0007]"
-          id="experience"
+          className="relative h-[300vh] bg-[#3B0007] selection:bg-[#DEBA75] selection:text-[#3B0007]"
           aria-label="Professional Experience Timeline"
         >
             <div className="sticky top-0 h-screen flex items-center overflow-hidden">
@@ -94,16 +110,16 @@ const ExperienceJourney = () => {
                 </span>
               </div>
 
-              <motion.div style={{ x }} className="flex items-center">
+              <motion.div ref={trackRef} style={{ x }} className="flex items-center will-change-transform">
                 
                 {/* HEADER */}
-                <header className="min-w-[45vw] lg:min-w-[40vw] px-8 lg:px-20 flex flex-col justify-center gap-8 relative z-10">
+                <header className="w-[360px] lg:w-[440px] px-8 lg:px-14 flex flex-col justify-center gap-6 relative z-10 shrink-0">
                   <div className="space-y-3">
                     <span className="text-[10px] font-mono uppercase tracking-[0.8em] text-[#DEBA75] block font-bold">
                       The Journey
                     </span>
 
-                    <h2 className="text-6xl lg:text-[9vw] font-black tracking-tighter text-[#FAF4EC] leading-[0.85] uppercase">
+                    <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter text-[#FAF4EC] leading-[0.85] uppercase">
                       WORK <br />
                       <span className="italic font-outline opacity-40 text-transparent">
                         History
@@ -111,43 +127,43 @@ const ExperienceJourney = () => {
                     </h2>
                   </div>
 
-                  <div className="flex items-center gap-6 mt-8 border-t border-[#DEBA75]/15 pt-8">
+                  <div className="flex items-center gap-4 mt-6 border-t border-[#DEBA75]/15 pt-6">
                     <p className="text-[#D4C3B3] font-mono text-[9px] uppercase tracking-[0.4em]">
                       Scroll to Navigate
                     </p>
 
                     <motion.div
-                      animate={{ x: [0, 15, 0] }}
+                      animate={{ x: [0, 12, 0] }}
                       transition={{
                         repeat: Infinity,
-                        duration: 2.5,
+                        duration: 2.2,
                         ease: "easeInOut",
                       }}
                       className="text-[#DEBA75] opacity-60"
                       aria-hidden="true"
                     >
-                      <MoveRight size={36} strokeWidth={1.5} />
+                      <MoveRight size={32} strokeWidth={1.5} />
                     </motion.div>
                   </div>
                 </header>
 
-                <div className="min-w-[8vw] lg:min-w-[12vw]" />
+                <div className="w-10 lg:w-16 shrink-0" />
 
                 {/* EXPERIENCE CARDS */}
                 <section
-                  className="flex gap-12 lg:gap-24 pr-[15vw]"
+                  className="flex gap-8 lg:gap-14 shrink-0 pr-12 lg:pr-16"
                   aria-label="Experience cards"
                 >
                   {EXPERIENCES.map((exp, index) => (
                     <article
                       key={index}
-                      className="relative min-w-[340px] lg:min-w-[520px] h-[520px] lg:h-[580px] bg-[#2E0006] border border-[#DEBA75]/20 hover:border-[#DEBA75]/60 rounded-[36px] lg:rounded-[48px] p-8 lg:p-14 flex flex-col justify-between group cursor-pointer overflow-hidden transition-all duration-300"
+                      className="relative w-[340px] lg:w-[460px] xl:w-[480px] h-[500px] lg:h-[540px] bg-[#2E0006] border border-[#DEBA75]/20 hover:border-[#DEBA75]/60 rounded-[32px] lg:rounded-[44px] p-8 lg:p-12 flex flex-col justify-between group cursor-pointer overflow-hidden transition-all duration-300 shrink-0 select-none shadow-[0_20px_50px_rgba(20,0,4,0.35)]"
                       aria-label={`${exp.role} at ${exp.company}`}
                     >
                       {/* Year background watermarked */}
                       <span
                         aria-hidden="true"
-                        className="absolute -top-6 -right-2 text-[14vw] font-black text-[#DEBA75]/[0.03] select-none transition-all group-hover:text-[#DEBA75]/[0.06] duration-300"
+                        className="absolute -top-6 -right-2 text-[140px] lg:text-[180px] font-black text-[#DEBA75]/[0.03] select-none transition-all group-hover:text-[#DEBA75]/[0.06] duration-300 pointer-events-none"
                       >
                         {exp.year}
                       </span>
@@ -167,7 +183,7 @@ const ExperienceJourney = () => {
                         </div>
 
                         <div className="space-y-2 mt-4">
-                          <h3 className="text-2xl lg:text-[38px] font-black text-[#FAF4EC] tracking-tight leading-[1.1] group-hover:text-[#DEBA75] transition-all duration-300">
+                          <h3 className="text-2xl lg:text-[34px] font-black text-[#FAF4EC] tracking-tight leading-[1.15] group-hover:text-[#DEBA75] transition-all duration-300">
                             {exp.role}
                           </h3>
 
@@ -200,8 +216,8 @@ const ExperienceJourney = () => {
                 </section>
 
                 {/* END TEXT */}
-                <div className="min-w-[50vw] px-20" aria-hidden="true">
-                  <h2 className="text-[8vw] font-black text-[#FAF4EC] tracking-tighter leading-none uppercase">
+                <div className="w-[360px] lg:w-[440px] px-8 lg:px-14 shrink-0" aria-hidden="true">
+                  <h2 className="text-5xl lg:text-7xl font-black text-[#FAF4EC] tracking-tighter leading-none uppercase">
                     Engineering <br />
                     <span className="opacity-20 font-outline text-transparent">Mastery.</span>
                   </h2>

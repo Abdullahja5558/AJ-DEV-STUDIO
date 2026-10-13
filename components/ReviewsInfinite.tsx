@@ -69,8 +69,8 @@ const ReviewCard = ({
   // Card scale:
   // Card 0 starts at scale 1.
   // Cards behind scale up from 0.95 to 1.0 as the preceding card peels off.
-  const prevStart = (index - 1) * step;
-  const prevEnd = prevStart + step * 0.92;
+  const prevStart = Math.max(0, (index - 1) * step);
+  const prevEnd = Math.min(prevStart + step * 0.92, 1);
   const scaleUp = useTransform(scrollYProgress, [prevStart, prevEnd], [0.95, 1]);
 
   const scale = index === 0 ? 1 : scaleUp;
@@ -193,7 +193,7 @@ export const Testimonials = () => {
 
   return (
     <section 
-      className="bg-[#3B0007] relative selection:bg-[#DEBA75] selection:text-[#3B0007] overflow-clip"
+      className="bg-[#3B0007] relative selection:bg-[#DEBA75] selection:text-[#3B0007]"
       aria-labelledby="testimonials-heading"
     >
       {/* Schema.org Reviews structured data */}
@@ -220,8 +220,8 @@ export const Testimonials = () => {
       </div>
 
       {/* Cards Sticky Stack Track */}
-      <div ref={cardsTrackRef} className="relative h-[320vh] sm:h-[360vh] md:h-[400vh]"> 
-        <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden px-4 sm:px-6">
+      <div ref={cardsTrackRef} className="relative h-[300vh] sm:h-[340vh] md:h-[360vh]"> 
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6">
           <div className="relative w-full max-w-4xl h-[380px] sm:h-[420px] md:h-[460px]">
             {reviews.map((review, index) => (
               <ReviewCard 

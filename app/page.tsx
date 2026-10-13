@@ -23,9 +23,9 @@ export default function Page() {
         </section>
 
         {/* Section: Experience Journey */}
-        <section id="experience" aria-label="Career and Experience Timeline">
+        <div id="experience">
           <ExperienceTimeline />
-        </section>
+        </div>
 
         {/* Section: Featured Projects Showcase */}
         <section id="projects" aria-label="Featured Engineering Projects">
@@ -33,9 +33,9 @@ export default function Page() {
         </section>
 
         {/* Section: Client Testimonials */}
-        <section id="testimonials" aria-label="Client Testimonials and Feedback">
+        <div id="testimonials">
           <ReviewsInfinite />
-        </section>
+        </div>
 
         {/* Section: Call To Action */}
         <LetsTalk />
