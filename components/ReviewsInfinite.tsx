@@ -89,19 +89,19 @@ const ReviewCard = ({
       }}
       className={`absolute inset-0 p-6 sm:p-8 md:p-12 flex flex-col justify-between rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3.2rem] border overflow-hidden transition-colors duration-300 select-none will-change-transform ${
         isWhiteBg 
-          ? "!bg-[#FAF4EC] !text-[#3B0007] border-[#DEBA75]/35 shadow-[0_20px_50px_rgba(20,0,4,0.35)]" 
-          : "!bg-[#260106] !text-[#FAF4EC] border-[#DEBA75]/25 shadow-[0_20px_50px_rgba(20,0,4,0.45)]"
+          ? "!bg-[#FAF4EC] !text-[#000000] border-[#E2E8F0]/35 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
+          : "!bg-[#0A0A0A] !text-[#FAF4EC] border-[#E2E8F0]/25 shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
       }`}
     >
       {/* Decorative gradient overlay */}
       <div 
-        className={`absolute inset-0 pointer-events-none ${isWhiteBg ? "bg-gradient-to-br from-black/[0.02] to-transparent" : "bg-gradient-to-br from-[#DEBA75]/[0.03] to-transparent"}`} 
+        className={`absolute inset-0 pointer-events-none ${isWhiteBg ? "bg-gradient-to-br from-black/[0.02] to-transparent" : "bg-gradient-to-br from-[#E2E8F0]/[0.03] to-transparent"}`} 
         aria-hidden="true" 
       />
 
       {/* Background quote mark */}
       <Quote 
-        className={`absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 pointer-events-none ${isWhiteBg ? "text-[#3B0007] opacity-[0.04]" : "text-[#DEBA75] opacity-[0.04]"}`} 
+        className={`absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 pointer-events-none ${isWhiteBg ? "text-[#000000] opacity-[0.04]" : "text-[#E2E8F0] opacity-[0.04]"}`} 
         aria-hidden="true" 
       />
 
@@ -110,37 +110,37 @@ const ReviewCard = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1 sm:gap-1.5" aria-label="5 star verified rating">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DEBA75] fill-current" />
+              <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E2E8F0] fill-current" />
             ))}
           </div>
-          <span className={`text-[11px] sm:text-xs font-mono font-bold tracking-wider ${isWhiteBg ? "text-[#3B0007]/60" : "text-[#DEBA75]/60"}`}>
+          <span className={`text-[11px] sm:text-xs font-mono font-bold tracking-wider ${isWhiteBg ? "text-black/60" : "text-[#E2E8F0]/60"}`}>
             0{index + 1} / 0{total}
           </span>
         </div>
         
-        <blockquote className={`text-base sm:text-xl md:text-2xl lg:text-[2vw] font-normal leading-snug sm:leading-relaxed tracking-tight m-0 !bg-transparent ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
+        <blockquote className={`text-base sm:text-xl md:text-2xl lg:text-[2vw] font-normal leading-snug sm:leading-relaxed tracking-tight m-0 !bg-transparent ${isWhiteBg ? "text-[#000000]" : "text-[#FAF4EC]"}`}>
           &ldquo;{review.text}&rdquo;
         </blockquote>
       </div>
 
       {/* Footer section with author details */}
-      <figcaption className={`z-10 flex items-center justify-between border-t pt-4 sm:pt-6 mt-3 sm:mt-4 !bg-transparent ${isWhiteBg ? "border-[#DEBA75]/25" : "border-[#DEBA75]/15"}`}>
+      <figcaption className={`z-10 flex items-center justify-between border-t pt-4 sm:pt-6 mt-3 sm:mt-4 !bg-transparent ${isWhiteBg ? "border-[#E2E8F0]/25" : "border-[#E2E8F0]/15"}`}>
         <div className="flex items-center gap-3 sm:gap-4">
           <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 ${
-            isWhiteBg ? "bg-[#3B0007] text-[#FAF4EC] border border-[#DEBA75]/30" : "bg-[#3D050E] text-[#DEBA75] border border-[#DEBA75]/25"
+            isWhiteBg ? "bg-[#000000] text-[#FAF4EC] border border-[#E2E8F0]/30" : "bg-[#0A0A0A] text-[#E2E8F0] border border-[#E2E8F0]/25"
           }`}>
             {review.name.charAt(0)}
           </div>
           <div>
-            <h4 className={`text-base sm:text-lg md:text-xl font-bold tracking-tight leading-snug uppercase !bg-transparent ${isWhiteBg ? "text-[#3B0007]" : "text-[#FAF4EC]"}`}>
+            <h4 className={`text-base sm:text-lg md:text-xl font-bold tracking-tight leading-snug uppercase !bg-transparent ${isWhiteBg ? "text-[#000000]" : "text-[#FAF4EC]"}`}>
               {review.name}
             </h4>
             <div className="flex items-center gap-1.5 sm:gap-2 mt-0.5">
-              <span className={`text-[10px] sm:text-xs font-medium tracking-wide !bg-transparent ${isWhiteBg ? "text-[#5C0A15]" : "text-[#D4C3B3]"}`}>
+              <span className={`text-[10px] sm:text-xs font-medium tracking-wide !bg-transparent ${isWhiteBg ? "text-neutral-600" : "text-[#D4C3B3]"}`}>
                 {review.role}
               </span>
-              <span className={`text-[10px] sm:text-xs ${isWhiteBg ? "text-[#DEBA75]" : "text-[#DEBA75]/40"}`}>•</span>
-              <span className={`text-[10px] sm:text-xs font-medium tracking-wide !bg-transparent ${isWhiteBg ? "text-[#5C0A15]/80" : "text-[#D4C3B3]/70"}`}>
+              <span className={`text-[10px] sm:text-xs ${isWhiteBg ? "text-[#E2E8F0]" : "text-[#E2E8F0]/40"}`}>•</span>
+              <span className={`text-[10px] sm:text-xs font-medium tracking-wide !bg-transparent ${isWhiteBg ? "text-neutral-500" : "text-[#D4C3B3]/70"}`}>
                 {review.company}
               </span>
             </div>
@@ -148,7 +148,7 @@ const ReviewCard = ({
         </div>
 
         <div>
-          <span className={`text-[9px] sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] px-2 sm:px-3 py-1 sm:py-1.5 rounded-md font-bold ${isWhiteBg ? "bg-[#3B0007]/10 text-[#3B0007]" : "bg-[#DEBA75]/10 text-[#DEBA75]"}`}>
+          <span className={`text-[9px] sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] px-2 sm:px-3 py-1 sm:py-1.5 rounded-md font-bold ${isWhiteBg ? "bg-black/10 text-[#000000]" : "bg-[#E2E8F0]/10 text-[#E2E8F0]"}`}>
             Verified
           </span>
         </div>
@@ -193,7 +193,7 @@ export const Testimonials = () => {
 
   return (
     <section 
-      className="bg-[#3B0007] relative selection:bg-[#DEBA75] selection:text-[#3B0007]"
+      className="bg-[#000000] relative selection:bg-[#E2E8F0] selection:text-[#000000]"
       aria-labelledby="testimonials-heading"
     >
       {/* Schema.org Reviews structured data */}
@@ -205,16 +205,16 @@ export const Testimonials = () => {
       />
 
       {/* Header Viewport Screen */}
-      <div className="w-full min-h-[55vh] sm:min-h-[70vh] md:h-screen flex flex-col items-center justify-center bg-[#3B0007] relative z-20 px-4 sm:px-6 py-20 sm:py-24 text-center">
-        <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-4 bg-[#2E0006] border border-[#DEBA75]/25 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full">
-          <Sparkles size={13} className="text-[#DEBA75]" aria-hidden="true" />
-          <span className="text-[#DEBA75] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em]">Verified Testimonials</span>
+      <div className="w-full min-h-[55vh] sm:min-h-[70vh] md:h-screen flex flex-col items-center justify-center bg-[#000000] relative z-20 px-4 sm:px-6 py-20 sm:py-24 text-center">
+        <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-4 bg-[#0A0A0A] border border-[#E2E8F0]/25 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full">
+          <Sparkles size={13} className="text-[#E2E8F0]" aria-hidden="true" />
+          <span className="text-[#E2E8F0] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em]">Verified Testimonials</span>
         </div>
         <h2 id="testimonials-heading" className="text-5xl sm:text-6xl md:text-[9vw] lg:text-[10vw] font-black text-[#FAF4EC] leading-[0.88] tracking-[-0.04em] uppercase">
           VOICES <br />
           <span className="font-outline italic text-transparent">That Matter.</span>
         </h2>
-        <p className="text-[#DEBA75] mt-8 sm:mt-10 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.35em] sm:tracking-[0.4em] animate-pulse">
+        <p className="text-[#E2E8F0] mt-8 sm:mt-10 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.35em] sm:tracking-[0.4em] animate-pulse">
           Scroll down to explore feedback
         </p>
       </div>
@@ -238,11 +238,11 @@ export const Testimonials = () => {
 
       <style jsx>{`
         .font-outline {
-          -webkit-text-stroke: 1.5px rgba(222, 186, 117, 0.45);
+          -webkit-text-stroke: 1.5px rgba(226, 232, 240, 0.45);
           color: transparent;
         }
         @media (min-width: 768px) {
-          .font-outline { -webkit-text-stroke: 2px rgba(222, 186, 117, 0.45); }
+          .font-outline { -webkit-text-stroke: 2px rgba(226, 232, 240, 0.45); }
         }
       `}</style>
     </section>

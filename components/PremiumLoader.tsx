@@ -18,7 +18,7 @@ export default function CinematicStarLoader({ onComplete }: { onComplete: () => 
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#3B0007] overflow-hidden cursor-none pointer-events-none"
+      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#000000] overflow-hidden cursor-none pointer-events-none"
     >
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -50,13 +50,13 @@ export default function CinematicStarLoader({ onComplete }: { onComplete: () => 
 
           <use
             href="#starPath"
-            fill="#2E0006"
+            fill="#0A0A0A"
           />
 
           <motion.path
             d="M100 0 C105 70 130 95 200 100 C130 105 105 130 100 200 C95 130 70 105 0 100 C70 95 95 70 100 0 Z"
             fill="none"
-            stroke="#DEBA75"
+            stroke="#E2E8F0"
             strokeWidth="1.2"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}

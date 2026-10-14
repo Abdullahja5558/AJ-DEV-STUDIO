@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main
-      className="min-h-screen flex flex-col items-center justify-center bg-[#3B0007] text-[#FAF4EC] px-6 py-24 selection:bg-[#DEBA75] selection:text-[#3B0007]"
+      className="min-h-screen flex flex-col items-center justify-center bg-[#000000] text-[#FAF4EC] px-6 py-24 selection:bg-[#E2E8F0] selection:text-[#000000]"
       role="main"
     >
       {/* H1 for SEO & accessibility */}
-      <h1 className="text-7xl font-black mb-4 tracking-tight text-[#DEBA75]" aria-label="404 Page Not Found">
+      <h1 className="text-7xl font-black mb-4 tracking-tight text-[#E2E8F0]" aria-label="404 Page Not Found">
         404
       </h1>
       <h2 className="text-2xl font-bold mb-6 text-[#FAF4EC]">
@@ -51,25 +51,25 @@ export default function NotFound() {
         <div className="flex flex-wrap gap-4 justify-center mb-10">
           <Link
             href="/"
-            className="px-6 py-3 rounded-full bg-[#FAF4EC] text-[#3B0007] font-bold hover:bg-[#DEBA75] transition shadow-md"
+            className="px-6 py-3 rounded-full bg-[#FAF4EC] text-[#000000] font-bold hover:bg-[#E2E8F0] transition shadow-md"
           >
             Home
           </Link>
           <Link
             href="/about"
-            className="px-6 py-3 rounded-full bg-[#240106] text-[#FAF4EC] border border-[#DEBA75]/30 font-bold hover:border-[#DEBA75] hover:text-[#DEBA75] transition shadow-md"
+            className="px-6 py-3 rounded-full bg-[#0A0A0A] text-[#FAF4EC] border border-[#E2E8F0]/30 font-bold hover:border-[#E2E8F0] hover:text-[#E2E8F0] transition shadow-md"
           >
             About
           </Link>
           <Link
             href="/#projects"
-            className="px-6 py-3 rounded-full bg-[#240106] text-[#FAF4EC] border border-[#DEBA75]/30 font-bold hover:border-[#DEBA75] hover:text-[#DEBA75] transition shadow-md"
+            className="px-6 py-3 rounded-full bg-[#0A0A0A] text-[#FAF4EC] border border-[#E2E8F0]/30 font-bold hover:border-[#E2E8F0] hover:text-[#E2E8F0] transition shadow-md"
           >
             Projects
           </Link>
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-full bg-[#240106] text-[#FAF4EC] border border-[#DEBA75]/30 font-bold hover:border-[#DEBA75] hover:text-[#DEBA75] transition shadow-md"
+            className="px-6 py-3 rounded-full bg-[#0A0A0A] text-[#FAF4EC] border border-[#E2E8F0]/30 font-bold hover:border-[#E2E8F0] hover:text-[#E2E8F0] transition shadow-md"
           >
             Contact
           </Link>
@@ -80,7 +80,7 @@ export default function NotFound() {
         If you believe this is an error, please{" "}
         <a
           href="mailto:ajdeveloperr@gmail.com"
-          className="underline hover:text-[#DEBA75]"
+          className="underline hover:text-[#E2E8F0]"
         >
           let us know
         </a>

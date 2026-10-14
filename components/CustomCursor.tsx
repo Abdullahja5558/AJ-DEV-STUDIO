@@ -60,7 +60,7 @@ export const CustomCursor = () => {
 
       {/* 2. OUTER GLOW (The Aesthetic Ring - Desktop Only) */}
       <motion.div
-        className="hidden lg:block fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border border-[#DEBA75]/40"
+        className="hidden lg:block fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border border-[#E2E8F0]/40"
         style={{
           x: smoothX,
           y: smoothY,

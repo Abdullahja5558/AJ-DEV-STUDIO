@@ -96,7 +96,7 @@ const ExperienceJourney = () => {
       <div className="hidden md:block">
         <section
           ref={targetRef}
-          className="relative h-[300vh] bg-[#3B0007] selection:bg-[#DEBA75] selection:text-[#3B0007]"
+          className="relative h-[300vh] bg-[#000000] selection:bg-[#E2E8F0] selection:text-[#000000]"
           aria-label="Professional Experience Timeline"
         >
             <div className="sticky top-0 h-screen flex items-center overflow-hidden">
@@ -105,7 +105,7 @@ const ExperienceJourney = () => {
                 aria-hidden="true"
                 className="absolute inset-0 flex items-center justify-center opacity-[0.02] select-none pointer-events-none"
               >
-                <span className="text-[35vw] font-black text-[#DEBA75] uppercase tracking-tighter">
+                <span className="text-[35vw] font-black text-[#E2E8F0] uppercase tracking-tighter">
                   PATH
                 </span>
               </div>
@@ -115,7 +115,7 @@ const ExperienceJourney = () => {
                 {/* HEADER */}
                 <header className="w-[360px] lg:w-[440px] px-8 lg:px-14 flex flex-col justify-center gap-6 relative z-10 shrink-0">
                   <div className="space-y-3">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.8em] text-[#DEBA75] block font-bold">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.8em] text-[#E2E8F0] block font-bold">
                       The Journey
                     </span>
 
@@ -127,7 +127,7 @@ const ExperienceJourney = () => {
                     </h2>
                   </div>
 
-                  <div className="flex items-center gap-4 mt-6 border-t border-[#DEBA75]/15 pt-6">
+                  <div className="flex items-center gap-4 mt-6 border-t border-[#E2E8F0]/15 pt-6">
                     <p className="text-[#D4C3B3] font-mono text-[9px] uppercase tracking-[0.4em]">
                       Scroll to Navigate
                     </p>
@@ -139,7 +139,7 @@ const ExperienceJourney = () => {
                         duration: 2.2,
                         ease: "easeInOut",
                       }}
-                      className="text-[#DEBA75] opacity-60"
+                      className="text-[#E2E8F0] opacity-60"
                       aria-hidden="true"
                     >
                       <MoveRight size={32} strokeWidth={1.5} />
@@ -157,13 +157,13 @@ const ExperienceJourney = () => {
                   {EXPERIENCES.map((exp, index) => (
                     <article
                       key={index}
-                      className="relative w-[340px] lg:w-[460px] xl:w-[480px] h-[500px] lg:h-[540px] bg-[#2E0006] border border-[#DEBA75]/20 hover:border-[#DEBA75]/60 rounded-[32px] lg:rounded-[44px] p-8 lg:p-12 flex flex-col justify-between group cursor-pointer overflow-hidden transition-all duration-300 shrink-0 select-none shadow-[0_20px_50px_rgba(20,0,4,0.35)]"
+                      className="relative w-[340px] lg:w-[460px] xl:w-[480px] h-[500px] lg:h-[540px] bg-[#0A0A0A] border border-[#E2E8F0]/20 hover:border-[#E2E8F0]/60 rounded-[32px] lg:rounded-[44px] p-8 lg:p-12 flex flex-col justify-between group cursor-pointer overflow-hidden transition-all duration-300 shrink-0 select-none shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
                       aria-label={`${exp.role} at ${exp.company}`}
                     >
                       {/* Year background watermarked */}
                       <span
                         aria-hidden="true"
-                        className="absolute -top-6 -right-2 text-[140px] lg:text-[180px] font-black text-[#DEBA75]/[0.03] select-none transition-all group-hover:text-[#DEBA75]/[0.06] duration-300 pointer-events-none"
+                        className="absolute -top-6 -right-2 text-[140px] lg:text-[180px] font-black text-[#E2E8F0]/[0.03] select-none transition-all group-hover:text-[#E2E8F0]/[0.06] duration-300 pointer-events-none"
                       >
                         {exp.year}
                       </span>
@@ -172,23 +172,23 @@ const ExperienceJourney = () => {
                         <div className="flex items-center justify-between">
                           {/* Location Tag */}
                           <div className="flex items-center gap-3 text-[#D4C3B3] font-bold text-[9px] tracking-[0.3em] uppercase">
-                            <div className="w-6 h-[1.5px] bg-[#DEBA75] group-hover:w-10 transition-all duration-300" />
+                            <div className="w-6 h-[1.5px] bg-[#E2E8F0] group-hover:w-10 transition-all duration-300" />
                             <span className="group-hover:text-[#FAF4EC] transition-colors duration-300">{exp.location}</span>
                           </div>
 
                           {/* Year Badge */}
-                          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-[#3B0007] text-[#DEBA75] border border-[#DEBA75]/30 group-hover:border-[#DEBA75]/60 group-hover:bg-[#DEBA75]/10 transition-all duration-300 font-bold">
+                          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-[#000000] text-[#E2E8F0] border border-[#E2E8F0]/30 group-hover:border-[#E2E8F0]/60 group-hover:bg-[#E2E8F0]/10 transition-all duration-300 font-bold">
                             {exp.year}
                           </span>
                         </div>
 
                         <div className="space-y-2 mt-4">
-                          <h3 className="text-2xl lg:text-[34px] font-black text-[#FAF4EC] tracking-tight leading-[1.15] group-hover:text-[#DEBA75] transition-all duration-300">
+                          <h3 className="text-2xl lg:text-[34px] font-black text-[#FAF4EC] tracking-tight leading-[1.15] group-hover:text-[#E2E8F0] transition-all duration-300">
                             {exp.role}
                           </h3>
 
                           <p className="text-[#D4C3B3] text-sm lg:text-base font-bold uppercase tracking-tight">
-                            @ <span className="text-[#FAF4EC] group-hover:text-[#DEBA75] transition-colors duration-300">{exp.company}</span>
+                            @ <span className="text-[#FAF4EC] group-hover:text-[#E2E8F0] transition-colors duration-300">{exp.company}</span>
                           </p>
                         </div>
                       </div>
@@ -199,7 +199,7 @@ const ExperienceJourney = () => {
                         </p>
 
                         <div
-                          className="w-12 h-12 rounded-full border border-[#DEBA75]/30 text-[#DEBA75] flex items-center justify-center bg-[#3B0007] group-hover:scale-105 group-hover:bg-[#DEBA75] group-hover:text-[#3B0007] group-hover:border-[#DEBA75] transition-all duration-300"
+                          className="w-12 h-12 rounded-full border border-[#E2E8F0]/30 text-[#E2E8F0] flex items-center justify-center bg-[#000000] group-hover:scale-105 group-hover:bg-[#E2E8F0] group-hover:text-[#000000] group-hover:border-[#E2E8F0] transition-all duration-300"
                           aria-hidden="true"
                         >
                           <ArrowRight size={18} strokeWidth={1.5} />
@@ -207,7 +207,7 @@ const ExperienceJourney = () => {
                       </div>
 
                       <div className="absolute bottom-10 right-8">
-                        <span className="text-[9px] font-mono font-black text-[#DEBA75]/20 uppercase tracking-[0.5em] [writing-mode:vertical-lr]">
+                        <span className="text-[9px] font-mono font-black text-[#E2E8F0]/20 uppercase tracking-[0.5em] [writing-mode:vertical-lr]">
                           Archive No. 0{index + 1}
                         </span>
                       </div>
@@ -229,13 +229,13 @@ const ExperienceJourney = () => {
 
       {/* MOBILE TIMELINE (Optimized Vertical Stack Layout) */}
       <section 
-        className="block md:hidden bg-[#3B0007] py-16 px-5 sm:px-8 space-y-10 select-none selection:bg-[#DEBA75] selection:text-[#3B0007]"
+        className="block md:hidden bg-[#000000] py-16 px-5 sm:px-8 space-y-10 select-none selection:bg-[#E2E8F0] selection:text-[#000000]"
         id="experience-mobile"
         aria-label="Professional Experience Timeline Mobile"
       >
         {/* Header Title */}
         <header className="space-y-3">
-          <span className="text-[9px] font-mono uppercase tracking-[0.6em] text-[#DEBA75] block font-bold">
+          <span className="text-[9px] font-mono uppercase tracking-[0.6em] text-[#E2E8F0] block font-bold">
             The Journey
           </span>
           <h2 className="text-4xl sm:text-5xl font-black tracking-tighter text-[#FAF4EC] leading-[0.9] uppercase">
@@ -251,13 +251,13 @@ const ExperienceJourney = () => {
           {EXPERIENCES.map((exp, index) => (
             <article
               key={index}
-              className="relative w-full bg-[#2E0006] border border-[#DEBA75]/20 rounded-[24px] p-6 sm:p-8 flex flex-col justify-between gap-6 overflow-hidden"
+              className="relative w-full bg-[#0A0A0A] border border-[#E2E8F0]/20 rounded-[24px] p-6 sm:p-8 flex flex-col justify-between gap-6 overflow-hidden"
               aria-label={`${exp.role} at ${exp.company}`}
             >
               {/* Watermark Year */}
               <span
                 aria-hidden="true"
-                className="absolute -top-4 -right-2 text-[22vw] font-black text-[#DEBA75]/[0.03] select-none pointer-events-none"
+                className="absolute -top-4 -right-2 text-[22vw] font-black text-[#E2E8F0]/[0.03] select-none pointer-events-none"
               >
                 {exp.year}
               </span>
@@ -266,10 +266,10 @@ const ExperienceJourney = () => {
               <div className="z-10 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-[#D4C3B3] font-bold text-[8px] tracking-wider uppercase">
-                    <div className="w-4 h-[1.5px] bg-[#DEBA75]" />
+                    <div className="w-4 h-[1.5px] bg-[#E2E8F0]" />
                     <span>{exp.location}</span>
                   </div>
-                  <span className="text-[9px] font-mono px-2.5 py-1 rounded-full bg-[#3B0007] text-[#DEBA75] border border-[#DEBA75]/25 font-bold">
+                  <span className="text-[9px] font-mono px-2.5 py-1 rounded-full bg-[#000000] text-[#E2E8F0] border border-[#E2E8F0]/25 font-bold">
                     {exp.year}
                   </span>
                 </div>
@@ -279,7 +279,7 @@ const ExperienceJourney = () => {
                     {exp.role}
                   </h3>
                   <p className="text-[#D4C3B3] text-xs font-bold uppercase tracking-wider">
-                    @ <span className="text-[#DEBA75]">{exp.company}</span>
+                    @ <span className="text-[#E2E8F0]">{exp.company}</span>
                   </p>
                 </div>
               </div>
@@ -290,11 +290,11 @@ const ExperienceJourney = () => {
                   {exp.details}
                 </p>
 
-                <div className="flex items-center justify-between border-t border-[#DEBA75]/15 pt-4">
-                  <span className="text-[8px] font-mono text-[#DEBA75]/40 uppercase tracking-widest">
+                <div className="flex items-center justify-between border-t border-[#E2E8F0]/15 pt-4">
+                  <span className="text-[8px] font-mono text-[#E2E8F0]/40 uppercase tracking-widest">
                     Archive No. 0{index + 1}
                   </span>
-                  <div className="w-9 h-9 rounded-full border border-[#DEBA75]/30 text-[#DEBA75] flex items-center justify-center bg-[#3B0007]">
+                  <div className="w-9 h-9 rounded-full border border-[#E2E8F0]/30 text-[#E2E8F0] flex items-center justify-center bg-[#000000]">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -307,7 +307,7 @@ const ExperienceJourney = () => {
       {/* Global CSS for Stroke */}
       <style jsx global>{`
         .font-outline {
-          -webkit-text-stroke: 1.5px rgba(222,186,117,0.5);
+          -webkit-text-stroke: 1.5px rgba(226, 232, 240, 0.45);
           color: transparent;
         }
       `}</style>

@@ -110,13 +110,13 @@ export const Navbar = () => {
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-controls="navigation-menu"
-          className="flex items-center justify-center p-4 group bg-[#3B0007] rounded-full border border-[#DEBA75]/40 hover:border-[#DEBA75] transition-all duration-300 cursor-pointer"
+          className="flex items-center justify-center p-4 group bg-[#000000] rounded-full border border-[#E2E8F0]/40 hover:border-[#E2E8F0] transition-all duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-end gap-1.5" aria-hidden="true">
             <motion.div 
               animate={{ 
                 width: isOpen ? 26 : 20, 
-                backgroundColor: isOpen ? "#DEBA75" : "#FAF4EC",
+                backgroundColor: isOpen ? "#E2E8F0" : "#FAF4EC",
                 y: isOpen ? 4 : 0,
                 rotate: isOpen ? 45 : 0
               }} 
@@ -125,7 +125,7 @@ export const Navbar = () => {
             <motion.div 
               animate={{ 
                 width: 26, 
-                backgroundColor: isOpen ? "#DEBA75" : "#DEBA75",
+                backgroundColor: isOpen ? "#E2E8F0" : "#E2E8F0",
                 y: isOpen ? -4 : 0,
                 rotate: isOpen ? -45 : 0
               }} 
@@ -145,13 +145,13 @@ export const Navbar = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-0 z-[250] bg-[#3B0007] overflow-hidden"
-            style={{ backgroundColor: "#3B0007" }}
+            className="fixed inset-0 z-[250] bg-[#000000] overflow-hidden"
+            style={{ backgroundColor: "#000000" }}
           >
             <div className="flex flex-col h-full justify-center px-6 md:px-24 lg:px-32 relative z-10 pt-20 pb-40">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 max-w-7xl mx-auto w-full">
                 {navItems.map((item, idx) => (
-                  <div key={item.name} className="overflow-hidden border-b border-[#DEBA75]/15 py-3 md:py-6">
+                  <div key={item.name} className="overflow-hidden border-b border-[#E2E8F0]/15 py-3 md:py-6">
                     <motion.div
                       custom={idx}
                       variants={linkVars}
@@ -164,14 +164,14 @@ export const Navbar = () => {
                         onClick={(e) => handleScroll(e, item.href)}
                         className="group flex items-center gap-4 md:gap-6"
                       >
-                        <span className="text-[10px] md:text-xs font-mono text-[#DEBA75]/60 font-bold opacity-60 group-hover:opacity-100 group-hover:text-[#DEBA75] transition-all">
+                        <span className="text-[10px] md:text-xs font-mono text-[#E2E8F0]/60 font-bold opacity-60 group-hover:opacity-100 group-hover:text-[#E2E8F0] transition-all">
                           {item.id}
                         </span>
-                        <span className="text-4xl md:text-[5vw] font-black text-[#FAF4EC] uppercase tracking-tighter leading-none transition-all duration-300 group-hover:text-[#DEBA75] group-hover:translate-x-3">
+                        <span className="text-4xl md:text-[5vw] font-black text-[#FAF4EC] uppercase tracking-tighter leading-none transition-all duration-300 group-hover:text-[#E2E8F0] group-hover:translate-x-3">
                           {item.name}
                         </span>
                         <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-5 group-hover:translate-x-0 hidden sm:block">
-                          <span className="text-[#DEBA75] text-3xl md:text-4xl font-light" aria-hidden="true">→</span>
+                          <span className="text-[#E2E8F0] text-3xl md:text-4xl font-light" aria-hidden="true">→</span>
                         </div>
                       </Link>
                     </motion.div>
@@ -182,15 +182,15 @@ export const Navbar = () => {
               {/* Menu Footer */}
               <div className="absolute bottom-8 left-6 md:bottom-12 md:left-24 lg:left-32 flex flex-col md:flex-row gap-6 md:gap-24">
                 <div className="space-y-1 md:space-y-2">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#DEBA75]/50 font-bold">Location</p>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#E2E8F0]/50 font-bold">Location</p>
                   <p className="text-xs md:text-sm font-medium text-[#D4C3B3] uppercase">Punjab, Pakistan</p>
                 </div>
                 <div className="space-y-1 md:space-y-2">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#DEBA75]/50 font-bold">Socials</p>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#E2E8F0]/50 font-bold">Socials</p>
                   <div className="flex gap-4 md:gap-6">
-                    <a href="https://www.linkedin.com/in/abdullah-javed-a2b0b0396/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#DEBA75] transition-colors" aria-label="Abdullah Javed LinkedIn Profile">LinkedIn</a>
-                    <a href="https://github.com/Abdullahja5558" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#DEBA75] transition-colors" aria-label="Abdullah Javed GitHub Profile">GitHub</a>
-                    <a href="https://www.instagram.com/mian.abdullah.9/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#DEBA75] transition-colors" aria-label="Abdullah Javed Instagram Profile">Instagram</a>
+                    <a href="https://www.linkedin.com/in/abdullah-javed-a2b0b0396/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#E2E8F0] transition-colors" aria-label="Abdullah Javed LinkedIn Profile">LinkedIn</a>
+                    <a href="https://github.com/Abdullahja5558" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#E2E8F0] transition-colors" aria-label="Abdullah Javed GitHub Profile">GitHub</a>
+                    <a href="https://www.instagram.com/mian.abdullah.9/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-medium text-[#D4C3B3]/70 uppercase hover:text-[#E2E8F0] transition-colors" aria-label="Abdullah Javed Instagram Profile">Instagram</a>
                   </div>
                 </div>
               </div>

@@ -105,7 +105,7 @@ export const ContactSection = () => {
     <section
       id="contact"
       aria-label="Contact section"
-      className="relative h-screen min-h-[650px] w-full bg-[#3B0007] flex flex-col justify-center overflow-hidden selection:bg-[#DEBA75] selection:text-[#3B0007]"
+      className="relative h-screen min-h-[650px] w-full bg-[#000000] flex flex-col justify-center overflow-hidden selection:bg-[#E2E8F0] selection:text-[#000000]"
     >
       <h2 className="sr-only">
         Contact a Full Stack Developer for modern web projects, React, Next.js, Node.js applications
@@ -123,8 +123,8 @@ export const ContactSection = () => {
       >
         <header className="mb-12 mt-10">
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-[0.5px] w-12 bg-[#DEBA75]/40" />
-            <span className="text-[10px] tracking-[1em] text-[#DEBA75] font-bold uppercase">
+            <div className="h-[0.5px] w-12 bg-[#E2E8F0]/40" />
+            <span className="text-[10px] tracking-[1em] text-[#E2E8F0] font-bold uppercase">
               CONNECT
             </span>
           </div>
@@ -137,7 +137,6 @@ export const ContactSection = () => {
 
         <div className="flex-1 flex flex-col items-center justify-center">
           <AnimatePresence mode="wait">
-
             {!isEngaged ? (
               <motion.div
                 key="intro"
@@ -154,7 +153,7 @@ export const ContactSection = () => {
                   {[...Array(3)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="absolute inset-0 rounded-full border border-[#DEBA75]/40"
+                      className="absolute inset-0 rounded-full border border-[#E2E8F0]/40"
                       animate={{ scale: [1, 1.8], opacity: [0.5, 0] }}
                       transition={{
                         duration: 2.5,
@@ -164,12 +163,12 @@ export const ContactSection = () => {
                       }}
                     />
                   ))}
-                  <div className="relative h-16 w-16 rounded-full border border-[#DEBA75]/30 bg-[#2E0006] flex items-center justify-center">
-                    <div className="h-2.5 w-2.5 bg-[#DEBA75] rounded-full" />
+                  <div className="relative h-16 w-16 rounded-full border border-[#E2E8F0]/30 bg-[#0A0A0A] flex items-center justify-center">
+                    <div className="h-2.5 w-2.5 bg-[#E2E8F0] rounded-full" />
                   </div>
                 </button>
 
-                <span className="text-[9px] tracking-[1.2em] text-[#DEBA75] uppercase font-mono font-bold animate-pulse">
+                <span className="text-[9px] tracking-[1.2em] text-[#E2E8F0] uppercase font-mono font-bold animate-pulse">
                   Click to Initialize
                 </span>
               </motion.div>
@@ -193,8 +192,8 @@ export const ContactSection = () => {
                     className="space-y-8"
                   >
                     <div className="space-y-3">
-                      <div className="inline-block px-4 py-1 border border-[#DEBA75]/25 rounded-full bg-[#DEBA75]/10">
-                        <span className="text-[10px] font-mono text-[#DEBA75] tracking-[0.4em] uppercase font-bold">
+                      <div className="inline-block px-4 py-1 border border-[#E2E8F0]/25 rounded-full bg-[#E2E8F0]/10">
+                        <span className="text-[10px] font-mono text-[#E2E8F0] tracking-[0.4em] uppercase font-bold">
                           {current.label}
                         </span>
                       </div>
@@ -222,12 +221,12 @@ export const ContactSection = () => {
                         aria-label={current.label}
                       />
 
-                      <div className="mt-6 h-[0.5px] w-full bg-[#DEBA75]/20 overflow-hidden">
+                      <div className="mt-6 h-[0.5px] w-full bg-[#E2E8F0]/20 overflow-hidden">
                         <motion.div
                           initial={{ x: "-100%" }}
                           animate={{ x: "0%" }}
                           className={`h-full w-full bg-gradient-to-r from-transparent ${
-                            error ? "via-red-500" : "via-[#DEBA75]"
+                            error ? "via-red-500" : "via-[#E2E8F0]"
                           } to-transparent`}
                         />
                       </div>
@@ -245,7 +244,7 @@ export const ContactSection = () => {
                         <button
                           type="button"
                           onClick={handleBack}
-                          className="text-[10px] font-mono text-[#D4C3B3] uppercase hover:text-[#DEBA75] transition-colors"
+                          className="text-[10px] font-mono text-[#D4C3B3] uppercase hover:text-[#E2E8F0] transition-colors"
                         >
                           ← Prev
                         </button>
@@ -254,7 +253,7 @@ export const ContactSection = () => {
                       <button
                         type="submit"
                         disabled={isSending}
-                        className="px-10 py-2.5 border border-[#DEBA75]/40 bg-[#DEBA75]/10 text-[#DEBA75] hover:bg-[#DEBA75] hover:text-[#3B0007] transition-all text-[10px] font-mono uppercase tracking-[0.3em] font-bold rounded-full cursor-pointer"
+                        className="px-10 py-2.5 border border-[#E2E8F0]/40 bg-[#E2E8F0]/10 text-[#E2E8F0] hover:bg-[#E2E8F0] hover:text-[#000000] transition-all text-[10px] font-mono uppercase tracking-[0.3em] font-bold rounded-full cursor-pointer"
                       >
                         {step === QUESTIONS.length - 1
                           ? isSending
@@ -280,13 +279,13 @@ export const ContactSection = () => {
                   SUCCESS
                 </h2>
 
-                <p className="text-[#DEBA75] text-[9px] tracking-[0.6em] uppercase mt-6 font-bold">
+                <p className="text-[#E2E8F0] text-[9px] tracking-[0.6em] uppercase mt-6 font-bold">
                   Message delivered successfully
                 </p>
 
                 <button
                   onClick={resetForm}
-                  className="mt-10 px-6 py-2 border border-[#DEBA75]/25 text-[#D4C3B3] hover:text-[#FAF4EC] text-[9px] uppercase rounded-full cursor-pointer"
+                  className="mt-10 px-6 py-2 border border-[#E2E8F0]/25 text-[#D4C3B3] hover:text-[#FAF4EC] text-[9px] uppercase rounded-full cursor-pointer"
                 >
                   Reset
                 </button>
@@ -298,7 +297,7 @@ export const ContactSection = () => {
 
       <style jsx global>{`
         .font-outline-contact {
-          -webkit-text-stroke: 1.5px rgba(222, 186, 117, 0.4);
+          -webkit-text-stroke: 1.5px rgba(226, 232, 240, 0.45);
         }
       `}</style>
     </section>

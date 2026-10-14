@@ -69,7 +69,7 @@ const ProjectCard = ({
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative w-full h-full rounded-[2.2rem] overflow-hidden border border-[#DEBA75]/25 bg-[#2E0006] block cursor-pointer transition-all duration-300 hover:border-[#DEBA75]/70"
+        className="group relative w-full h-full rounded-[2.2rem] overflow-hidden border border-[#E2E8F0]/25 bg-[#0A0A0A] block cursor-pointer transition-all duration-300 hover:border-[#E2E8F0]/70"
         style={{ isolation: "isolate" }}
         aria-label={`Visit project: ${project.title}`}
       >
@@ -81,18 +81,18 @@ const ProjectCard = ({
             loading="lazy"
             className="w-full h-full object-cover grayscale opacity-[0.5] group-hover:grayscale-0 group-hover:opacity-[1.0] transition-all duration-[0.5s] group-hover:scale-[1.02] will-change-transform"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#2E0006]/30 via-transparent to-[#2E0006]/95 transition-all duration-300 group-hover:to-[#2E0006]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/30 via-transparent to-[#0A0A0A]/95 transition-all duration-300 group-hover:to-[#0A0A0A]/80" />
         </div>
 
         {/* Hover slide details card drawer */}
         <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 z-20 pointer-events-none text-left flex flex-col justify-end translate-y-[22%] sm:translate-y-[16%] group-hover:translate-y-0 transition-transform duration-300">
           
-          <span className="text-[8px] sm:text-[9px] font-mono text-[#DEBA75] tracking-[0.2em] uppercase mb-1 font-bold">
+          <span className="text-[8px] sm:text-[9px] font-mono text-[#E2E8F0] tracking-[0.2em] uppercase mb-1 font-bold">
             Featured Case
           </span>
           
           <h3 className="text-sm sm:text-lg font-black text-[#FAF4EC] tracking-tight mb-2 uppercase flex items-center gap-2">
-            <span className="font-outline opacity-60 text-xs sm:text-sm text-[#DEBA75]">{project.id}</span>
+            <span className="font-outline opacity-60 text-xs sm:text-sm text-[#E2E8F0]">{project.id}</span>
             {project.title}
           </h3>
 
@@ -100,13 +100,13 @@ const ProjectCard = ({
             {/* Tech badges layout matching original tags */}
             <div className="flex flex-wrap gap-1">
               {project.tech.map((t, idx) => (
-                <span key={idx} className="px-2 py-0.5 rounded-full border border-[#DEBA75]/20 bg-[#3B0007] text-[7px] uppercase tracking-[0.1em] text-[#D4C3B3] font-medium">
+                <span key={idx} className="px-2 py-0.5 rounded-full border border-[#E2E8F0]/20 bg-[#000000] text-[7px] uppercase tracking-[0.1em] text-[#D4C3B3] font-medium">
                   {t}
                 </span>
               ))}
             </div>
             
-            <div className="flex items-center gap-1 text-[8px] font-mono text-[#DEBA75] tracking-widest font-bold uppercase">
+            <div className="flex items-center gap-1 text-[8px] font-mono text-[#E2E8F0] tracking-widest font-bold uppercase">
               VIEW PROJECT <span className="translate-x-0 group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function ProjectsShowcase() {
 
   return (
     <section 
-      className="relative bg-[#3B0007] overflow-hidden selection:bg-[#DEBA75] selection:text-[#3B0007] flex flex-col justify-between pt-36 pb-36 md:pt-44 md:pb-44 min-h-screen"
+      className="relative bg-[#000000] overflow-hidden selection:bg-[#E2E8F0] selection:text-[#000000] flex flex-col justify-between pt-36 pb-36 md:pt-44 md:pb-44 min-h-screen"
       id="projects"
       aria-labelledby="projects-heading"
     >
@@ -231,8 +231,8 @@ export default function ProjectsShowcase() {
       <div className="w-full px-6 md:px-24 z-20 pointer-events-none mb-14 md:mb-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-6 mb-5">
-            <div className="h-px w-12 bg-[#DEBA75]/40" aria-hidden="true" />
-            <span className="text-[10px] tracking-[0.6em] text-[#DEBA75] font-bold uppercase">CURATED WORKS</span>
+            <div className="h-px w-12 bg-[#E2E8F0]/40" aria-hidden="true" />
+            <span className="text-[10px] tracking-[0.6em] text-[#E2E8F0] font-bold uppercase">CURATED WORKS</span>
           </div>
           <h2 id="projects-heading" className="text-6xl md:text-[95px] font-black tracking-[-0.05em] text-[#FAF4EC] leading-[0.85] uppercase">
             Selected <br /> <span className="font-outline-projects opacity-50 text-transparent">PROJECTS</span>
@@ -271,8 +271,8 @@ export default function ProjectsShowcase() {
               key={idx}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 activeIndex === idx
-                  ? "bg-[#DEBA75] scale-125"
-                  : "bg-[#DEBA75]/30"
+                  ? "bg-[#E2E8F0] scale-125 shadow-[0_0_8px_rgba(226,232,240,0.8)]"
+                  : "bg-[#E2E8F0]/30"
               }`}
             />
           ))}
@@ -288,11 +288,11 @@ export default function ProjectsShowcase() {
           display: none !important;
         }
         .font-outline {
-          -webkit-text-stroke: 1px rgba(222, 186, 117, 0.4);
+          -webkit-text-stroke: 1px rgba(226, 232, 240, 0.4);
           color: transparent;
         }
         .font-outline-projects {
-          -webkit-text-stroke: 1.5px rgba(222, 186, 117, 0.5);
+          -webkit-text-stroke: 1.5px rgba(226, 232, 240, 0.5);
           color: transparent;
         }
       `}</style>

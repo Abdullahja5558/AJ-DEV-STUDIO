@@ -35,7 +35,7 @@ const msMadi = Ms_Madi({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#3B0007",
+  themeColor: "#000000",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -162,7 +162,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${bricolageGrotesque.className} ${bricolageGrotesque.variable} ${geistSans.variable} ${geistMono.variable} ${msMadi.variable} antialiased bg-[#3B0007] text-[#FAF4EC] selection:bg-[#DEBA75] selection:text-[#3B0007]`}
+        className={`${bricolageGrotesque.className} ${bricolageGrotesque.variable} ${geistSans.variable} ${geistMono.variable} ${msMadi.variable} antialiased bg-[#000000] text-[#FAF4EC] selection:bg-[#E2E8F0] selection:text-[#000000]`}
       >
         <SmoothScroll>
           <LoaderWrapper>

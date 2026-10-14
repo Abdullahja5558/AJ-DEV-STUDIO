@@ -2,15 +2,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #3B0007;
+  --background: #000000;
   --foreground: #FAF4EC;
-  --bg-dark: #3B0007;
-  --bg-burgundy: #3B0007;
-  --bg-card: #260106;
-  --color-gold: #DEBA75;
-  --color-gold-light: #F0D597;
+  --bg-dark: #000000;
+  --bg-burgundy: #000000;
+  --bg-card: #0A0A0A;
+  --color-silver: #E2E8F0;
+  --color-silver-light: #F8FAFC;
+  --color-steel: #94A3B8;
+  --color-gold: #E2E8F0;
+  --color-gold-light: #F8FAFC;
   --color-cream: #FAF4EC;
-  --color-sand: #D4C3B3;
+  --color-sand: #CBD5E1;
   --font-bricolage: 'Bricolage Grotesque', sans-serif;
 }
 
@@ -50,8 +53,8 @@ body {
 }
 
 ::selection {
-  background-color: #DEBA75 !important;
-  color: #3B0007 !important;
+  background-color: #E2E8F0 !important;
+  color: #000000 !important;
 }
 
 /* 2. Hide Scrollbar for Chrome, Safari, Edge */
@@ -85,7 +88,7 @@ body::-webkit-scrollbar {
 /* Dark Mode Preferences */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #3B0007;
+    --background: #000000;
     --foreground: #FAF4EC;
   }
 }
